@@ -1,0 +1,58 @@
+<html>
+<body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script src="includes/springy.js"></script>
+<script src="includes/springyui.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,800' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="includes/style.css">
+
+<script>
+var graphJSON = { 
+  "nodes": [
+    "FIFA",
+    "UEFA",
+    "CONCACAF",
+    "CAF",
+    "CONMEBOL"
+  ],
+  "edges": [
+    ["CAF", "UEFA", {color: '#00A0B0', label: '500,000 USD'}],
+    ["UEFA", "CAF", {color: '#00A0B0', label: '500,000 USD'}],
+    ["FIFA", "UEFA", {color: '#00A0B0', label: '1,500,000 USD'}],
+    ["FIFA", "CONCACAF", {color: '#00A0B0', label: '700,000 USD'}],
+    ["FIFA", "CAF", {color: '#00A0B0', label: '980,000 USD'}],
+    ["FIFA", "CONMEBOL"]
+  ]
+};
+
+jQuery(function(){
+  var graph = new Springy.Graph();
+  graph.loadJSON(graphJSON);
+
+  var springy = jQuery('#springydemo').makeItSpringy({
+    graph: graph
+  });
+
+  // SIZING
+  //$('#springydemo').width('400');
+
+});
+
+// Save canvas to image
+
+/* 
+var dataURL = springydemo.toDataURL();
+var newDiv = document.createElement("div");
+document.getElementById('newDiv').src = dataURL;
+*/
+
+
+</script>
+<div id="title-bar">
+  <div class="textLG">FIFA Gate</div>
+  <div class="textMD">Payoff Flows 1998-2012</div>
+</div>
+<canvas id="springydemo" width="800" height="400" />
+
+</body>
+</html>
