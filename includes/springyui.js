@@ -27,10 +27,10 @@ Copyright (c) 2010 Dennis Hotson
 
 jQuery.fn.makeItSpringy = function(params) {
 	var graph = this.graph = params.graph || new Springy.Graph();
-	var nodeFont = "16px Verdana, sans-serif";
-	var edgeFont = "8px Verdana, sans-serif";
+	var nodeFont = "18px Open Sans, sans-serif";
+	var edgeFont = "14px Open Sans, sans-serif";
 	var stiffness = params.stiffness || 1000.0;
-	var repulsion = params.repulsion || 400.0;
+	var repulsion = params.repulsion || 80.0;
 	var damping = params.damping || 0.25;
 	var minEnergyThreshold = params.minEnergyThreshold || 0.00001;
 	var nodeSelected = params.nodeSelected || null;
@@ -52,9 +52,9 @@ jQuery.fn.makeItSpringy = function(params) {
 		// current gets 20% closer to target every iteration
 		currentBB = {
 			bottomleft: currentBB.bottomleft.add( targetBB.bottomleft.subtract(currentBB.bottomleft)
-				.divide(10)),
+				.divide(100)),
 			topright: currentBB.topright.add( targetBB.topright.subtract(currentBB.topright)
-				.divide(10))
+				.divide(100))
 		};
 
 		Springy.requestAnimationFrame(adjust);
@@ -206,14 +206,14 @@ jQuery.fn.makeItSpringy = function(params) {
 				}
 			}
 
-			//change default to  10.0 to allow text fit between edges
-			var spacing = 12.0;
+			// Space out edge text to avoid overlaps
+			var spacing = 22.0;
 
 			// Figure out how far off center the line should be drawn
 			var offset = normal.multiply(-((total - 1) * spacing)/2.0 + (n * spacing));
 
-			var paddingX = 6;
-			var paddingY = 6;
+			var paddingX = 2;
+			var paddingY = 2;
 
 			var s1 = toScreen(p1).add(offset);
 			var s2 = toScreen(p2).add(offset);
@@ -227,23 +227,47 @@ jQuery.fn.makeItSpringy = function(params) {
 				intersection = s2;
 			}
 
-			var stroke = (edge.data.color !== undefined) ? edge.data.color : '#333333';
 
-			var arrowWidth;
-			var arrowLength;
+			// =================== EDGE COLOR
+			// Default: dk gray
+			var stroke = '#333333';
+
+			if (edge.data.type !== undefined) {
+				switch(edge.data.type) {
+					case 'Marketing':
+						stroke = payoffTypes['Marketing'];
+						break;
+					case 'Bribe/Kickback':
+						stroke = payoffTypes['Bribe/Kickback'];
+						break;
+					case 'Meeting Travel':
+						stroke = payoffTypes['Meeting Travel'];
+						break;
+					default:
+						// default value already set outside switch
+				}
+
+			}
+
+			var fontColor = "#FFFFFF";
+
+			var arrowTipWidth;
+			var arrowTipLength;
 
 			var weight = (edge.data.weight !== undefined) ? edge.data.weight : 1.0;
 
-			ctx.lineWidth = Math.max(weight *  2, 0.1);
-			arrowWidth = 6 + ctx.lineWidth;
-			arrowLength = 12;
+			// ============================ LINE WEIGHT / ARROW SIZE
+			ctx.lineWidth = Math.max(weight * 20, 0.001);
+			arrowTipWidth = ctx.lineWidth + 2;
+			arrowTipLength = 18;
 
 			var directional = (edge.data.directional !== undefined) ? edge.data.directional : true;
 
 			// line
 			var lineEnd;
 			if (directional) {
-				lineEnd = intersection.subtract(direction.normalise().multiply(arrowLength * 0.5));
+				// Distance of arrow tip from edge line
+				lineEnd = intersection.subtract(direction.normalise().multiply(arrowTipLength * 0.75));
 			} else {
 				lineEnd = s2;
 			}
@@ -252,6 +276,7 @@ jQuery.fn.makeItSpringy = function(params) {
 			ctx.beginPath();
 			ctx.moveTo(s1.x, s1.y);
 			ctx.lineTo(lineEnd.x, lineEnd.y);
+			//ctx.lineCap = 'butt';
 			ctx.stroke();
 
 			// arrow
@@ -261,10 +286,10 @@ jQuery.fn.makeItSpringy = function(params) {
 				ctx.translate(intersection.x, intersection.y);
 				ctx.rotate(Math.atan2(y2 - y1, x2 - x1));
 				ctx.beginPath();
-				ctx.moveTo(-arrowLength, arrowWidth);
+				ctx.moveTo(-arrowTipLength, arrowTipWidth);
 				ctx.lineTo(0, 0);
-				ctx.lineTo(-arrowLength, -arrowWidth);
-				ctx.lineTo(-arrowLength * 0.8, -0);
+				ctx.lineTo(-arrowTipLength, -arrowTipWidth);
+				ctx.lineTo(-arrowTipLength * 0.8, -0);
 				ctx.closePath();
 				ctx.fill();
 				ctx.restore();
@@ -277,13 +302,15 @@ jQuery.fn.makeItSpringy = function(params) {
 				ctx.textAlign = "center";
 				ctx.textBaseline = "top";
 				ctx.font = (edge.data.font !== undefined) ? edge.data.font : edgeFont;
-				ctx.fillStyle = stroke;
+				ctx.fillStyle = fontColor;
 				var angle = Math.atan2(s2.y - s1.y, s2.x - s1.x);
 				var displacement = -8;
+
 				if (edgeLabelsUpright && (angle > Math.PI/2 || angle < -Math.PI/2)) {
 					displacement = 8;
 					angle += Math.PI;
 				}
+				
 				var textPos = s1.add(s2).divide(2).add(normal.multiply(displacement));
 				ctx.translate(textPos.x, textPos.y);
 				ctx.rotate(angle);
@@ -324,7 +351,32 @@ jQuery.fn.makeItSpringy = function(params) {
 				ctx.textAlign = "left";
 				ctx.textBaseline = "top";
 				ctx.font = (node.data.font !== undefined) ? node.data.font : nodeFont;
-				ctx.fillStyle = (node.data.color !== undefined) ? node.data.color : "#000000";
+
+				// ========================= NODE COLOR OR BORDER
+				var nodeColor = "#000000";
+				
+				if (node.data.type !== undefined) {
+					switch(node.data.type) {
+						case 'International':
+							nodeColor = actorTypes['International'];
+							break;
+						case 'Continental':
+							nodeColor = actorTypes['Continental'];
+							break;
+						case 'Nation':
+							nodeColor = actorTypes['Nation'];
+							break;
+						case 'Individual':
+							nodeColor = actorTypes['Individual'];
+							break;
+						default:
+							// default value already set outside switch
+					}
+				}
+				//console.log(" >> image : " + node.data.image);
+				// console.log(" >> type : " + node.data.type);
+				ctx.fillStyle = nodeColor;
+				
 				var text = (node.data.label !== undefined) ? node.data.label : node.id;
 				ctx.fillText(text, s.x - contentWidth/2, s.y - contentHeight/2);
 			} else {

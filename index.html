@@ -7,30 +7,87 @@
 <link rel="stylesheet" type="text/css" href="includes/style.css">
 
 <script>
-var graphJSON = { 
+
+var payoffTypes = {
+  'Bribe/Kickback'  : '#492A7F',
+  'Marketing'       : '#8A3E9D',
+  'Meeting Travel'  : '#2A3778', 
+};
+
+var actorTypes = {
+  'International'   : '#8A3E9D',
+  'Continental'     : '#492A7F',
+  'Nation'          : '#2A3778', 
+  'Individual'		: '#125878',
+};
+
+var schemeA = { 
   "nodes": [
-    "FIFA",
-    "UEFA",
-    "CONCACAF",
-    "CAF",
-    "CONMEBOL"
+	["FIFA", {image: 'fifa-sm.jpg', type: 'International'}],
+	"CONMEBOL Copa America",
+	"Traffic Brazil",
+	"Traffic International",
+	"Co-Conspirator #2",
+	"Co-Conspirator #9",
+	"Co-Conspirator #2; Co-Conspirator 9",
+	"Nicolas Leoz",   
+	"Traffic; Co-Conspirator #2",
+	"Rafael Esquivel",
+	"Co-Conspirator #10; Alejandro Burzaco",
   ],
   "edges": [
-    ["CAF", "UEFA", {color: '#00A0B0', label: '500,000 USD'}],
-    ["UEFA", "CAF", {color: '#00A0B0', label: '500,000 USD'}],
-    ["FIFA", "UEFA", {color: '#00A0B0', label: '1,500,000 USD'}],
-    ["FIFA", "CONCACAF", {color: '#00A0B0', label: '700,000 USD'}],
-    ["FIFA", "CAF", {color: '#00A0B0', label: '980,000 USD'}],
-    ["FIFA", "CONMEBOL"]
+	["Traffic Brazil","CONMEBOL Copa America", {} ],
+	["Traffic Brazil-","CONMEBOL Copa America", {} ],
+	["Toyota", "CONMEBOL",                {type: '#ff00fc', label: '$35,000,000'}],
+	["Sports Mkt Co A", "Grupo Sartander",{type: '#ff00fc', label: '$40,000,000'}],
+	["Bridgestone", "Nicolas Leoz",       {type: '#ff00fc', label: '$57,000,000'}],
+	["Sports Mkt Co A", "Nicolas Leoz",   {type: '#ff00fc', label: '$56,100,000'}],
+	["Co-Conspirator #5", "CONMEBOL",     {type: '#0096ff', label: '$2,000,000 USD'}],
+	["Co-Conspirator #5", "CONMEBOL",     {type: '#0096ff', label: '$400,000 USD'}],
+	["Co-Conspirator #5", "CONMEBOL",     {type: '#0096ff', label: '$400,000 USD'}],
+	["Co-Conspirator #5", "CONMEBOL",     {type: '#0096ff', label: '$400,000 USD'}],
+	["Co-Conspirator #5", "CONMEBOL",     {type: '#0096ff', label: '$400,000 USD'}],
+	["Co-Conspirator #5", "CONMEBOL",     {type: '#0096ff', label: '$400,000 USD'}],
   ]
 };
 
+var schemeC = { 
+  "nodes": [
+	["FIFA", 			{image: 'fifa-sm.jpg', type: 'International'}],
+	["CONMEBOL",  		{image: 'fifa-sm.jpg', type: 'International'}],
+	["Sports Mkt Co A",	{image: 'fifa-sm.jpg', type: 'International'}],
+	["Grupo Sartander", {image: 'fifa-sm.jpg', type: 'International'}],
+	["Bridgestone", 	{image: 'fifa-sm.jpg', type: 'International'}],
+	["Toyota", 			{image: 'fifa-sm.jpg', type: 'International'}],
+	["Nicolas Leoz",  	{image: 'fifa-sm.jpg', type: 'International'}],
+	["Co-Conspirator #5", {image: 'fifa-sm.jpg', type: 'International'}],
+	//"TAM Airlines",
+	//"Ricardo Teixeira"
+  ],
+  "edges": [
+	["FIFA","CONMEBOL", 				{type: 'Basic', label: ''}],
+	["CONMEBOL","Nicolas Leoz", 		{type: 'Basic', label: ''}],
+	["Toyota", "CONMEBOL",                {type: 'Marketing', label: '$35,000,000'}],
+	["Sports Mkt Co A", "Grupo Sartander",{type: 'Marketing', label: '$40,000,000'}],
+	["Bridgestone", "Nicolas Leoz",       {type: 'Marketing', label: '$57,000,000'}],
+	["Sports Mkt Co A", "Nicolas Leoz",   {type: 'Marketing', label: '$56,100,000'}],
+	["Co-Conspirator #5", "CONMEBOL",     {type: 'Bribe/Kickback', label: '$2,000,000 USD'}],
+	["Co-Conspirator #5", "CONMEBOL",     {type: 'Bribe/Kickback', label: '$400,000 USD'}],
+	["Co-Conspirator #5", "CONMEBOL",     {type: 'Bribe/Kickback', label: '$400,000 USD'}],
+	["Co-Conspirator #5", "CONMEBOL",     {type: 'Bribe/Kickback', label: '$400,000 USD'}],
+	["Co-Conspirator #5", "CONMEBOL",     {type: 'Bribe/Kickback', label: '$400,000 USD'}],
+	["Co-Conspirator #5", "CONMEBOL",     {type: 'Bribe/Kickback', label: '$400,000 USD'}],
+  ]
+};
+
+
+// on 
 jQuery(function(){
   var graph = new Springy.Graph();
-  graph.loadJSON(graphJSON);
+  graph.loadJSON(schemeC);
 
   var springy = jQuery('#springydemo').makeItSpringy({
-    graph: graph
+	graph: graph
   });
 
   // SIZING
@@ -52,7 +109,7 @@ document.getElementById('newDiv').src = dataURL;
   <div class="textLG">FIFA Gate</div>
   <div class="textMD">Payoff Flows 1998-2012</div>
 </div>
-<canvas id="springydemo" width="800" height="400" />
+<canvas id="springydemo" width="1000" height="650" />
 
 </body>
 </html>

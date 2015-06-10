@@ -131,7 +131,15 @@
 		// is a triple [nodeid1, nodeid2, attributes]
 		for (var i = 0; i < arguments.length; i++) {
 			var e = arguments[i];
+			console.log(e);
+
+
 			var node1 = this.nodeSet[e[0]];
+			window.nodeSet = this.nodeSet;
+
+			
+
+
 			if (node1 == undefined) {
 				throw new TypeError("invalid node name: " + e[0]);
 			}
@@ -500,7 +508,7 @@
 		if (onRenderStart !== undefined) { onRenderStart(); }
 
 		Springy.requestAnimationFrame(function step() {
-			t.tick(0.03);
+			t.tick(0.035);
 
 			if (render !== undefined) {
 				render();
