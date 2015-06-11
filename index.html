@@ -1,6 +1,6 @@
 <html>
 <body>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script src="includes/jquery-1.11.3.min.js"></script>
 <script src="includes/springy.js"></script>
 <script src="includes/springyui.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,800' rel='stylesheet' type='text/css'>
@@ -23,7 +23,8 @@ var actorTypes = {
 
 var schemeA = { 
   "nodes": [
-	["FIFA", {image: 'fifa-sm.jpg', type: 'International'}],
+	// ["FIFA", {image: 'fifa-sm.jpg', type: 'International'}],
+	"FIFA",
 	"CONMEBOL Copa America",
 	"Traffic Brazil",
 	"Traffic International",
@@ -36,18 +37,21 @@ var schemeA = {
 	"Co-Conspirator #10; Alejandro Burzaco",
   ],
   "edges": [
-	["Traffic Brazil","CONMEBOL Copa America", {} ],
-	["Traffic Brazil-","CONMEBOL Copa America", {} ],
-	["Toyota", "CONMEBOL",                {type: '#ff00fc', label: '$35,000,000'}],
-	["Sports Mkt Co A", "Grupo Sartander",{type: '#ff00fc', label: '$40,000,000'}],
-	["Bridgestone", "Nicolas Leoz",       {type: '#ff00fc', label: '$57,000,000'}],
-	["Sports Mkt Co A", "Nicolas Leoz",   {type: '#ff00fc', label: '$56,100,000'}],
-	["Co-Conspirator #5", "CONMEBOL",     {type: '#0096ff', label: '$2,000,000 USD'}],
-	["Co-Conspirator #5", "CONMEBOL",     {type: '#0096ff', label: '$400,000 USD'}],
-	["Co-Conspirator #5", "CONMEBOL",     {type: '#0096ff', label: '$400,000 USD'}],
-	["Co-Conspirator #5", "CONMEBOL",     {type: '#0096ff', label: '$400,000 USD'}],
-	["Co-Conspirator #5", "CONMEBOL",     {type: '#0096ff', label: '$400,000 USD'}],
-	["Co-Conspirator #5", "CONMEBOL",     {type: '#0096ff', label: '$400,000 USD'}],
+	["FIFA","CONMEBOL Copa America", {type: 'Basic', label: ''}],
+  	["Rafael Esquivel", "CONMEBOL Copa America"],
+   	["Nicolas Leoz", "CONMEBOL Copa America"],
+	["Traffic Brazil",			"CONMEBOL Copa America",{type: 'Marketing', label: '$1,700,000'}],
+	["Traffic Brazil",			"CONMEBOL Copa America",{type: 'Marketing', label: '$6,600,000'}],
+	["Co-Conspirator #2", 		"Nicolas Leoz",    		{type: 'Bribe/Kickback', label: '-?-'}],
+	["Traffic Brazil", 			"CONMEBOL Copa America",{type: 'Marketing', label: '$440,000'}],
+	["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Bribe/Kickback', label: '-?-'}],
+	["Traffic International", 	"CONMEBOL Copa America",{type: 'Marketing', label: '$12,000,000'}],
+	["Traffic International", 	"CONMEBOL Copa America",{type: 'Marketing', label: '$17,000,000'}],
+	["Traffic International", 	"CONMEBOL Copa America",{type: 'Marketing', label: '$22,000,000'}],
+	["Traffic; Co-Conspirator #2", "Rafael Esquivel",   {type: 'Bribe/Kickback', label: '$1,000,000'}],
+	["Co-Conspirator #9", 		"Rafael Esquivel",     	{type: 'Bribe/Kickback', label: '$700,000'}],
+	["Co-Conspirator #2; Co-Conspirator 9", "Rafael Esquivel", 	{type: 'Bribe/Kickback', label: '$1,000,000'}],
+	["Co-Conspirator #2", 	"Co-Conspirator #10; Alejandro Burzaco", {type: 'Bribe/Kickback', label: '-?-'}],
   ]
 };
 
@@ -69,51 +73,92 @@ var schemeC = {
 	["Co-Conspirator #5", {image: 'fifa-sm.jpg', type: 'International'}], */
   ],
   "edges": [
-	["FIFA","CONMEBOL", 				{type: 'Basic', label: ''}],
-	["CONMEBOL","Nicolas Leoz", 		{type: 'Basic', label: ''}],
-	["Toyota", "CONMEBOL",                {type: 'Marketing', label: '$35,000,000'}],
-	["Sports Mkt Co A", "Grupo Sartander",{type: 'Marketing', label: '$40,000,000'}],
-	["Bridgestone", "Nicolas Leoz",       {type: 'Marketing', label: '$57,000,000'}],
-	["Sports Mkt Co A", "Nicolas Leoz",   {type: 'Marketing', label: '$56,100,000'}],
-	["Co-Conspirator #5", "CONMEBOL",     {type: 'Bribe/Kickback', label: '$2,000,000 USD'}],
-	["Co-Conspirator #5", "CONMEBOL",     {type: 'Bribe/Kickback', label: '$400,000 USD'}],
-	["Co-Conspirator #5", "CONMEBOL",     {type: 'Bribe/Kickback', label: '$400,000 USD'}],
-	["Co-Conspirator #5", "CONMEBOL",     {type: 'Bribe/Kickback', label: '$400,000 USD'}],
-	["Co-Conspirator #5", "CONMEBOL",     {type: 'Bribe/Kickback', label: '$400,000 USD'}],
-	["Co-Conspirator #5", "CONMEBOL",     {type: 'Bribe/Kickback', label: '$400,000 USD'}],
+	["FIFA","CONMEBOL", 					{type: 'Basic', label: ''}],
+	["CONMEBOL","Nicolas Leoz", 			{type: 'Basic', label: ''}],
+	["Toyota", "CONMEBOL",                	{type: 'Marketing', label: '$35,000,000'}],
+	["Sports Mkt Co A", "Grupo Sartander",	{type: 'Marketing', label: '$40,000,000'}],
+	["Bridgestone", "Nicolas Leoz",      	{type: 'Marketing', label: '$57,000,000'}],
+	["Sports Mkt Co A", "Nicolas Leoz",   	{type: 'Marketing', label: '$56,100,000'}],
+	["Co-Conspirator #5", "CONMEBOL",     	{type: 'Bribe/Kickback', label: '$2,000,000 USD'}],
+	["Co-Conspirator #5", "CONMEBOL",     	{type: 'Bribe/Kickback', label: '$400,000 USD'}],
+	["Co-Conspirator #5", "CONMEBOL",     	{type: 'Bribe/Kickback', label: '$400,000 USD'}],
+	["Co-Conspirator #5", "CONMEBOL",     	{type: 'Bribe/Kickback', label: '$400,000 USD'}],
+	["Co-Conspirator #5", "CONMEBOL",     	{type: 'Bribe/Kickback', label: '$400,000 USD'}],
+	["Co-Conspirator #5", "CONMEBOL",     	{type: 'Bribe/Kickback', label: '$400,000 USD'}],
   ]
 };
 
 
-// on 
+// onload 
 jQuery(function(){
-  var graph = new Springy.Graph();
-  graph.loadJSON(schemeC);
+	var graph = new Springy.Graph();
 
-  var springy = jQuery('#springydemo').makeItSpringy({
-	graph: graph
-  });
+	window.graph = graph;
+	graph.loadJSON(schemeC);
 
-  // SIZING
-  //$('#springydemo').width('400');
 
-});
+	var springy = jQuery('#springydemo').makeItSpringy({
+		graph: graph
+	});
 
-// Save canvas to image
+	$("#schemeA").click(function() {
+		graph.loadJSON(schemeA);
+		//var c = document.getElementById("springydemo");
+		//var context = c.getContext("2d");
+		//context.clearRect(0, 0, springydemo.width, springydemo.height);
 
-/* 
-var dataURL = springydemo.toDataURL();
-var newDiv = document.createElement("div");
-document.getElementById('newDiv').src = dataURL;
-*/
+		
+		//var len = nodes.length;
+		/*
+		for (var i=0, len = graph.nodes.length; i < len; i++) {
+    		console.log(graph.nodes[i]);
+    		graph.removeNode(graph.nodes[i]);
+		}
+	*/
+		// for (var i=0, nodeCount = graph.edges.length; i < nodeCount; i++) {
+
+		/*
+		
+		 for (var i=0, edgeCount = graph.nodes.length; i < edgeCount; i++) {
+    		// console.log(graph.edges[i]);
+    		graph.removeNode(graph.nodes[i]);
+		}
+		*/
+		
+	});
+
+	$("#schemeB").click(function() {
+		graph.loadJSON(schemeB);
+	});
+	
+	$("#schemeC").click(function() {
+		graph.loadJSON(schemeC);
+	});
+	
+
+	// SIZING
+	//$('#springydemo').width('400');
+
+	});
+
+	// Save canvas to image
+
+	/* 
+	var dataURL = springydemo.toDataURL();
+	var newDiv = document.createElement("div");
+	document.getElementById('newDiv').src = dataURL;
+	*/
 
 
 </script>
 <div id="title-bar">
   <div class="textLG">FIFA Gate</div>
   <div class="textMD">Payoff Flows 1998-2012</div>
+  <button id="schemeA">Scheme A</button>
+  <button id="schemeB">Scheme B</button>
+  <button id="schemeC">Scheme C</button>
 </div>
-<canvas id="springydemo" width="1000" height="650" />
+<canvas id="springydemo" width="1200" height="820" />
 
 </body>
 </html>

@@ -32,7 +32,7 @@ jQuery.fn.makeItSpringy = function(params) {
 	var stiffness = params.stiffness || 1000.0;
 	var repulsion = params.repulsion || 80.0;
 	var damping = params.damping || 0.25;
-	var minEnergyThreshold = params.minEnergyThreshold || 0.00001;
+	var minEnergyThreshold = params.minEnergyThreshold || 0.0001;
 	var nodeSelected = params.nodeSelected || null;
 	var nodeImages = {};
 	var edgeLabelsUpright = true;
@@ -182,6 +182,7 @@ jQuery.fn.makeItSpringy = function(params) {
 
 	var renderer = this.renderer = new Springy.Renderer(layout,
 		function clear() {
+			ctx = canvas.getContext("2d");
 			ctx.clearRect(0,0,canvas.width,canvas.height);
 		},
 		function drawEdge(edge, p1, p2) {

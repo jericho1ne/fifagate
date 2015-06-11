@@ -138,8 +138,6 @@
 			window.nodeSet = this.nodeSet;
 
 			
-
-
 			if (node1 == undefined) {
 				throw new TypeError("invalid node name: " + e[0]);
 			}
@@ -168,6 +166,15 @@
 
 	// add nodes and edges from JSON object
 	Graph.prototype.loadJSON = function(json) {
+		while (this.edges.length > 0) {
+    		// console.log(graph.edges[0]);
+    		this.removeEdge(this.edges[0]);
+		}
+
+		while (this.nodes.length > 0) {
+			// console.log(graph.nodes[0]);
+			this.removeNode(this.nodes[0]);
+		}
 	/**
 	Springy's simple JSON format for graphs.
 
@@ -214,8 +221,10 @@
 
 	// remove a node and it's associated edges from the graph
 	Graph.prototype.removeNode = function(node) {
-		if (node.id in this.nodeSet) {
-			delete this.nodeSet[node.id];
+		if (typeof node.id !== "undefined") {
+			if (node.id in this.nodeSet) {
+				delete this.nodeSet[node.id];
+			}
 		}
 
 		for (var i = this.nodes.length - 1; i >= 0; i--) {
@@ -340,7 +349,7 @@
 		this.stiffness = stiffness; // spring stiffness constant
 		this.repulsion = repulsion; // repulsion constant
 		this.damping = damping; // velocity damping factor
-		this.minEnergyThreshold = minEnergyThreshold || 0.01; //threshold used to determine render stop
+		this.minEnergyThreshold = minEnergyThreshold; //threshold used to determine render stop
 
 		this.nodePoints = {}; // keep track of points associated with nodes
 		this.edgeSprings = {}; // keep track of springs associated with edges
