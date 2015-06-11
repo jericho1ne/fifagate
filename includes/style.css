@@ -3,20 +3,26 @@ body {
 }
 
 #springydemo {
-	border: 1px solid #ccc;
- 	text-align:center;
 	z-index: 10;
 	position:relative;
+	box-shadow: 0px 0px 2px 8px #333; 
+  	-webkit-box-shadow: 0px 2px 8px #333; 
+   	-ms-box-shadow: 0px 0px 2px #333;
+   	-o-box-shadow: 0px 0px 2px 10px #333; 
+	/* border-bottom: 3px solid #9DAEC1;
+	border-right: 3px solid #9DAEC1; */
+	
 }
 
 #title-bar {
 	z-index: 20;
 	background-color: #9DAEC1;
-	padding: 10px;
 	border-bottom: 2px solid #020710;
 	vertical-align: center;
 	margin: 0px;
-   width: 100%;
+	padding: 0px;
+	padding-left: 10px;
+ 	width: 100%;
 }
 
 .textLG  {
@@ -26,5 +32,33 @@ body {
 
 .textMD  {
 	font-family: 'Open Sans', sans-serif;
-	font-size: 18px; font-weight: 400; 
+	font-size: 18px; font-weight: 400;  line-height: 14px
+}
+
+.buttonbar {
+	padding: 4px;
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+.container {
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+
+button {
+	padding: 8px;
+	font-size: 14px;
+	font-weight: 600;
+	border-radius: 5px;
+	background-color: #B8CDE4;
+	border: 1px solid #333;
+}
+.content {
+	position: relative;
+	text-align:center;
+	border: 0px solid gray;
+	margin-left: auto; margin-right: auto;
+	padding: 0px;
+	margin: 0px;
 }

@@ -28,11 +28,11 @@ Copyright (c) 2010 Dennis Hotson
 jQuery.fn.makeItSpringy = function(params) {
 	var graph = this.graph = params.graph || new Springy.Graph();
 	var nodeFont = "18px Open Sans, sans-serif";
-	var edgeFont = "14px Open Sans, sans-serif";
-	var stiffness = params.stiffness || 1000.0;
-	var repulsion = params.repulsion || 80.0;
+	var edgeFont = "12px Open Sans, sans-serif";
+	var stiffness = params.stiffness || 500.0;
+	var repulsion = params.repulsion || 50.0;
 	var damping = params.damping || 0.25;
-	var minEnergyThreshold = params.minEnergyThreshold || 0.0001;
+	var minEnergyThreshold = params.minEnergyThreshold || 0.00001;
 	var nodeSelected = params.nodeSelected || null;
 	var nodeImages = {};
 	var edgeLabelsUpright = true;
@@ -213,8 +213,9 @@ jQuery.fn.makeItSpringy = function(params) {
 			// Figure out how far off center the line should be drawn
 			var offset = normal.multiply(-((total - 1) * spacing)/2.0 + (n * spacing));
 
-			var paddingX = 2;
-			var paddingY = 2;
+			//========================================================================== Node spacing/diameter
+			var paddingX = 20;
+			var paddingY = 30;
 
 			var s1 = toScreen(p1).add(offset);
 			var s2 = toScreen(p2).add(offset);
@@ -250,25 +251,32 @@ jQuery.fn.makeItSpringy = function(params) {
 
 			}
 
-			var fontColor = "#FFFFFF";
+			// ============================ FONT COLOR ================================
+			var fontColor = "#444";
 
+			// ============================ EDGE WEIGHT + ARROW STYLING ===============
 			var arrowTipWidth;
 			var arrowTipLength;
+			var edgeThickness = 3.25;
+
 
 			var weight = (edge.data.weight !== undefined) ? edge.data.weight : 1.0;
 
-			// ============================ LINE WEIGHT / ARROW SIZE
-			ctx.lineWidth = Math.max(weight * 20, 0.001);
+			ctx.lineWidth = Math.max(weight * edgeThickness, 0.001);
 			arrowTipWidth = ctx.lineWidth + 2;
 			arrowTipLength = 18;
 
+			// original case check, we never pass in directional though
 			var directional = (edge.data.directional !== undefined) ? edge.data.directional : true;
+
+			// decide if arrow gets drawn based on Edge Type (Basic == no arrow)
+			directional = (edge.data.type=="Basic" ? 0 : 1);
 
 			// line
 			var lineEnd;
 			if (directional) {
 				// Distance of arrow tip from edge line
-				lineEnd = intersection.subtract(direction.normalise().multiply(arrowTipLength * 0.75));
+				lineEnd = intersection.subtract(direction.normalise().multiply(arrowTipLength * 1.25));
 			} else {
 				lineEnd = s2;
 			}
@@ -305,17 +313,19 @@ jQuery.fn.makeItSpringy = function(params) {
 				ctx.font = (edge.data.font !== undefined) ? edge.data.font : edgeFont;
 				ctx.fillStyle = fontColor;
 				var angle = Math.atan2(s2.y - s1.y, s2.x - s1.x);
-				var displacement = -8;
+
+				// ============================= FONT PLACEMENT IN RELATIONSHIP TO EDGE
+				var displacement = 0;
 
 				if (edgeLabelsUpright && (angle > Math.PI/2 || angle < -Math.PI/2)) {
-					displacement = 8;
+					displacement = 2;
 					angle += Math.PI;
 				}
 				
 				var textPos = s1.add(s2).divide(2).add(normal.multiply(displacement));
 				ctx.translate(textPos.x, textPos.y);
 				ctx.rotate(angle);
-				ctx.fillText(text, 0,-2);
+				ctx.fillText(text, 0, -14);
 				ctx.restore();
 			}
 
@@ -325,10 +335,10 @@ jQuery.fn.makeItSpringy = function(params) {
 
 			ctx.save();
 
-			// Pulled out the padding aspect sso that the size functions could be used in multiple places
+			// =============== NODE PADDING ==========================================================
+			// Pulled out the padding aspect so that the size functions could be used in multiple places
 			// These should probably be settable by the user (and scoped higher) but this suffices for now
-			var paddingX = 6;
-			var paddingY = 6;
+			var paddingX = paddingY = 20;
 
 			var contentWidth = node.getWidth();
 			var contentHeight = node.getHeight();

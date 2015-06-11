@@ -38,8 +38,8 @@ var schemeA = {
   ],
   "edges": [
 	["FIFA","CONMEBOL Copa America", {type: 'Basic', label: ''}],
-  	["Rafael Esquivel", "CONMEBOL Copa America"],
-   	["Nicolas Leoz", "CONMEBOL Copa America"],
+  	["Rafael Esquivel", "CONMEBOL Copa America", {type: 'Basic', label: ''}],
+   	["Nicolas Leoz", "CONMEBOL Copa America", {type: 'Basic', label: ''}],
 	["Traffic Brazil",			"CONMEBOL Copa America",{type: 'Marketing', label: '$1,700,000'}],
 	["Traffic Brazil",			"CONMEBOL Copa America",{type: 'Marketing', label: '$6,600,000'}],
 	["Co-Conspirator #2", 		"Nicolas Leoz",    		{type: 'Bribe/Kickback', label: '-?-'}],
@@ -55,6 +55,23 @@ var schemeA = {
   ]
 };
 
+var schemeB = { 
+  "nodes": [
+	"FIFA", //			{image: 'fifa-sm.jpg', type: 'International'}],
+	"CONCACAF", // 		{image: 'fifa-sm.jpg', type: 'International'}],
+	"Traffic USA",
+	"Co-Conspirator #1",	
+	"Jack Warner",
+  ],
+  "edges": [
+  	["FIFA", "CONCACAF", 					{type: 'Basic', label: ''}],
+  	["Jack Warner", "CONCACAF", 			{type: 'Basic', label: ''}],
+	["Traffic USA", "CONCACAF", 			{type: 'Marketing', label: '$9,750,000'}],
+	["Traffic USA", "Co-Conspirator #1", 	{type: 'Bribe/Kickback', label: '$200,000'}],
+	["Co-Conspirator #1", "Jack Warner",    {type: 'Bribe/Kickback', label: '$100,000'}],	
+  ]
+};
+
 var schemeC = { 
   "nodes": [
 	"FIFA", //			{image: 'fifa-sm.jpg', type: 'International'}],
@@ -65,12 +82,6 @@ var schemeC = {
 	"Toyota", 
 	"Nicolas Leoz", 
 	"Co-Conspirator #5"
-/*	["Sports Mkt Co A",	{image: 'fifa-sm.jpg', type: 'International'}],
-	["Grupo Sartander", {image: 'fifa-sm.jpg', type: 'International'}],
-	["Bridgestone", 	{image: 'fifa-sm.jpg', type: 'International'}],
-	["Toyota", 			{image: 'fifa-sm.jpg', type: 'International'}],
-	["Nicolas Leoz",  	{image: 'fifa-sm.jpg', type: 'International'}],
-	["Co-Conspirator #5", {image: 'fifa-sm.jpg', type: 'International'}], */
   ],
   "edges": [
 	["FIFA","CONMEBOL", 					{type: 'Basic', label: ''}],
@@ -103,28 +114,6 @@ jQuery(function(){
 
 	$("#schemeA").click(function() {
 		graph.loadJSON(schemeA);
-		//var c = document.getElementById("springydemo");
-		//var context = c.getContext("2d");
-		//context.clearRect(0, 0, springydemo.width, springydemo.height);
-
-		
-		//var len = nodes.length;
-		/*
-		for (var i=0, len = graph.nodes.length; i < len; i++) {
-    		console.log(graph.nodes[i]);
-    		graph.removeNode(graph.nodes[i]);
-		}
-	*/
-		// for (var i=0, nodeCount = graph.edges.length; i < nodeCount; i++) {
-
-		/*
-		
-		 for (var i=0, edgeCount = graph.nodes.length; i < edgeCount; i++) {
-    		// console.log(graph.edges[i]);
-    		graph.removeNode(graph.nodes[i]);
-		}
-		*/
-		
 	});
 
 	$("#schemeB").click(function() {
@@ -152,13 +141,20 @@ jQuery(function(){
 
 </script>
 <div id="title-bar">
-  <div class="textLG">FIFA Gate</div>
-  <div class="textMD">Payoff Flows 1998-2012</div>
-  <button id="schemeA">Scheme A</button>
-  <button id="schemeB">Scheme B</button>
-  <button id="schemeC">Scheme C</button>
-</div>
-<canvas id="springydemo" width="1200" height="820" />
+  	<div class="textLG">FIFA Gate</div>
+  	<div class="textMD">Payoff Flows 1998-2012</div>
+  
+  	<div class="buttonBar">
+	 	<button id="schemeA">Scheme A</button>
+		<button id="schemeB">Scheme B</button>
+		<button id="schemeC">Scheme C</button>
+	</div>
 
+</div>
+<div class="container">
+	<div class="content">
+	<canvas id="springydemo" width="1200" height="720" /></canvas>
+	</div>
+</div>
 </body>
 </html>
