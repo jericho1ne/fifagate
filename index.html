@@ -74,8 +74,8 @@ var schemeB = {
 
 var schemeC = { 
   "nodes": [
-	"FIFA", //			{image: 'fifa-sm.jpg', type: 'International'}],
-	"CONMEBOL", // 		{image: 'fifa-sm.jpg', type: 'International'}],
+	"FIFA", 			// {image: 'data/images/fifa-sm.jpg'}],
+	"CONMEBOL", 		// 		{image: 'fifa-sm.jpg', type: 'International'}],
 	"Sports Mkt Co A",
 	"Grupo Sartander",	
 	"Bridgestone", 
@@ -103,10 +103,9 @@ var schemeC = {
 // onload 
 jQuery(function(){
 	var graph = new Springy.Graph();
-
+	
 	window.graph = graph;
 	graph.loadJSON(schemeC);
-
 
 	var springy = jQuery('#springydemo').makeItSpringy({
 		graph: graph
@@ -128,7 +127,7 @@ jQuery(function(){
 	// SIZING
 	//$('#springydemo').width('400');
 
-	});
+});
 
 	// Save canvas to image
 
