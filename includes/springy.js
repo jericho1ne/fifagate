@@ -86,16 +86,6 @@
 		return node;
 	};
 
-	Graph.prototype.addNodes = function() {
-		// accepts variable number of arguments, where each argument
-		// is a string that becomes both node identifier and label
-		for (var i = 0; i < arguments.length; i++) {
-			var name = arguments[i];
-			var node = new Node(name, {label:name});
-			this.addNode(node);
-		}
-	};
-
 	Graph.prototype.addEdge = function(edge) {
 		var exists = false;
 		this.edges.forEach(function(e) {
@@ -126,12 +116,23 @@
 		return edge;
 	};
 
+	Graph.prototype.addNodes = function() {
+		// accepts variable number of arguments, where each argument
+		// is a string that becomes both node identifier and label
+		for (var i = 0; i < arguments.length; i++) {
+			var name = arguments[i];
+			var node = new Node(name, {label:name});
+			this.addNode(node);
+		}
+	};
+
 	Graph.prototype.addEdges = function() {
 		// accepts variable number of arguments, where each argument
 		// is a triple [nodeid1, nodeid2, attributes]
 		for (var i = 0; i < arguments.length; i++) {
 			var e = arguments[i];
-			console.log(e);
+			
+			// console.log(e);
 
 
 			var node1 = this.nodeSet[e[0]];
@@ -175,28 +176,28 @@
 			// console.log(graph.nodes[0]);
 			this.removeNode(this.nodes[0]);
 		}
-	/**
-	Springy's simple JSON format for graphs.
+		/**
+		Springy's simple JSON format for graphs.
 
-	historically, Springy uses separate lists
-	of nodes and edges:
+		historically, Springy uses separate lists
+		of nodes and edges:
 
-		{
-			"nodes": [
-				"center",
-				"left",
-				"right",
-				"up",
-				"satellite"
-			],
-			"edges": [
-				["center", "left"],
-				["center", "right"],
-				["center", "up"]
-			]
-		}
+			{
+				"nodes": [
+					"center",
+					"left",
+					"right",
+					"up",
+					"satellite"
+				],
+				"edges": [
+					["center", "left"],
+					["center", "right"],
+					["center", "up"]
+				]
+			}
 
-	**/
+		**/
 		// parse if a string is passed (EC5+ browsers)
 		if (typeof json == 'string' || json instanceof String) {
 			json = JSON.parse( json );

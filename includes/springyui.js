@@ -27,12 +27,12 @@ Copyright (c) 2010 Dennis Hotson
 
 jQuery.fn.makeItSpringy = function(params) {
 	var graph = this.graph = params.graph || new Springy.Graph();
-	var nodeFont = "18px Open Sans, sans-serif";
+	var nodeFont = "24px Open Sans, sans-serif";
 	var edgeFont = "12px Open Sans, sans-serif";
 	var stiffness = params.stiffness || 500.0;
 	var repulsion = params.repulsion || 50.0;
 	var damping = params.damping || 0.25;
-	var minEnergyThreshold = params.minEnergyThreshold || 0.00001;
+	var minEnergyThreshold = params.minEnergyThreshold || 0.0001;
 	var nodeSelected = params.nodeSelected || null;
 	var nodeImages = {};
 	var edgeLabelsUpright = true;
@@ -130,7 +130,11 @@ jQuery.fn.makeItSpringy = function(params) {
 			return node._width[text];
 
 		ctx.save();
+
+		//============================== FONT SIZE (Doesn't do shit)
 		ctx.font = (node.data.font !== undefined) ? node.data.font : nodeFont;
+		
+		//======================== WIDTH OF NODE DIV
 		var width = ctx.measureText(text).width;
 		ctx.restore();
 
@@ -140,8 +144,24 @@ jQuery.fn.makeItSpringy = function(params) {
 		return width;
 	};
 
+	// ============================ FONT SIZE
 	var getTextHeight = function(node) {
-		return 18;
+		var textHeight = 20;
+
+		if (node.id=="FIFA") {
+			textHeight = 40;
+			nodeFont = 36;
+		}
+		else if ($.inArray(node.id, ["CONMEBOL Copa America","CAF","UEFA","CONCACAF","CONMEBOL"])!=-1) {
+			textHeight = 28;
+			nodeFont = 26;
+		}
+		else {
+			textHeight = 24;
+			nodeFont = 24;	
+		}
+		//console.log(" >> " + textHeight);
+		return textHeight;
 		// In a more modular world, this would actually read the font size, but I think leaving it a constant is sufficient for now.
 		// If you change the font size, I'd adjust this too.
 	};
@@ -158,12 +178,17 @@ jQuery.fn.makeItSpringy = function(params) {
 
 	Springy.Node.prototype.getHeight = function() {
 		var height;
+		
 		if (this.data.image == undefined) {
 			height = getTextHeight(this);
-		} else {
+		} 
+		else {
 			if (this.data.image.src in nodeImages && nodeImages[this.data.image.src].loaded) {
 				height = getImageHeight(this);
-			} else {height = 10;}
+			} 
+			else {
+				height = 20;
+			}
 		}
 		return height;
 	}
@@ -172,10 +197,14 @@ jQuery.fn.makeItSpringy = function(params) {
 		var width;
 		if (this.data.image == undefined) {
 			width = getTextWidth(this);
-		} else {
+		} 
+		else {
 			if (this.data.image.src in nodeImages && nodeImages[this.data.image.src].loaded) {
 				width = getImageWidth(this);
-			} else {width = 10;}
+			} 
+			else {
+				width = 10;
+			}
 		}
 		return width;
 	}
@@ -185,6 +214,10 @@ jQuery.fn.makeItSpringy = function(params) {
 			ctx = canvas.getContext("2d");
 			ctx.clearRect(0,0,canvas.width,canvas.height);
 		},
+
+		//***************************************************
+		//	drawEdge
+		//***************************************************
 		function drawEdge(edge, p1, p2) {
 			var x1 = toScreen(p1).x;
 			var y1 = toScreen(p1).y;
@@ -215,7 +248,7 @@ jQuery.fn.makeItSpringy = function(params) {
 
 			//========================================================================== Node spacing/diameter
 			var paddingX = 20;
-			var paddingY = 30;
+			var paddingY = 16;
 
 			var s1 = toScreen(p1).add(offset);
 			var s2 = toScreen(p2).add(offset);
@@ -232,18 +265,19 @@ jQuery.fn.makeItSpringy = function(params) {
 
 			// =================== EDGE COLOR
 			// Default: dk gray
-			var stroke = '#333333';
+			var stroke = fontColor= '#333333';
 
+			// ============================ FONT COLOR ================================
 			if (edge.data.type !== undefined) {
 				switch(edge.data.type) {
 					case 'Marketing':
-						stroke = payoffTypes['Marketing'];
+						stroke = fontColor = payoffTypeColors['Marketing'];
 						break;
-					case 'Bribe/Kickback':
-						stroke = payoffTypes['Bribe/Kickback'];
+					case 'Kickback':
+						stroke = fontColor = payoffTypeColors['Kickback'];
 						break;
 					case 'Meeting Travel':
-						stroke = payoffTypes['Meeting Travel'];
+						stroke = fontColor = payoffTypeColors['Meeting Travel'];
 						break;
 					default:
 						// default value already set outside switch
@@ -251,9 +285,7 @@ jQuery.fn.makeItSpringy = function(params) {
 
 			}
 
-			// ============================ FONT COLOR ================================
-			var fontColor = "#444";
-
+			
 			// ============================ EDGE WEIGHT + ARROW STYLING ===============
 			var arrowTipWidth;
 			var arrowTipLength;
@@ -263,7 +295,7 @@ jQuery.fn.makeItSpringy = function(params) {
 			var weight = (edge.data.weight !== undefined) ? edge.data.weight : 1.0;
 
 			ctx.lineWidth = Math.max(weight * edgeThickness, 0.001);
-			arrowTipWidth = ctx.lineWidth + 2;
+			arrowTipWidth = ctx.lineWidth + 4;
 			arrowTipLength = 18;
 
 			// original case check, we never pass in directional though
@@ -276,7 +308,7 @@ jQuery.fn.makeItSpringy = function(params) {
 			var lineEnd;
 			if (directional) {
 				// Distance of arrow tip from edge line
-				lineEnd = intersection.subtract(direction.normalise().multiply(arrowTipLength * 1.25));
+				lineEnd = intersection.subtract(direction.normalise().multiply(arrowTipLength * 1.01));
 			} else {
 				lineEnd = s2;
 			}
@@ -330,6 +362,10 @@ jQuery.fn.makeItSpringy = function(params) {
 			}
 
 		},
+
+		//***************************************************
+		//	drawNode
+		//***************************************************
 		function drawNode(node, p) {
 			var s = toScreen(p);
 
@@ -338,7 +374,7 @@ jQuery.fn.makeItSpringy = function(params) {
 			// =============== NODE PADDING ==========================================================
 			// Pulled out the padding aspect so that the size functions could be used in multiple places
 			// These should probably be settable by the user (and scoped higher) but this suffices for now
-			var paddingX = paddingY = 20;
+			var paddingX = paddingY = 10;
 
 			var contentWidth = node.getWidth();
 			var contentHeight = node.getHeight();
@@ -348,7 +384,7 @@ jQuery.fn.makeItSpringy = function(params) {
 			// clear background
 			ctx.clearRect(s.x - boxWidth/2, s.y - boxHeight/2, boxWidth, boxHeight);
 
-			// fill background
+			// ============ NODE FILL BACKGROUND COLOR =====================================
 			if (selected !== null && selected.node !== null && selected.node.id === node.id) {
 				ctx.fillStyle = "#FFFFE0";
 			} else if (nearest !== null && nearest.node !== null && nearest.node.id === node.id) {
@@ -363,10 +399,11 @@ jQuery.fn.makeItSpringy = function(params) {
 				ctx.textBaseline = "top";
 				ctx.font = (node.data.font !== undefined) ? node.data.font : nodeFont;
 
-				// ========================= NODE COLOR OR BORDER
+				// ===================== NODE FONT COLOR
 				var nodeColor = "#000000";
 				
 				if (node.data.type !== undefined) {
+						
 					switch(node.data.type) {
 						case 'International':
 							nodeColor = actorTypes['International'];
@@ -389,6 +426,8 @@ jQuery.fn.makeItSpringy = function(params) {
 				ctx.fillStyle = nodeColor;
 				
 				var text = (node.data.label !== undefined) ? node.data.label : node.id;
+
+				// print text within at x,y position
 				ctx.fillText(text, s.x - contentWidth/2, s.y - contentHeight/2);
 			} else {
 				// Currently we just ignore any labels if the image object is set. One might want to extend this logic to allow for both, or other composite nodes.
@@ -398,7 +437,8 @@ jQuery.fn.makeItSpringy = function(params) {
 						// Our image is loaded, so it's safe to draw
 						ctx.drawImage(nodeImages[src].object, s.x - contentWidth/2, s.y - contentHeight/2, contentWidth, contentHeight);
 					}
-				}else{
+				}
+				else{
 					// First time seeing an image with this src address, so add it to our set of image objects
 					// Note: we index images by their src to avoid making too many duplicates
 					nodeImages[src] = {};
@@ -414,10 +454,13 @@ jQuery.fn.makeItSpringy = function(params) {
 			ctx.restore();
 		}
 	);
-
 	renderer.start();
 
 	// helpers for figuring out where to draw arrows
+
+	//***************************************************
+	//
+	//***************************************************
 	function intersect_line_line(p1, p2, p3, p4) {
 		var denom = ((p4.y - p3.y)*(p2.x - p1.x) - (p4.x - p3.x)*(p2.y - p1.y));
 
@@ -436,6 +479,9 @@ jQuery.fn.makeItSpringy = function(params) {
 		return new Springy.Vector(p1.x + ua * (p2.x - p1.x), p1.y + ua * (p2.y - p1.y));
 	}
 
+	//***************************************************
+	//
+	//***************************************************
 	function intersect_line_box(p1, p2, p3, w, h) {
 		var tl = {x: p3.x, y: p3.y};
 		var tr = {x: p3.x + w, y: p3.y};
