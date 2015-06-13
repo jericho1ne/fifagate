@@ -14,7 +14,7 @@ var schemeA = {
 		"Co-Conspirator #10; Alejandro Burzaco",
   	],
 	"edges": [
-		["FIFA","CONMEBOL Copa America", {type: 'Basic', label: ''}],
+		["FIFA", "CONMEBOL Copa America", {type: 'Basic', label: ''}],
 		["Rafael Esquivel", "CONMEBOL Copa America", {type: 'Basic', label: ''}],
 		["Nicolas Leoz", "CONMEBOL Copa America", {type: 'Basic', label: ''}],
 		["Traffic Brazil",			"CONMEBOL Copa America",{type: 'Marketing', label: '$1,700,000'}],

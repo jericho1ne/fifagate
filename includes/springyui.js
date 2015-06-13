@@ -146,19 +146,16 @@ jQuery.fn.makeItSpringy = function(params) {
 
 	// ============================ FONT SIZE
 	var getTextHeight = function(node) {
-		var textHeight = 20;
+		var textHeight = 22;
 
 		if (node.id=="FIFA") {
-			textHeight = 40;
-			nodeFont = 36;
+			textHeight = nodeFont = 24;
 		}
 		else if ($.inArray(node.id, ["CONMEBOL Copa America","CAF","UEFA","CONCACAF","CONMEBOL"])!=-1) {
-			textHeight = 28;
-			nodeFont = 26;
+			textHeight = nodeFont = 21;
 		}
 		else {
-			textHeight = 24;
-			nodeFont = 24;	
+			textHeight = nodeFont = 18;	
 		}
 		//console.log(" >> " + textHeight);
 		return textHeight;
@@ -195,9 +192,14 @@ jQuery.fn.makeItSpringy = function(params) {
 
 	Springy.Node.prototype.getWidth = function() {
 		var width;
+
+
+		// if working with text boxes
 		if (this.data.image == undefined) {
 			width = getTextWidth(this);
+			
 		} 
+		// images case
 		else {
 			if (this.data.image.src in nodeImages && nodeImages[this.data.image.src].loaded) {
 				width = getImageWidth(this);
@@ -205,7 +207,9 @@ jQuery.fn.makeItSpringy = function(params) {
 			else {
 				width = 10;
 			}
+			
 		}
+
 		return width;
 	}
 
@@ -247,8 +251,8 @@ jQuery.fn.makeItSpringy = function(params) {
 			var offset = normal.multiply(-((total - 1) * spacing)/2.0 + (n * spacing));
 
 			//========================================================================== Node spacing/diameter
-			var paddingX = 20;
-			var paddingY = 16;
+			var paddingX = 10;
+			var paddingY = 10;
 
 			var s1 = toScreen(p1).add(offset);
 			var s2 = toScreen(p2).add(offset);
@@ -357,7 +361,9 @@ jQuery.fn.makeItSpringy = function(params) {
 				var textPos = s1.add(s2).divide(2).add(normal.multiply(displacement));
 				ctx.translate(textPos.x, textPos.y);
 				ctx.rotate(angle);
-				ctx.fillText(text, 0, -14);
+
+				//				   x  y
+				ctx.fillText(text, 0, 4);
 				ctx.restore();
 			}
 
@@ -381,8 +387,8 @@ jQuery.fn.makeItSpringy = function(params) {
 			var boxWidth = contentWidth + paddingX;
 			var boxHeight = contentHeight + paddingY;
 
-			// clear background
-			ctx.clearRect(s.x - boxWidth/2, s.y - boxHeight/2, boxWidth, boxHeight);
+			// Add a fill behding node text
+			// ctx.clearRect(s.x - boxWidth/2, s.y - boxHeight/2, boxWidth, boxHeight);
 
 			// ============ NODE FILL BACKGROUND COLOR =====================================
 			if (selected !== null && selected.node !== null && selected.node.id === node.id) {
@@ -392,11 +398,13 @@ jQuery.fn.makeItSpringy = function(params) {
 			} else {
 				ctx.fillStyle = "#FFFFFF";
 			}
-			ctx.fillRect(s.x - boxWidth/2, s.y - boxHeight/2, boxWidth, boxHeight);
+			// ctx.fillRect(s.x - boxWidth/2, s.y - boxHeight/2, boxWidth, boxHeight);
 
 			if (node.data.image == undefined) {
-				ctx.textAlign = "left";
-				ctx.textBaseline = "top";
+				//console.log( " NODE :: if" );
+
+				ctx.textAlign 		= "left";
+				ctx.textBaseline 	= "top";
 				ctx.font = (node.data.font !== undefined) ? node.data.font : nodeFont;
 
 				// ===================== NODE FONT COLOR
@@ -421,15 +429,35 @@ jQuery.fn.makeItSpringy = function(params) {
 							// default value already set outside switch
 					}
 				}
-				//console.log(" >> image : " + node.data.image);
-				// console.log(" >> type : " + node.data.type);
+
+				// console.log(" >> image : " + node.data.image);
+				//console.log("   >> content W / H : " + contentWidth + ', '+ contentHeight);
+				//console.log("   >> s.x / s.y : " + s.x + ', '+ s.y);
+				
+				
+				var anchorX = s.x - contentWidth/2;
+				var anchorY = s.y - contentHeight/2;
+
+				// Draw background circle
+				var radius = 30;
+				ctx.beginPath();
+			    ctx.arc(anchorX, anchorY, radius, 0, 2 * Math.PI, false);
+			    // ctx.fillStyle = '#eee';
+			    ctx.fillStyle = 'rgba(0,0,255,0.2)';
+			    ctx.fill();
+			    ctx.lineWidth = 1;
+			    ctx.strokeStyle = '#333';
+			    ctx.stroke();
+			    
 				ctx.fillStyle = nodeColor;
 				
 				var text = (node.data.label !== undefined) ? node.data.label : node.id;
 
 				// print text within at x,y position
-				ctx.fillText(text, s.x - contentWidth/2, s.y - contentHeight/2);
-			} else {
+				ctx.fillText(text, anchorX, anchorY);
+			} 
+			else {
+				console.log( " NODE :: else" );
 				// Currently we just ignore any labels if the image object is set. One might want to extend this logic to allow for both, or other composite nodes.
 				var src = node.data.image.src;  // There should probably be a sanity check here too, but un-src-ed images aren't exaclty a disaster.
 				if (src in nodeImages) {
