@@ -68,7 +68,7 @@ foreach ($schemes as $key=>$datarows) {
 
 	echo '<b>' . 'Edges_'.str_replace(' ', '_', $key).'</b><br>';
 
-	echo '"edges" : [<br>';
+	echo '"edges" : [';
 
 	// PRINT EDGES
 	foreach ($datarows as $row) {
@@ -87,13 +87,13 @@ foreach ($schemes as $key=>$datarows) {
 	}
 
 	// close nodes array		
-	echo ']<br><br>';
+	echo ']<br>';
 
 	// PRINT NODES
-	echo '"nodes" : [<br>';
-	echo "\t". '"FIFA",<br>';
+	echo '"nodes" : [';
+	echo "\t". '"FIFA", ';
 	foreach ($uniqueNodes as $node) {
-		echo "\t".'"' . $node . '",<br>';
+		echo "\t".'"' . $node . '",';
 	}
 	echo ']<br><hr>';
 
