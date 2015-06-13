@@ -251,22 +251,28 @@ var schemeK = {
 		"FIFA",
 		"Traffic USA",
 		"CONCACAF",
-		"Jeffrey Webb",
-		"Jeffrey Webb; Co-Conspirators #2",
-		"Traffic USA; Co-Conspirator #4",
-		"Soccer Uniform Company A; Co-Conspirator #23",
+		"Jeffrey Webb",	// 
+		"Co-Conspirator #2",
+		"Co-Conspirator #4",
+		"Co-Conspirator #23",
+		// "Jeffrey Webb; Co-Conspirators #2",
+		// "Traffic USA; ",
+		"Soccer Uniform Company A", //"Soccer Uniform Company A; Co-Conspirator #23",
 	],
 	"edges" : [
-		["FIFA",  "CONCACAF", {type: 'Basic', label: ''}],									// assumed
-		["CONCACAF",  "Jeffrey Webb", {type: 'Basic', label: ''}],							// assumed
-		["Jeffrey Webb", "Jeffrey Webb; Co-Conspirators #2", {type: 'Basic', label: ''}],	// assumed
-		["Traffic USA", "Traffic USA; Co-Conspirator #4", {type: 'Basic', label: ''}],		// assumed
+		["FIFA",  "CONCACAF", {type: 'Basic', label: ''}],							// assumed
+		["CONCACAF",  "Jeffrey Webb", {type: 'Basic', label: ''}],					// assumed
+		["Jeffrey Webb", "Co-Conspirator #2", {type: 'Basic', label: ''}],			// assumed
+		["Traffic USA", "Co-Conspirator #4", {type: 'Basic', label: ''}],			// assumed
+		["Soccer Uniform Company A", "Co-Conspirator #23", {type: 'Basic', label: ''}],
 
 		["Traffic USA", "CONCACAF", {type: 'Marketing', label: '$15,500,000'}],
-		["Traffic USA", "Jeffrey Webb; Co-Conspirators #2", {type: 'Kickback', label: '-'}],
-		["Traffic USA; Co-Conspirator #4", "Soccer Uniform Company A; Co-Conspirator #23", {type: 'Kickback', label: '$1,100,000'}],
 		["Traffic USA", "CONCACAF", {type: 'Marketing', label: '$60,000,000'}],
-		["Traffic USA; Co-Conspirator #4", "Soccer Uniform Company A; Co-Conspirator #23", {type: 'Kickback', label: '$2,000,000'}],
+		["CONCACAF", "Jeffrey Webb", {type: 'Marketing', label: '$15,500,000'}],
+		["CONCACAF", "Jeffrey Webb", {type: 'Marketing', label: '$60,000,000'}],
+		["Traffic USA", "Jeffrey Webb", {type: 'Kickback', label: '-'}],
+		["Traffic USA", "Soccer Uniform Company A", {type: 'Kickback', label: '$1,100,000'}],  //; Co-Conspirator #23 for TO
+		["Traffic USA", "Soccer Uniform Company A", {type: 'Kickback', label: '$2,000,000'}],  //
 	]
 };
 
