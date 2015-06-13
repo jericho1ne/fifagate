@@ -67,12 +67,12 @@ var schemeC = {
 		["Sports Mkt Co A", "Grupo Sartander",	{type: 'Marketing', label: '$40,000,000'}],
 		["Bridgestone", "Nicolas Leoz",      	{type: 'Marketing', label: '$57,000,000'}],
 		["Sports Mkt Co A", "Nicolas Leoz",   	{type: 'Marketing', label: '$56,100,000'}],
-		["Co-Conspirator #5", "CONMEBOL",     	{type: 'Kickback', label: '$2,000,000 USD'}],
-		["Co-Conspirator #5", "CONMEBOL",     	{type: 'Kickback', label: '$400,000 USD'}],
-		["Co-Conspirator #5", "CONMEBOL",     	{type: 'Kickback', label: '$400,000 USD'}],
-		["Co-Conspirator #5", "CONMEBOL",     	{type: 'Kickback', label: '$400,000 USD'}],
-		["Co-Conspirator #5", "CONMEBOL",     	{type: 'Kickback', label: '$400,000 USD'}],
-		["Co-Conspirator #5", "CONMEBOL",     	{type: 'Kickback', label: '$400,000 USD'}],
+		["Co-Conspirator #5", "CONMEBOL",     	{type: 'Kickback', label: '$2,000,000'}],
+		["Co-Conspirator #5", "CONMEBOL",     	{type: 'Kickback', label: '$400,000'}],
+		["Co-Conspirator #5", "CONMEBOL",     	{type: 'Kickback', label: '$400,000'}],
+		["Co-Conspirator #5", "CONMEBOL",     	{type: 'Kickback', label: '$400,000'}],
+		["Co-Conspirator #5", "CONMEBOL",     	{type: 'Kickback', label: '$400,000'}],
+		["Co-Conspirator #5", "CONMEBOL",     	{type: 'Kickback', label: '$400,000'}],
 	]
 };
 

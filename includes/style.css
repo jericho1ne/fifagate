@@ -20,7 +20,7 @@ body {
 	border-bottom: 2px solid #020710;
 	vertical-align: center;
 	margin: 0px;
-	padding: 0px;
+	padding: 20 0 0 10px;
 	padding-left: 10px;
  	width: 100%;
 }
@@ -36,7 +36,7 @@ body {
 }
 
 .buttonbar {
-	padding: 4px;
+	padding: 20 0 10 4px;
 	margin-top: 12px;
 	margin-bottom: 12px;
 }

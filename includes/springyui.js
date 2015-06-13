@@ -30,8 +30,8 @@ jQuery.fn.makeItSpringy = function(params) {
 	var nodeFont = "24px Open Sans, sans-serif";
 	var edgeFont = "12px Open Sans, sans-serif";
 	var stiffness = params.stiffness || 500.0;
-	var repulsion = params.repulsion || 50.0;
-	var damping = params.damping || 0.25;
+	var repulsion = params.repulsion || 65.0;
+	var damping = params.damping || 0.15;
 	var minEnergyThreshold = params.minEnergyThreshold || 0.0001;
 	var nodeSelected = params.nodeSelected || null;
 	var nodeImages = {};
@@ -124,6 +124,12 @@ jQuery.fn.makeItSpringy = function(params) {
 		dragged = null;
 	});
 
+
+	//=================================================================================
+	//
+	//		getTextWidth
+	//
+	//=================================================================================
 	var getTextWidth = function(node) {
 		var text = (node.data.label !== undefined) ? node.data.label : node.id;
 		if (node._width && node._width[text])
@@ -144,7 +150,11 @@ jQuery.fn.makeItSpringy = function(params) {
 		return width;
 	};
 
-	// ============================ FONT SIZE
+	//=================================================================================
+	//
+	//		getTextHeight (affects font size)
+	//
+	//=================================================================================
 	var getTextHeight = function(node) {
 		var textHeight = 22;
 
@@ -163,16 +173,31 @@ jQuery.fn.makeItSpringy = function(params) {
 		// If you change the font size, I'd adjust this too.
 	};
 
+	//=================================================================================
+	//
+	//		getImageWidth
+	//
+	//=================================================================================
 	var getImageWidth = function(node) {
 		var width = (node.data.image.width !== undefined) ? node.data.image.width : nodeImages[node.data.image.src].object.width;
 		return width;
 	}
 
+	//=================================================================================
+	//
+	//		getImageHeight
+	//
+	//=================================================================================
 	var getImageHeight = function(node) {
 		var height = (node.data.image.height !== undefined) ? node.data.image.height : nodeImages[node.data.image.src].object.height;
 		return height;
 	}
 
+	//=================================================================================
+	//
+	//		Node.prototype.getHeight
+	//
+	//=================================================================================
 	Springy.Node.prototype.getHeight = function() {
 		var height;
 		
@@ -190,9 +215,13 @@ jQuery.fn.makeItSpringy = function(params) {
 		return height;
 	}
 
+	//=================================================================================
+	//
+	//		Node.prototype.getWidth
+	//
+	//=================================================================================
 	Springy.Node.prototype.getWidth = function() {
 		var width;
-
 
 		// if working with text boxes
 		if (this.data.image == undefined) {
@@ -213,15 +242,22 @@ jQuery.fn.makeItSpringy = function(params) {
 		return width;
 	}
 
+	//=================================================================================
+	//
+	//		Springy.Renderer
+	//
+	//=================================================================================
 	var renderer = this.renderer = new Springy.Renderer(layout,
 		function clear() {
 			ctx = canvas.getContext("2d");
 			ctx.clearRect(0,0,canvas.width,canvas.height);
 		},
 
-		//***************************************************
-		//	drawEdge
-		//***************************************************
+		//=================================================================================
+		//
+		//		Springy.drawEdge
+		//
+		//=================================================================================
 		function drawEdge(edge, p1, p2) {
 			var x1 = toScreen(p1).x;
 			var y1 = toScreen(p1).y;
@@ -247,18 +283,14 @@ jQuery.fn.makeItSpringy = function(params) {
 			// Space out edge text to avoid overlaps
 			var spacing = 22.0;
 
-			// Figure out how far off center the line should be drawn
-			var offset = normal.multiply(-((total - 1) * spacing)/2.0 + (n * spacing));
-
+			//============================= HOW FAR OFF NODE CENTER TO DRAW THE VECTOR / EDGE
+			var offset = normal.multiply(-((total - 1) * spacing)/3.0 + (n * spacing));
 			//========================================================================== Node spacing/diameter
-			var paddingX = 10;
-			var paddingY = 10;
-
 			var s1 = toScreen(p1).add(offset);
 			var s2 = toScreen(p2).add(offset);
 
-			var boxWidth = edge.target.getWidth() + paddingX;
-			var boxHeight = edge.target.getHeight() + paddingY;
+			var boxWidth = edge.target.getWidth();
+			var boxHeight = edge.target.getHeight();
 
 			var intersection = intersect_line_box(s1, s2, {x: x2-boxWidth/2.0, y: y2-boxHeight/2.0}, boxWidth, boxHeight);
 
@@ -267,9 +299,9 @@ jQuery.fn.makeItSpringy = function(params) {
 			}
 
 
-			// =================== EDGE COLOR
-			// Default: dk gray
-			var stroke = fontColor= '#333333';
+			// =================== EDGE COLOR =================
+			// Default edge color: dk gray
+			var stroke = fontColor= 'rgba(60, 60, 60, 0.65)';
 
 			// ============================ FONT COLOR ================================
 			if (edge.data.type !== undefined) {
@@ -293,8 +325,22 @@ jQuery.fn.makeItSpringy = function(params) {
 			// ============================ EDGE WEIGHT + ARROW STYLING ===============
 			var arrowTipWidth;
 			var arrowTipLength;
-			var edgeThickness = 3.25;
 
+			// SET EDGE THICKNESS
+			var edgeThickness = 0.5;
+			var labelText = edge.data.label;
+
+			// currency > int conversion
+			var labelTextInt = Number(labelText.replace(/[^0-9\.]+/g,""));
+
+			// normalize amounts
+			if (labelTextInt >= 0 && labelTextInt < 50000) 					edgeThickness = 1.5; 
+			else if (labelTextInt >= 50000 && labelTextInt < 500000) 		edgeThickness = 2.25;
+			else if (labelTextInt >= 500000 && labelTextInt < 1000000)		edgeThickness = 4.25;
+			else if (labelTextInt >= 1000000 && labelTextInt < 5000000)		edgeThickness = 6.25;
+			else if (labelTextInt >= 5000000 && labelTextInt < 10000000)	edgeThickness = 8.25;
+			else if (labelTextInt >= 10000000 && labelTextInt < 50000000)	edgeThickness = 10.25;
+			else if (labelTextInt >= 50000000)								edgeThickness = 14.25;
 
 			var weight = (edge.data.weight !== undefined) ? edge.data.weight : 1.0;
 
@@ -319,9 +365,13 @@ jQuery.fn.makeItSpringy = function(params) {
 
 			ctx.strokeStyle = stroke;
 			ctx.beginPath();
+
+			var edgePadX = 20;
+			var edgePadY = 20;
+
 			ctx.moveTo(s1.x, s1.y);
 			ctx.lineTo(lineEnd.x, lineEnd.y);
-			//ctx.lineCap = 'butt';
+			ctx.lineCap = 'round';
 			ctx.stroke();
 
 			// arrow
@@ -340,7 +390,7 @@ jQuery.fn.makeItSpringy = function(params) {
 				ctx.restore();
 			}
 
-			// label
+			// ============================== EDGE LABEL ($ AMOUNT)
 			if (edge.data.label !== undefined) {
 				text = edge.data.label
 				ctx.save();
@@ -369,9 +419,11 @@ jQuery.fn.makeItSpringy = function(params) {
 
 		},
 
-		//***************************************************
-		//	drawNode
-		//***************************************************
+		//=================================================================================
+		//
+		//		Springy.drawNode
+		//
+		//=================================================================================
 		function drawNode(node, p) {
 			var s = toScreen(p);
 
@@ -384,20 +436,25 @@ jQuery.fn.makeItSpringy = function(params) {
 
 			var contentWidth = node.getWidth();
 			var contentHeight = node.getHeight();
-			var boxWidth = contentWidth + paddingX;
+			var boxWidth = contentWidth + paddingX ;
 			var boxHeight = contentHeight + paddingY;
 
 			// Add a fill behding node text
 			// ctx.clearRect(s.x - boxWidth/2, s.y - boxHeight/2, boxWidth, boxHeight);
 
 			// ============ NODE FILL BACKGROUND COLOR =====================================
+			
+			// Not selected case
 			if (selected !== null && selected.node !== null && selected.node.id === node.id) {
-				ctx.fillStyle = "#FFFFE0";
-			} else if (nearest !== null && nearest.node !== null && nearest.node.id === node.id) {
-				ctx.fillStyle = "#EEEEEE";
-			} else {
-				ctx.fillStyle = "#FFFFFF";
+				ctx.fillStyle = 'rgba(255, 123, 0, 0.85)';
+			} 
+			else if (nearest !== null && nearest.node !== null && nearest.node.id === node.id) {
+				ctx.fillStyle = 'rgba(200, 200, 200, 0.55)';
+			} 
+			else {
+				ctx.fillStyle = 'rgba(200, 200, 200, 0.25)';
 			}
+			
 			// ctx.fillRect(s.x - boxWidth/2, s.y - boxHeight/2, boxWidth, boxHeight);
 
 			if (node.data.image == undefined) {
@@ -430,34 +487,36 @@ jQuery.fn.makeItSpringy = function(params) {
 					}
 				}
 
-				// console.log(" >> image : " + node.data.image);
+				//console.log(" >> image : " + node.data.image);
 				//console.log("   >> content W / H : " + contentWidth + ', '+ contentHeight);
 				//console.log("   >> s.x / s.y : " + s.x + ', '+ s.y);
 				
+				// Draw background circle
+				var radius = 60;
 				
+				// Where to anchor the Actor to the Node
 				var anchorX = s.x - contentWidth/2;
 				var anchorY = s.y - contentHeight/2;
 
-				// Draw background circle
-				var radius = 30;
+				//============================================================= DRAW A BUBBLE! ++++++++++++++++
 				ctx.beginPath();
-			    ctx.arc(anchorX, anchorY, radius, 0, 2 * Math.PI, false);
+			    ctx.arc(anchorX + (radius/2), anchorY + 6, radius, 0, 2 * Math.PI, false);
 			    // ctx.fillStyle = '#eee';
-			    ctx.fillStyle = 'rgba(0,0,255,0.2)';
+			   // ctx.fillStyle = 'rgba(147, 147, 147, 0.25)';
 			    ctx.fill();
 			    ctx.lineWidth = 1;
 			    ctx.strokeStyle = '#333';
 			    ctx.stroke();
 			    
+			    // ======================================================== DISPLAY NODE TEXT ===============
 				ctx.fillStyle = nodeColor;
-				
 				var text = (node.data.label !== undefined) ? node.data.label : node.id;
 
 				// print text within at x,y position
 				ctx.fillText(text, anchorX, anchorY);
 			} 
 			else {
-				console.log( " NODE :: else" );
+				// console.log( " NODE :: else" );
 				// Currently we just ignore any labels if the image object is set. One might want to extend this logic to allow for both, or other composite nodes.
 				var src = node.data.image.src;  // There should probably be a sanity check here too, but un-src-ed images aren't exaclty a disaster.
 				if (src in nodeImages) {
