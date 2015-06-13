@@ -6,7 +6,7 @@
 <script src="includes/springyui.js"></script>
 <script src="includes/ui-functions.js"></script>
 
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,800' rel='stylesheet' type='text/css'>
+<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,800' rel='stylesheet' type='text/css'> -->
 <link rel="stylesheet" type="text/css" href="includes/style.css">
 
 <script>
@@ -103,8 +103,8 @@ jQuery(function(){
 	<div class="content">
 
 		<div id="title-bar">
-		  	<div class="textLG">FIFA Gate</div>
-		  	<div class="textMD">Payoff Flows 1998-2012</div>
+		  	<div class="textBanner">FIFA Gate</div>
+		  	<div class="textSubtitle">Payoff Flows 1998-2012</div>
 			  
 		  	<div class="buttonBar">
 			 	<button id="schemeA">Scheme A</button>
@@ -125,7 +125,16 @@ jQuery(function(){
 	</div>
 </div>
 <div class="container">
+	
 	<div class="content">
+	<div id="legend">
+		<span class="textHeader">LEGEND</span>
+		<ul>
+			<li><div id="Kickback"></div></li>
+			<li><div id="Marketing"></div></li>
+			<li><div id="Travel"></div></li>
+		</ul>
+	</div>
 		<canvas id="springydemo" width="1200" height="720" /></canvas>
 	</div>
 </div>

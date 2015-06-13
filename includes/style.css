@@ -13,6 +13,20 @@ body {
 	border-right: 3px solid #9DAEC1; */
 	
 }
+#legend {
+	z-index: 999;
+	position: absolute; /*newly added*/
+    left: 5px; /*newly added*/
+    top: 5px;
+	float: left;
+	text-align: left;
+	min-width: 180px; width: auto; height: auto;
+	opacity: 0.8;
+	padding: 20px; margin: 10px;
+	border: 1px solid #020710;
+	background-color: rgba(100,200,200, 0.15);
+	border-radius: 10px;
+}
 
 #title-bar {
 	z-index: 20;
@@ -25,14 +39,19 @@ body {
  	width: 100%;
 }
 
-.textLG  {
+.textBanner  {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 36px; font-weight: 800; 
 }
 
-.textMD  {
+.textSubtitle {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 18px; font-weight: 400;  line-height: 14px
+}
+
+.textHeader {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px; font-weight: 800;  line-height: 14px
 }
 
 .buttonbar {
@@ -44,6 +63,7 @@ body {
 	width: 100%;
 	padding: 0px;
 	margin: 0px;
+	position: relative;
 }
 
 button {
