@@ -5,7 +5,7 @@ body {
 	font-family: 'Open Sans', sans-serif; /*  font-weight: 400,600,800 */
 }
 #springydemo {
-	z-index: 1001;
+	z-index: 1000;
 	position:relative;
 	/* border-bottom: 3px solid #9DAEC1;
 	border-right: 3px solid #9DAEC1; */
@@ -17,7 +17,7 @@ body {
 	border-bottom: 1px solid #bbb;
 }
 #title-bar {
-	z-index: 1000;
+	z-index: 1001;
 	background-color: #efefef;
 	border-bottom: 1px solid #bbb;
 	vertical-align: center;
@@ -62,13 +62,13 @@ body {
 }
 
 #notepad {
-	z-index: 999;
+	z-index: 1001;
 	position: absolute; /*newly added*/
     right: 5px; /*newly added*/
     bottom: 5px;
 	float: left;
 	text-align: left;
-	max-width: 180px; width: auto; height: auto;
+	max-width: 210px; width: auto; height: auto;
 	opacity: 0.8;
 	padding: 10 10 4 10px; 
 	margin: 10px;
@@ -90,7 +90,7 @@ body {
 	padding: 10 10 4 10px; 
 	margin: 10px;
 	border: 1px solid #eee;
-	background-color: rgba(100,200,200, 0.15);
+	background-color: rgba(200,200,200, 0.25);
 	border-radius: 4px;
 }
 .legend-square {
@@ -117,12 +117,12 @@ ul {
 .legend-header {
 	text-transform: uppercase;
 	font-family: 'Open Sans', sans-serif;
-	font-size: 12px; font-weight: 800;
+	font-size: 11px; font-weight: 800;
 }	
 .legend-text {
 	text-transform: uppercase;
 	font-family: 'Open Sans', sans-serif;
-	font-size: 12px; font-weight: 400; 
+	font-size: 11px; font-weight: 400; 
 }
 
 /********************************************** 		
