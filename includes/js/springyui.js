@@ -35,7 +35,8 @@ jQuery.fn.makeItSpringy = function(params) {
 	
 
 	var edgeFont 	= "12px Open Sans, sans-serif";
-	var edgeFontLg	= "bold 16px Open Sans, sans-serif";
+	var edgeFontMd	= "bold 15px Open Sans, sans-serif";
+	var edgeFontLg	= "bold 20px Open Sans, sans-serif";
 	
 	var stiffness = params.stiffness || 800.0;
 	var repulsion = params.repulsion || 1185.0;
@@ -338,7 +339,7 @@ jQuery.fn.makeItSpringy = function(params) {
 
 			//================FONT COLOR /  EDGE TEXT / EDGE LABEL TEXT ============================ 
 			if (edge.data.type !== undefined) {	
-				//console.log(edge.data.type);
+				// console.log(edge.data.type);
 
 				// Color
 				stroke = fontColor = vectorTypes[edge.data.type].color;
@@ -559,9 +560,13 @@ jQuery.fn.makeItSpringy = function(params) {
 
  			ctx.font = edgeFont;  // edgeFont;
 		    
-		    if (node.id == "FIFA")
-		    	ctx.font = edgeFontLg;
-
+		    //============ CUSTOM FONT SIZE FOR Federations / FIFA
+		    if (node.data.type == "Federation") {
+		    	if (node.id == "FIFA")
+		    		ctx.font = edgeFontLg;
+				else 
+					ctx.font = edgeFontMd;
+			}
 
 		    ctx.lineWidth = 0.5;
 		    ctx.strokeStyle = 'rgba(200,200,200,0.15)';
@@ -574,8 +579,6 @@ jQuery.fn.makeItSpringy = function(params) {
 			
 			// only draw image if defined in array 
 			if (node.data.image !== undefined) {
-				//console.log(">???");
-				// console.log( " NODE :: else" );
 				// Currently we just ignore any labels if the image object is set. One might want to extend this logic to allow for both, or other composite nodes.
 				var src = node.data.image.src;  // There should probably be a sanity check here too, but un-src-ed images aren't exaclty a disaster.
 				if (src in nodeImages) {

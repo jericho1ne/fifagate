@@ -239,7 +239,7 @@ var schemeG = {
 		["FIFA", "FIFA high ranking individual", 	{type: 'Basic', label: ''}],	// implied
 
 		// Train tracks - not a kickback, it's DEVELOPMENT - more bening color YELLOW
-		["FIFA high ranking individual", "South Africa", {type: 'Development', label: '$10,000,000'}],
+		["FIFA high ranking individual", "South Africa", {type: 'Sports Development', label: '$10,000,000'}],
 		["FIFA high ranking individual", "CFU and CONCACAF", {type: 'Kickback', label: '$616,000'}],
 		["FIFA high ranking individual", "CFU and CONCACAF", {type: 'Kickback', label: '$1,600,000'}],
 		["FIFA high ranking individual", "CFU and CONCACAF", {type: 'Kickback', label: '$7,784,000'}],
