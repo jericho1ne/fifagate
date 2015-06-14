@@ -1,5 +1,4 @@
 <html>
-<title>Fifa Gate - Payoff Force Graph</title>
 <body>
 <script src="includes/js/jquery-1.11.3.min.js"></script>
 
@@ -103,19 +102,24 @@ jQuery(function(){
 	});
 
 
+	// Save canvas to image
+	$("#screenshot").click(function() {
+		// save image to div
+		//var dataURL = springydemo.toDataURL();
+		//var newDiv = document.createElement("div");
+		//document.getElementById('newDiv').src = dataURL;
+
+	
+		// open in new window
+		// window.open('', document.getElementById('springydemo').toDataURL());
+	});
 
 	// SIZING
 	//$('#springydemo').width('400');
 
 });
 
-	// Save canvas to image
-
-	/* 
-	var dataURL = springydemo.toDataURL();
-	var newDiv = document.createElement("div");
-	document.getElementById('newDiv').src = dataURL;
-	*/
+	
 
 
 </script>
@@ -139,6 +143,7 @@ jQuery(function(){
 				<button id="schemeJ">Scheme J</button>
 				<button id="schemeK">Scheme K</button>
 				<button id="schemeL">Scheme L</button>
+				<!-- <button id="screenshot">Take a Screenshot</button> -->
 			</div>
 		</div>
 		

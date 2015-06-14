@@ -495,11 +495,11 @@ jQuery.fn.makeItSpringy = function(params) {
 			if (selected !== null && selected.node !== null && selected.node.id === node.id) {
 				ctx.fillStyle = 'rgba(255, 123, 0, 0.65)';
 			} 
-			else if (nearest !== null && nearest.node !== null && nearest.node.id === node.id) {
-				ctx.fillStyle = 'rgba(200, 200, 200, 0.45)';
-			} 
+			//else if (nearest !== null && nearest.node !== null && nearest.node.id === node.id) {
+		//		ctx.fillStyle = 'rgba(200, 200, 200, 0.45)';
+	//		} 
 			else {
-				ctx.fillStyle = 'rgba(200, 200, 200, 0.25)';
+				ctx.fillStyle = 'rgba(200, 200, 200, 0.35)';
 			}
 			
 			// Old rectangular background
@@ -540,7 +540,7 @@ jQuery.fn.makeItSpringy = function(params) {
 
 			//console.log(" >> image : " + node.data.image);
 			//console.log("   >> content W / H : " + contentWidth + ', '+ contentHeight);
-			//console.log("   >> s.x / s.y : " + s.x + ', '+ s.y);
+			// console.log("   >> s.x / s.y : " + s.x + ', '+ s.y);
 			
 			// Draw background circle
 			var radius = 22;
@@ -552,21 +552,26 @@ jQuery.fn.makeItSpringy = function(params) {
 			//============================================================= DRAW A BUBBLE! ++++++++++++++++
 			ctx.beginPath();
 		    ctx.arc(anchorX, anchorY, radius, 0, 2 * Math.PI, false);
-		    // ctx.fillStyle = '#eee';
-		   // ctx.fillStyle = 'rgba(147, 147, 147, 0.25)';
+		    //ctx.fillStyle = '#eee';    // ctx.fillStyle = 'rgba(147, 147, 147, 0.25)';
 		    ctx.fill();
+		    
+		    // ======================================================== DISPLAY NODE TEXT ===============
 		    ctx.font = faFontLg;  // edgeFont;
 		    ctx.lineWidth = 0.5;
 		    ctx.strokeStyle = 'rgba(200,200,200,0.15)';
 		    ctx.stroke();
-		    
-		    // ======================================================== DISPLAY NODE TEXT ===============
-			ctx.fillStyle = nodeColor;
-		
-			// var text = (node.data.label !== undefined) ? node.data.label : node.id;
-
+		    ctx.fillStyle = nodeColor;
 			// print text within at x,y position
 			ctx.fillText(labelText, anchorX-11, anchorY-11);
+
+
+ 			ctx.font = edgeFont;  // edgeFont;
+		    ctx.lineWidth = 0.5;
+		    ctx.strokeStyle = 'rgba(200,200,200,0.15)';
+		    ctx.stroke();
+		    ctx.fillStyle = nodeColor;
+			// print NODE NAME within at x,y position
+			ctx.fillText(node.id, anchorX+16, anchorY-4)
 		
 			
 			// only draw image if defined in array 

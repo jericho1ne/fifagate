@@ -31,7 +31,7 @@ var actorTypes = {
 	},
 	'Corporation' : {
 		'icon' : 'fa-building-o',
-		'unicode': '\uf0f7f'
+		'unicode': '\uf0f7'
 	},
 	'Co-Conspirator': {
 		'icon'  : 'fa-user-secret', 	// 	fa-users
