@@ -301,12 +301,18 @@ var schemeI = {
 		["CFU members",			{type: 'FIFA Member', image: ''}],
 	],
 	"edges" : [
-		["FIFA",  "Jack Warner", {type: 'Basic', label: ''}],			// implied
-		["FIFA",  "CFU members", {type: 'Basic', label: ''}],			// implied
+		["FIFA",  "Jack Warner", 				{type: 'Basic', label: ''}],			// implied
+		["FIFA",  "CFU members", 				{type: 'Basic', label: ''}],			// implied
 
-		["Co-Conspirator #7", "Jack Warner", {type: 'Meeting/Travel', label: '$363,537.98'}],
-		["Jack Warner", "CFU members", {type: 'Kickback', label: '$40,000'}],
-		["Co-Conspirator #7", "Jack Warner", {type: 'Kickback', label: '$1,211,980'}],
+		["Co-Conspirator #7", "Jack Warner",	{type: 'Meeting/Travel', label: '$363,537.98'}],
+
+		["Jack Warner", "CFU members", 			{type: 'Kickback', label: '$40,000'}],
+		["Jack Warner", "CFU members", 			{type: 'Meeting/Travel', label: '$40,000'}],
+		["Jack Warner", "CFU members", 			{type: 'Kickback', label: '$40,000'}],
+		["Jack Warner", "CFU members", 			{type: 'Meeting/Travel', label: '$40,000'}],
+		["Jack Warner", "CFU members", 			{type: 'Kickback', label: '$40,000'}],
+		
+		["Co-Conspirator #7", "Jack Warner", 	{type: 'Kickback', label: '$1,211,980'}],
 	]
 };
 

@@ -103,8 +103,24 @@ jQuery.fn.makeItSpringy = function(params) {
 				nodeSelected(selected.node);
 			}
 		}
+		renderer.start();
+	});
+	// 
+	jQuery(canvas).mousemove(function(e) {
+		var pos = jQuery(this).offset();
+		var p = fromScreen({x: e.pageX - pos.left, y: e.pageY - pos.top});
+		nearest = layout.nearest(p);
+
+		if (dragged !== null && dragged.node !== null) {
+			dragged.point.p.x = p.x;
+			dragged.point.p.y = p.y;
+		}
 
 		renderer.start();
+	});
+	// 
+	jQuery(window).bind('mouseup',function(e) {
+		dragged = null;
 	});
 
 	//============== DOUBLE CLICK LISTENER =================
@@ -116,9 +132,9 @@ jQuery.fn.makeItSpringy = function(params) {
 
 		console.log( ' (+) dblclicked on ' + node.id );
 
-		if (node && node.data && node.data.ondoubleclick) {
-			node.data.ondoubleclick();
-		}
+		//if (node && node.data && node.data.ondoubleclick) {
+		//	node.data.ondoubleclick();
+		//}
 	});
 
 	//============== SINGLE CLICK LISTENER =================
@@ -137,29 +153,9 @@ jQuery.fn.makeItSpringy = function(params) {
 				$('#notepad').append('<hr>');
 				$('#notepad').append(node.data.notes);  
 			}
-			// console.log( ' (+) clicked ' + node.id );
-	
-
-			renderer.start();
 		}
 	);
 
-	jQuery(canvas).mousemove(function(e) {
-		var pos = jQuery(this).offset();
-		var p = fromScreen({x: e.pageX - pos.left, y: e.pageY - pos.top});
-		nearest = layout.nearest(p);
-
-		if (dragged !== null && dragged.node !== null) {
-			dragged.point.p.x = p.x;
-			dragged.point.p.y = p.y;
-		}
-
-		renderer.start();
-	});
-
-	jQuery(window).bind('mouseup',function(e) {
-		dragged = null;
-	});
 
 
 	//=================================================================================
