@@ -333,7 +333,7 @@ jQuery.fn.makeItSpringy = function(params) {
 
 			//================FONT COLOR /  EDGE TEXT / EDGE LABEL TEXT ============================ 
 			if (edge.data.type !== undefined) {	
-				// console.log(edge.data.type);
+				//console.log(edge.data.type);
 
 				// Color
 				stroke = fontColor = vectorTypes[edge.data.type].color;
@@ -341,7 +341,6 @@ jQuery.fn.makeItSpringy = function(params) {
 				// Connection Icon
 				labelText += vectorTypes[edge.data.type].unicode;
 			}
-
 
 			// ============================ EDGE WEIGHT + ARROW STYLING ===============
 			var arrowTipWidth;

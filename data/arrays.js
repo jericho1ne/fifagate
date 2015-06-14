@@ -11,8 +11,8 @@ var schemeA = {
 	"nodes": [
 		["FIFA", 					{type: 'Federation', image: ''}], 
 		["CONMEBOL Copa America", 	{type: 'Federation', image: ''}],
-		["Traffic Brazil",			{type: 'Marketing', image: ''}], 
-		["Traffic International",	{type: 'Marketing', image: ''}], 
+		["Traffic Brazil",			{type: 'Commercial', image: ''}], 
+		["Traffic International",	{type: 'Commercial', image: ''}], 
 		["Co-Conspirator #2",		{type: 'Co-Conspirator', image: ''}], 
 		["Co-Conspirator #9",		{type: 'Co-Conspirator', image: ''}], 
 		
@@ -78,7 +78,7 @@ var schemeB = {
   	"nodes": [
 		["FIFA",  				{type: 'Federation', image: ''}],
 		["CONCACAF",			{type: 'Federation', image: ''}],
-		["Traffic USA",			{type: 'Marketing', image: ''}],
+		["Traffic USA",			{type: 'Commercial', image: ''}],
 		["Co-Conspirator #1",	{type: 'Co-Conspirator', image: ''}],
 		["Jack Warner",			{type: 'FIFA Member', image: ''}],
 	],
@@ -130,11 +130,11 @@ var schemeC = {
 var schemeD = { 
   	"nodes": [
 		["FIFA", {type: 'Federation', image: ''}],	
-		["Traffic", {type: 'Marketing', image: ''}],
+		["Traffic", {type: 'Commercial', image: ''}],
 		// "Traffic Brazil",
 
 		["CBF", {type: 'Federation', image: ''}],	
-		["Sports Marketing Company B", {type: 'Marketing', image: ''}],
+		["Sports Marketing Company B", {type: 'Commercial', image: ''}],
 		["Co-Conspirator #6", {type: 'Co-Conspirator', image: ''}],
 		
 		["Co-Conspirator #2", {type: 'Co-Conspirator', image: ''}],
@@ -155,7 +155,7 @@ var schemeD = {
   		["Co-Conspirator #6", "Sports Marketing Company B",	{type: 'Basic', label: ''}],
 
 
-  		["Sports Marketing Company B", "Co-Conspirator #2", {type: 'Marketing', label: '- - - ? - - -'}],		// assumed
+  		["Sports Marketing Company B", "Co-Conspirator #2", {type: 'Marketing', label: '- - - ? - - -'}],		// implied
 
   		// SATELLETINE NODES no edge in the future
   		["Jose Maria Marin", "Co-Conspirator #11", {type: 'Basic', label: ''}],
@@ -175,18 +175,18 @@ var schemeE = {
 		["FIFA", 					{type: 'Federation', image: ''}],	
 		["Sportswear Company A", 	{type: 'Sportswear', image: ''}],	
 		["CBF", 					{type: 'Federation', image: ''}],	
-		["Traffic Brazil", 			{type: 'Marketing', image: ''}],	
+		["Traffic Brazil", 			{type: 'Commercial', image: ''}],	
 		["Co-Conspirator #2", 		{type: 'Co-Conspirator', image: ''}],	
 		["Co-Conspirator #11", 		{type: 'Co-Conspirator', image: ''}],	
   	],
 	"edges" : [
-		["FIFA","CBF", 	{type: 'Basic', label: ''}],		// assumed
+		["FIFA","CBF", 	{type: 'Basic', label: ''}],		// implied
 
 		// SATELLITE
-		["Co-Conspirator #2", "Traffic Brazil",  {type: 'Basic', label: ''}],		// assumed
+		["Co-Conspirator #2", "Traffic Brazil",  {type: 'Basic', label: ''}],		// implied
 
 		// SATELLITE!
-		["Co-Conspirator #11", "CBF", 			{type: 'Basic', label: ''}],		// assumed
+		["Co-Conspirator #11", "CBF", 			{type: 'Basic', label: ''}],		// implied
 
 		["Sportswear Company A", "CBF", {type: 'Marketing', label: '$160,000,000'}],
 		["Sportswear Company A", "Traffic Brazil", {type: 'Kickback', label: '$30,000,000'}],
@@ -198,16 +198,16 @@ var schemeE = {
 var schemeF = { 
 	"nodes" : [
 		["FIFA",			{type: 'Federation', image: ''}],
-		["Traffic USA",		{type: 'Marketing', image: ''}],
-		["Traffic",			{type: 'Marketing', image: ''}],
+		["Traffic USA",		{type: 'Commercial', image: ''}],
+		["Traffic",			{type: 'Commercial', image: ''}],
 		["CFU",				{type: 'Federation', image: ''}],
 		["Jack Warner",		{type: 'FIFA Member', image: ''}],
 	],
 	"edges" : [
-		["FIFA",  "CFU", {type: 'Basic', label: ''}],	// assumed
+		["FIFA",  "CFU", {type: 'Basic', label: ''}],	// implied
 
 		// put these close together
-		["CFU",  "Jack Warner", {type: 'Basic', label: ''}],	// assumed
+		["CFU",  "Jack Warner", {type: 'Basic', label: ''}],	// implied
 
 		["Traffic USA", "CFU", {type: 'Marketing', label: '$900,000'}],
 		["Traffic USA", "Jack Warner", {type: 'Kickback', label: '$800,000'}],
@@ -230,16 +230,16 @@ var schemeG = {
 		["Jack Warner",						{type: 'FIFA Member', image: ''}],
 	],
 	"edges" : [
-		["FIFA",  "Morocco", {type: 'Basic', label: ''}],			// assumed
-		["FIFA",  "CFU", {type: 'Basic', label: ''}],				// assumed
-		["FIFA",  "CFU and CONCACAF", {type: 'Basic', label: ''}],	// assumed
-		["FIFA",  "South Africa", {type: 'Basic', label: ''}],	// assumed
+		["FIFA",  "Morocco", {type: 'Basic', label: ''}],			// implied
+		["FIFA",  "CFU", {type: 'Basic', label: ''}],				// implied
+		["FIFA",  "CFU and CONCACAF", {type: 'Basic', label: ''}],	// implied
+		["FIFA",  "South Africa", {type: 'Basic', label: ''}],	// implied
 		
 		// FIFA Satellite
-		["FIFA", "FIFA high ranking individual", 	{type: 'Basic', label: ''}],	// assumed
+		["FIFA", "FIFA high ranking individual", 	{type: 'Basic', label: ''}],	// implied
 
 		// Train tracks - not a kickback, it's DEVELOPMENT - more bening color YELLOW
-		["FIFA high ranking individual", "South Africa", {type: 'Kickback', label: '$10,000,000'}],
+		["FIFA high ranking individual", "South Africa", {type: 'Development', label: '$10,000,000'}],
 		["FIFA high ranking individual", "CFU and CONCACAF", {type: 'Kickback', label: '$616,000'}],
 		["FIFA high ranking individual", "CFU and CONCACAF", {type: 'Kickback', label: '$1,600,000'}],
 		["FIFA high ranking individual", "CFU and CONCACAF", {type: 'Kickback', label: '$7,784,000'}],
@@ -260,23 +260,32 @@ var schemeG = {
 var schemeH = { 
 	"nodes" : [
 		["FIFA",							{type: 'Federation', image: ''}],
-		["Traffic USA",						{type: 'Marketing', image: ''}],
+		["Traffic USA",						{type: 'Commercial', image: ''}],
 		["Costa Rican Soccer Federation",	{type: 'Federation', image: ''}],
-		["Traffic; Co-Conspirator #4",		{type: 'Federation', image: ''}],
+		["Traffic",							{type: 'Commercial', image: ''}],
 		["Eduardo Li",						{type: 'FIFA Member', image: ''}],
 		["Nicaraguan Soccer Federation",	{type: 'Federation', image: ''}],
-		["Julio Rocha; Co-Conspirator #18",	{type: 'FIFA Member', image: ''}],
+		["Julio Rocha",						{type: 'FIFA Member', image: ''}],
+		["Co-Conspirator #18",				{type: 'FIFA Member', image: ''}],
+		["Co-Conspirator #4",				{type: 'Co-Conspirator', image: ''}],
+		["Co-Conspirator #19",				{type: 'Co-Conspirator', image: ''}],
 	],
 	"edges" : [
-		["FIFA",  "Costa Rican Soccer Federation", {type: 'Basic', label: ''}],			// assumed
-		["FIFA",  "Nicaraguan Soccer Federation", {type: 'Basic', label: ''}],			// assumed
-		["FIFA",  "Eduardo Li", {type: 'Basic', label: ''}],										// assumed
-		["FIFA",  "Julio Rocha; Co-Conspirator #18", {type: 'Basic', label: ''}],					// assumed
+		["FIFA",  "Costa Rican Soccer Federation", 			{type: 'Basic', label: ''}],	// implied
+		["FIFA",  "Nicaraguan Soccer Federation", 			{type: 'Basic', label: ''}],	// implied
+		["FIFA",  "Eduardo Li", 							{type: 'Basic', label: ''}],	// implied
+		["FIFA",  "Julio Rocha", 		{type: 'Basic', label: ''}],	// implied
 
-		["Traffic USA", "Costa Rican Soccer Federation", {type: 'Marketing', label: '$2,500,000'}],
-		["Traffic; Co-Conspirator #4", "Eduardo Li", {type: 'Kickback', label: ''}],
-		["Traffic USA", "Nicaraguan Soccer Federation", {type: 'Marketing', label: '$1,138,000'}],
-		["Traffic; Co-Conspirator #4", "Julio Rocha; Co-Conspirator #18", {type: 'Kickback', label: '$150,000'}],
+		["Traffic USA", "Costa Rican Soccer Federation", 	{type: 'Marketing', label: '~$2,500,000'}],
+		["Traffic USA", "Nicaraguan Soccer Federation", 	{type: 'Marketing', label: '~$1,138,000'}],
+
+		["Traffic", "Eduardo Li", 							{type: 'Kickback', label: ''}],
+		["Traffic", "Co-Conspirator #4", 					{type: 'Basic', label: ''}],	
+		
+		["Traffic", "Julio Rocha", 							{type: 'Kickback', label: '$150,000'}],
+		["Co-Conspirator #18", "Traffic", 					{type: 'Basic', label: ''}],
+		["Co-Conspirator #18", "Nicaraguan Soccer Federation", {type: 'Basic', label: ''}],
+		["Co-Conspirator #19", "Nicaraguan Soccer Federation", {type: 'Basic', label: ''}],
 	]
 };
 
@@ -289,8 +298,8 @@ var schemeI = {
 		["CFU members",			{type: 'FIFA Member', image: ''}],
 	],
 	"edges" : [
-		["FIFA",  "Jack Warner", {type: 'Basic', label: ''}],			// assumed
-		["FIFA",  "CFU members", {type: 'Basic', label: ''}],			// assumed
+		["FIFA",  "Jack Warner", {type: 'Basic', label: ''}],			// implied
+		["FIFA",  "CFU members", {type: 'Basic', label: ''}],			// implied
 
 		["Co-Conspirator #7", "Jack Warner", {type: 'Meeting/Travel', label: '$363,537.98'}],
 		["Jack Warner", "CFU members", {type: 'Kickback', label: '$40,000'}],
@@ -303,23 +312,23 @@ var schemeI = {
 var schemeJ = { 
 	"nodes" : [
 		["FIFA",			{type: 'Federation', image: ''}],
-		["Traffic USA",		{type: 'Marketing', image: ''}],
+		["Traffic USA",		{type: 'Commercial', image: ''}],
 		["CFU",				{type: 'Federation', image: ''}],
 		["Jeffrey Webb",	{type: 'FIFA Member', image: ''}],
-		["Sports Marketing Company C; Conspirator #13, Co-Conspirator #20, and Co-Conspirator #21",	{type: 'Marketing', image: ''}],
-		["Traffic USA; Co-Conspirator #4",	{type: 'Marketing', image: ''}],
+		["Sports Marketing Company C; Conspirator #13, Co-Conspirator #20, and Co-Conspirator #21",	{type: 'Commercial', image: ''}],
+		["Traffic USA; Co-Conspirator #4",	{type: 'Commercial', image: ''}],
 		["Front Company A",	{type: 'Bank', image: ''}],
 		["Costas Takkas",		{type: 'FIFA Member', image: ''}],
 		["Co-Conspirator #22",	{type: 'Co-Conspirator', image: ''}],
 		["Costas Takkas; Friend of Co-Conspirator #2",	{type: 'FIFA Member', image: ''}],
-		["Sports Marketing Company C",	{type: 'Marketing', image: ''}],
+		["Sports Marketing Company C",	{type: 'Commercial', image: ''}],
 		["?",	{type: 'Co-Conspirator', image: ''}],
 	],
 	"edges" : [
-		["FIFA",  "CFU", {type: 'Basic', label: ''}],					// assumed
-		["FIFA",  "Jeffrey Webb", {type: 'Basic', label: ''}],			// assumed
-		["FIFA",  "Costas Takkas", {type: 'Basic', label: ''}],			// assumed
-		["Traffic USA",  "Traffic USA; Co-Conspirator #4", {type: 'Basic', label: ''}],			// assumed
+		["FIFA",  "CFU", {type: 'Basic', label: ''}],					// implied
+		["FIFA",  "Jeffrey Webb", {type: 'Basic', label: ''}],			// implied
+		["FIFA",  "Costas Takkas", {type: 'Basic', label: ''}],			// implied
+		["Traffic USA",  "Traffic USA; Co-Conspirator #4", {type: 'Basic', label: ''}],			// implied
 
 		["Traffic USA", "CFU", {type: 'Marketing', label: '$23,000,000'}],
 		["Traffic USA", "Jeffrey Webb", {type: 'Kickback', label: '$3,000,000'}],
@@ -338,7 +347,7 @@ var schemeJ = {
 var schemeK = { 
 	"nodes" : [
 		["FIFA",					{type: 'Federation', image: ''}],
-		["Traffic USA",				{type: 'Marketing', image: ''}],
+		["Traffic USA",				{type: 'Commercial', image: ''}],
 		["CONCACAF",				{type: 'Federation', image: ''}],
 		["Jeffrey Webb",			{type: 'FIFA Member', image: ''}], 
 		["Co-Conspirator #2",		{type: 'Co-Conspirator', image: ''}],
@@ -349,11 +358,11 @@ var schemeK = {
 		["Soccer Uniform Company A", {type: 'Sportswear', image: ''}],//"Soccer Uniform Company A; Co-Conspirator #23",
 	],
 	"edges" : [
-		["FIFA",  "CONCACAF", {type: 'Basic', label: ''}],							// assumed
-		// ["CONCACAF",  "Jeffrey Webb", {type: 'Basic', label: ''}],					// assumed
-		["Jeffrey Webb", "Co-Conspirator #2", {type: 'Basic', label: ''}],			// assumed
-		// ["Traffic USA", "Co-Conspirator #4", {type: 'Basic', label: ''}],			// assumed
-		["CONCACAF", "Co-Conspirator #4", {type: 'Basic', label: ''}],			// assumed
+		["FIFA",  "CONCACAF", {type: 'Basic', label: ''}],							// implied
+		// ["CONCACAF",  "Jeffrey Webb", {type: 'Basic', label: ''}],					// implied
+		["Jeffrey Webb", "Co-Conspirator #2", {type: 'Basic', label: ''}],			// implied
+		// ["Traffic USA", "Co-Conspirator #4", {type: 'Basic', label: ''}],			// implied
+		["CONCACAF", "Co-Conspirator #4", {type: 'Basic', label: ''}],			// implied
 		["Soccer Uniform Company A", "Co-Conspirator #23", {type: 'Basic', label: ''}],
 
 		["Traffic USA", "CONCACAF", {type: 'Marketing', label: '$15,500,000'}],
@@ -372,9 +381,9 @@ var schemeL = {
 		["FIFA",					{type: 'Federation', image: ''}],
 		["Co-Conspirator #2",		{type: 'Co-Conspirator', image: ''}],	// (representing Traffic
 		["CONMEBOL",				{type: 'Federation', image: ''}],
-		["Datisan",					{type: 'Marketing', image: ''}],
+		["Datisan",					{type: 'Commercial', image: ''}],
 		["?",						{type: 'Co-Conspirator', image: ''}],		// ?? type ??
-		["Traffic International",	{type: 'Marketing', image: ''}],
+		["Traffic International",	{type: 'Commercial', image: ''}],
 		["Cross Trading",			{type: 'Bank', image: ''}],
 		["FTP (Tornes Affiliate)",	{type: 'Bank', image: ''}],
 		["CONMEBOL officials",		{type: 'FIFA Member', image: ''}],
@@ -386,10 +395,10 @@ var schemeL = {
 		["Jeffrey Webb",			{type: 'FIFA Member', image: ''}],
 	],
 	"edges" : [
-		["FIFA",  "CONMEBOL", {type: 'Basic', label: ''}],					// assumed
-		["FIFA",  "CONCACAF", {type: 'Basic', label: ''}],					// assumed
-		["CONMEBOL",  "Rafael Esquivel", {type: 'Basic', label: ''}],					// assumed
-		["Traffic International",  "Co-Conspirator #2", {type: 'Basic', label: ''}],					// assumed
+		["FIFA",  "CONMEBOL", {type: 'Basic', label: ''}],					// implied
+		["FIFA",  "CONCACAF", {type: 'Basic', label: ''}],					// implied
+		["CONMEBOL",  "Rafael Esquivel", {type: 'Basic', label: ''}],					// implied
+		["Traffic International",  "Co-Conspirator #2", {type: 'Basic', label: ''}],					// implied
 
 		["Co-Conspirator #2", "CONMEBOL", {type: 'Kickback', label: '$10,000,000'}],
 		["Datisan", "CONMEBOL", {type: 'Marketing', label: '$317,500,000'}],

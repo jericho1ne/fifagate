@@ -9,14 +9,19 @@ var actorTypes = {
  		'unicode': '\uf007',			
  		//'color': '#8A3E9D',
 	},
- 	'Marketing': {
+ 	/* 'Marketing': {
  		'icon' : 'fa-newspaper-o',
  		'unicode': '\uf1ea',
  		//'color': '#492A7F',
-	},
-	'Broadcasting': {
+	},*/
+	/* 'Broadcasting': {
 		'icon' : 'fa-video-camera',
 		'unicode': '\uf03d',
+ 		//'color': '#2A3778',
+	}, */
+	'Commercial': {
+		'icon' : 'fa-money',
+		'unicode': '\uf0d6',
  		//'color': '#2A3778',
 	},
 	'Bank': {
