@@ -25,65 +25,80 @@
 // onload, let it rip
 jQuery(function(){
 
-	// load legends
+	// Load legend
 	loadLegend();
 
-	
-	// 
+	// Graph init
 	var graph = new Springy.Graph();
 	
-	window.graph = graph;
-	graph.loadJSON(schemeA);
-
 	var springy = jQuery('#springydemo').makeItSpringy({
 		graph: graph
 	});
 
+
+	// Load A by default
+	graph.loadJSON(schemeA);
+	$("#schemeTitle").text("Scheme A");
+	
+
+	// Button click listeners
 	$("#schemeA").click(function() {
+		$("#schemeTitle").text("Scheme A");
 		graph.loadJSON(schemeA);
 	});
 
 	$("#schemeB").click(function() {
+		$("#schemeTitle").text("Scheme B");
 		graph.loadJSON(schemeB);
 	});
 	
 	$("#schemeC").click(function() {
+		$("#schemeTitle").text("Scheme C");
 		graph.loadJSON(schemeC);
 	});
 	
 	$("#schemeD").click(function() {
+		$("#schemeTitle").text("Scheme D");
 		graph.loadJSON(schemeD);
 	});
 
 	$("#schemeE").click(function() {
+		$("#schemeTitle").text("Scheme E");
 		graph.loadJSON(schemeE);
 	});
 	
 	$("#schemeF").click(function() {
+		$("#schemeTitle").text("Scheme F");
 		graph.loadJSON(schemeF);
 	});
 
 	$("#schemeG").click(function() {
+		$("#schemeTitle").text("Scheme G");
 		graph.loadJSON(schemeG);
 	});
 	
 	$("#schemeH").click(function() {
+		$("#schemeTitle").text("Scheme H");
 		graph.loadJSON(schemeH);
 	});
 
 	$("#schemeI").click(function() {
+		$("#schemeTitle").text("Scheme I");
 		graph.loadJSON(schemeI);
 	});
 	
 	$("#schemeJ").click(function() {
+		$("#schemeTitle").text("Scheme J");
 		graph.loadJSON(schemeJ);
 	});
 
 	$("#schemeK").click(function() {
+		$("#schemeTitle").text("Scheme K");
 		graph.loadJSON(schemeK);
 	});
 	
 	$("#schemeL").click(function() {
+		$("#schemeTitle").text("Scheme L");
 		graph.loadJSON(schemeL);
 	});
 
@@ -139,6 +154,10 @@ jQuery(function(){
 			<span class="legend-header">Connections</span>
 			<ul id="vectorsLegend" class="legend"></ul>
 		</div>
+
+		<!-- Changes on the fly to display relavant info-->
+		<div id="schemeTitle"></div>
+		<div id="notepad"></div>
 
 		<div id="canvas-outer">
 			<canvas id="springydemo" width="1200" height="820" /></canvas>

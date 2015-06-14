@@ -45,8 +45,41 @@ body {
 /********************************************** 		
 		LEGEND AND RELATED STYLES
 ***********************************************/
-#legend {
+#schemeTitle {
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px; font-weight: 400;
 	z-index: 999;
+	position: absolute; /*newly added*/
+    right: 5px; /*newly added*/
+    top: 5px;
+	float: left;
+	text-align: left;
+	width: auto; height: auto;
+	opacity: 0.8;
+	padding: 10 10 4 10px; 
+	margin: 10px;
+}
+
+#notepad {
+	display: hidden;
+	z-index: 999;
+	position: absolute; /*newly added*/
+    right: 5px; /*newly added*/
+    bottom: 5px;
+	float: left;
+	text-align: left;
+	min-width: 280px; width: auto; height: auto;
+	opacity: 0.8;
+	padding: 10 10 4 10px; 
+	margin: 10px;
+	border: 1px solid #eee;
+	background-color: rgba(100,200,200, 0.15);
+	border-radius: 4px;
+}
+
+#legend {
+	z-index: 998;
 	position: absolute; /*newly added*/
     left: 5px; /*newly added*/
     top: 5px;

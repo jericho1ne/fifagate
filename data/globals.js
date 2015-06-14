@@ -42,7 +42,7 @@ var actorTypes = {
 
 
 var vectorTypes = {
-	'Basic Connection' : { 
+	'Basic' : { 
 		'icon'  : 'fa-link', 
 		'unicode': '\uf0c1',	
 		'color' : '#777777' 
@@ -65,7 +65,7 @@ var vectorTypes = {
 	'Offered Bribe' : { 
 		'icon'  : 'fa-briefcase',
 		'unicode': '\uf0b1', 	
-		'color' : '#ccff33'
+		'color' : '#d1cb23'
 	}, 
 	'Development' : { 
 		'icon'  : 'fa-wrench',

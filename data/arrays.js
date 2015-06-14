@@ -245,7 +245,7 @@ var schemeG = {
 		["FIFA high ranking individual", "CFU and CONCACAF", {type: 'Kickback', label: '$7,784,000'}],
 
 		// CHANGE TYPE TO OFFERED BRIBE - horizontal slashes or dots
-		["Morocco", "Co-Conspirator #1", {type: 'Offer', label: '$1,000,000'}],
+		["Morocco", "Co-Conspirator #1", {type: 'Offered Bribe', label: '$1,000,000'}],
 		["South Africa", "CFU", {type: 'Kickback', label: '-'}],
 
 		["CFU", "Jack Warner", {type: 'Kickback', label: '$200,000'}],
@@ -292,7 +292,7 @@ var schemeI = {
 		["FIFA",  "Jack Warner", {type: 'Basic', label: ''}],			// assumed
 		["FIFA",  "CFU members", {type: 'Basic', label: ''}],			// assumed
 
-		["Co-Conspirator #7", "Jack Warner", {type: 'Meeting Travel', label: '$363,537.98'}],
+		["Co-Conspirator #7", "Jack Warner", {type: 'Meeting/Travel', label: '$363,537.98'}],
 		["Jack Warner", "CFU members", {type: 'Kickback', label: '$40,000'}],
 		["Co-Conspirator #7", "Jack Warner", {type: 'Kickback', label: '$1,211,980'}],
 	]
@@ -378,7 +378,7 @@ var schemeL = {
 		["Cross Trading",			{type: 'Bank', image: ''}],
 		["FTP (Tornes Affiliate)",	{type: 'Bank', image: ''}],
 		["CONMEBOL officials",		{type: 'FIFA Member', image: ''}],
-		["Bayan Group S.A.",		{type: 'Bang', image: ''}],
+		["Bayan Group S.A.",		{type: 'Bank', image: ''}],
 		["Rafael Esquivel",			{type: 'FIFA Member', image: ''}],
 		["Jose Margulies",			{type: 'FIFA Member', image: '', notes: 'Margulies Intermediaries'}],			 
 		["Bayan Account controlled by Rafael Esquivel",	{type: 'Bank', image: ''}],		// bank or fifa member here?

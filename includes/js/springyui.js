@@ -332,54 +332,26 @@ jQuery.fn.makeItSpringy = function(params) {
 			// =================== EDGE COLOR =================
 			// Default edge color: dk gray
 			var stroke = fontColor= 'rgba(60, 60, 60, 0.65)';
+			var labelText = '';
 
-			// ============================ FONT COLOR ================================
-			if (edge.data.type !== undefined) {
-				switch(edge.data.type) {
-					case 'Marketing':
-						stroke = fontColor = vectorTypes['Marketing'].color;
-						break;
-					case 'Kickback':
-						stroke = fontColor = vectorTypes['Kickback'].color;
-						break;
-					case 'Meeting Travel':
-						stroke = fontColor = vectorTypes['Meeting/Travel'].color;
-						break;
-					default:
-						// default value already set outside switch
-				}
+			//================FONT COLOR /  EDGE TEXT / EDGE LABEL TEXT ============================ 
+			if (edge.data.type !== undefined) {	
+				// console.log(edge.data.type);
 
+				// Color
+				stroke = fontColor = vectorTypes[edge.data.type].color;
+			
+				// Connection Icon
+				labelText += vectorTypes[edge.data.type].unicode;
 			}
 
-			
+
 			// ============================ EDGE WEIGHT + ARROW STYLING ===============
 			var arrowTipWidth;
 			var arrowTipLength;
 
 			// SET EDGE THICKNESS
-			var edgeThickness = 0.5;
-			
-
-			//================ EDGE TEXT / EDGE LABEL TEXT ============================ 
-			var labelText = '';
-
-			// choose appropriate connection icon
-			switch(edge.data.type) {
-				case 'Basic':
-					labelText += vectorTypes['Basic Connection'].unicode;
-					break;
-				case 'Marketing':
-					labelText += vectorTypes['Marketing'].unicode;
-					break;
-				case 'Kickback':
-					labelText += vectorTypes['Kickback'].unicode;
-					break;
-				case 'Meeting/Travel':
-					labelText += vectorTypes['Meeting/Travel'].unicode;
-					break;
-				default:
-					// default value already set outside switch
-			}
+			var edgeThickness = 0.5;			
 			
 			labelText += ' ' + edge.data.label;
 			
@@ -571,11 +543,11 @@ jQuery.fn.makeItSpringy = function(params) {
 			//console.log("   >> s.x / s.y : " + s.x + ', '+ s.y);
 			
 			// Draw background circle
-			var radius = 26;
+			var radius = 22;
 			
 			// ============================ Where to anchor the Actor to the Node
-			var anchorX = s.x - contentWidth/2 + 10;
-			var anchorY = s.y - contentHeight/2 + 10;
+			var anchorX = s.x - contentWidth/2 + 11;
+			var anchorY = s.y - contentHeight/2 + 11;
 
 			//============================================================= DRAW A BUBBLE! ++++++++++++++++
 			ctx.beginPath();
@@ -591,7 +563,7 @@ jQuery.fn.makeItSpringy = function(params) {
 		    // ======================================================== DISPLAY NODE TEXT ===============
 			ctx.fillStyle = nodeColor;
 		
-			var text = (node.data.label !== undefined) ? node.data.label : node.id;
+			// var text = (node.data.label !== undefined) ? node.data.label : node.id;
 
 			// print text within at x,y position
 			ctx.fillText(labelText, anchorX-11, anchorY-11);
