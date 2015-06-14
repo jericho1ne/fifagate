@@ -296,7 +296,7 @@ var schemeH = {
 var schemeI = { 
 	"nodes" : [
 		["FIFA",				{type: 'Federation', image: ''}],
-		["Co-Conspirator #7",	{type: 'Co-Conspirator', image: ''}],
+		["Co-Conspirator #7",	{type: 'FIFA Member', image: '', notes:'Mohamed Bin Hamman'}],
 		["Jack Warner",			{type: 'FIFA Member', image: ''}],
 		["CFU members",			{type: 'FIFA Member', image: ''}],
 	],

@@ -12,14 +12,14 @@ body {
 	
 }
 #canvas-outer {
-	border-left: 1px solid gray;
-	border-right: 1px solid gray;
-	border-bottom: 1px solid gray;
+	border-left: 1px solid #bbb;
+	border-right: 1px solid #bbb;
+	border-bottom: 1px solid #bbb;
 }
 #title-bar {
 	z-index: 1000;
 	background-color: #efefef;
-	border-bottom: 1px solid #333;
+	border-bottom: 1px solid #bbb;
 	vertical-align: center;
 	margin: 0px;
 	padding: 20 0 0 10px;
@@ -33,10 +33,10 @@ body {
 	position: relative;
 }
 .content {
-	width: 1200px;
+	width: 800px;
 	overflow: hidden;
 	position: relative;
-	text-align:center;
+	text-align: center;
 	margin-left: auto; margin-right: auto;
 	padding: 0px;
 	margin: 0px;
@@ -62,20 +62,20 @@ body {
 }
 
 #notepad {
-	display: hidden;
 	z-index: 999;
 	position: absolute; /*newly added*/
     right: 5px; /*newly added*/
     bottom: 5px;
 	float: left;
 	text-align: left;
-	min-width: 280px; width: auto; height: auto;
+	max-width: 180px; width: auto; height: auto;
 	opacity: 0.8;
 	padding: 10 10 4 10px; 
 	margin: 10px;
-	border: 1px solid #eee;
-	background-color: rgba(100,200,200, 0.15);
-	border-radius: 4px;
+	/* background-color: rgba(100,200,200, 0.15); */
+
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px; font-weight: 400; 
 }
 
 #legend {
@@ -85,7 +85,7 @@ body {
     top: 5px;
 	float: left;
 	text-align: left;
-	min-width: 180px; width: auto; height: auto;
+	min-width: 120px; width: auto; height: auto;
 	opacity: 0.8;
 	padding: 10 10 4 10px; 
 	margin: 10px;
@@ -130,14 +130,16 @@ ul {
 ***********************************************/
 button {
 	padding: 6px;
-	font-size: 12px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px; font-weight: 400; 
+	font-size: 10px;
 	font-weight: 600;
 	border-radius: 5px;
 	background-color: #FFF;
 	border: 1px solid #333;
 }
 .buttonbar {
-	padding: 20 0 10 4px;
+	padding: 10 16 10 4px;
 	margin-top: 12px;
 	margin-bottom: 12px;
 }
@@ -146,6 +148,11 @@ button {
 	font-size: 36px; font-weight: 800; 
 }
 .textSubtitle {
+	display: block;
 	font-family: 'Open Sans', sans-serif;
-	font-size: 18px; font-weight: 400;  line-height: 14px
+	font-size: 18px; font-weight: 400;  line-height: 14px;
+}
+hr {
+	border: 1px;
+	background: #333;
 }

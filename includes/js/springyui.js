@@ -39,7 +39,7 @@ jQuery.fn.makeItSpringy = function(params) {
 	var stiffness = params.stiffness || 800.0;
 	var repulsion = params.repulsion || 85.0;
 	var damping = params.damping || 0.15;
-	var minEnergyThreshold = params.minEnergyThreshold || 0.0001;
+	var minEnergyThreshold = params.minEnergyThreshold || 0.00001;
 	
 	var nodeSelected = params.nodeSelected || null;
 	var nodeImages = {};
@@ -121,6 +121,7 @@ jQuery.fn.makeItSpringy = function(params) {
 		}
 	});
 
+	//============== SINGLE CLICK LISTENER =================
 	jQuery(canvas).click(
 		// TODO: toggle info window on / off
 		function(e) {
@@ -128,8 +129,16 @@ jQuery.fn.makeItSpringy = function(params) {
 			var p = fromScreen({x: e.pageX - pos.left, y: e.pageY - pos.top});
 			nearest = layout.nearest(p);
 			node = selected.node;
-			console.log( ' (+) clicked ' + node.id );
-		
+			
+			// take the following UI action
+			$('#notepad').html('<div class="legend-header">'+node.id + '</div>');
+
+			if (node.data.notes !== undefined) {
+				$('#notepad').append('<hr>');
+				$('#notepad').append(node.data.notes);  
+			}
+			// console.log( ' (+) clicked ' + node.id );
+	
 
 			renderer.start();
 		}
@@ -529,8 +538,9 @@ jQuery.fn.makeItSpringy = function(params) {
 
 			// override for special cases
 			if (node.data.type=="Co-Conspirator") {
-			    ctx.font = faFontMd; 
-			    radius = 1;	
+			    radius = 16;	
+			    ctx.font = faFontMd;
+			    ctx.fillStyle = 'rgba(255,255,255,0.02)'; 
 			}
 
 			
