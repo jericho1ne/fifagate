@@ -320,36 +320,49 @@ var schemeI = {
 // NEEDS CLEANUP - Should Company A remain a bank (Hong Kong)??
 var schemeJ = { 
 	"nodes" : [
-		["FIFA",			{type: 'Federation', image: ''}],
-		["Traffic USA",		{type: 'Commercial', image: ''}],
-		["CFU",				{type: 'Federation', image: ''}],
-		["Jeffrey Webb",	{type: 'FIFA Member', image: ''}],
-		["Sports Marketing Company C; Conspirator #13, Co-Conspirator #20, and Co-Conspirator #21",	{type: 'Commercial', image: ''}],
-		["Traffic USA; Co-Conspirator #4",	{type: 'Commercial', image: ''}],
-		["Front Company A",	{type: 'Bank', image: ''}],
-		["Costas Takkas",		{type: 'FIFA Member', image: ''}],
-		["Co-Conspirator #22",	{type: 'Co-Conspirator', image: ''}],
-		["Costas Takkas; Friend of Co-Conspirator #2",	{type: 'FIFA Member', image: ''}],
+		["FIFA",						{type: 'Federation', image: ''}],
+		["Traffic USA",					{type: 'Commercial', image: ''}],
+		["CFU",							{type: 'Federation', image: ''}],
+		["Jeffrey Webb",				{type: 'FIFA Member', image: '', notes: 'Received swimming pool & realty payoffs from Takkas, plus hefty bribe for commercial rights for CFU 2018 and 2022 World Cup qualifiers.'}],
+
 		["Sports Marketing Company C",	{type: 'Commercial', image: ''}],
-		["?",	{type: 'Co-Conspirator', image: ''}],
+		["Conspirator #13", 			{type: 'Co-Conspirator', image: ''}],
+		["Conspirator #20", 			{type: 'Co-Conspirator', image: ''}],
+		["Conspirator #21", 			{type: 'Co-Conspirator', image: ''}],
+
+		["Front Company A",				{type: 'Bank', image: ''}],
+		["Costas Takkas",				{type: 'FIFA Member', image: '', notes:'Also includes the "Unknown Co-Conspirator", an acquaintance of Takkas\'.'}],
+		["Co-Conspirator #4",			{type: 'Co-Conspirator', image: ''}],
+		["Co-Conspirator #22",			{type: 'Co-Conspirator', image: ''}],
+		["Friend of Co-Conspirator #2",	{type: 'Co-Conspirator', image: ''}],
+		["Sports Marketing Company C",	{type: 'Commercial', image: ''}],
 	],
 	"edges" : [
-		["FIFA",  "CFU", {type: 'Basic', label: ''}],					// implied
-		["FIFA",  "Jeffrey Webb", {type: 'Basic', label: ''}],			// implied
-		["FIFA",  "Costas Takkas", {type: 'Basic', label: ''}],			// implied
-		["Traffic USA",  "Traffic USA; Co-Conspirator #4", {type: 'Basic', label: ''}],			// implied
+		["FIFA", "CFU", 							{type: 'Basic', label: ''}],					// implied
+		["CFU", "Jeffrey Webb", 					{type: 'Basic', label: ''}],			// implied
+		["FIFA", "Costas Takkas", 					{type: 'Basic', label: ''}],			// implied
+		["Traffic USA",  "Co-Conspirator #4", 		{type: 'Basic', label: ''}],			// implied
 
-		["Traffic USA", "CFU", {type: 'Marketing', label: '$23,000,000'}],
-		["Traffic USA", "Jeffrey Webb", {type: 'Kickback', label: '$3,000,000'}],
-		["Sports Marketing Company C; Conspirator #13, Co-Conspirator #20, and Co-Conspirator #21", "Traffic USA; Co-Conspirator #4", {type: 'Kickback', label: '-'}],
-		["Traffic USA", "Front Company A", {type: 'Kickback', label: '$1,200,000'}],
-		["Front Company A", "Costas Takkas", {type: 'Kickback', label: '$750,000'}],
-		["Front Company A", "Costas Takkas", {type: 'Kickback', label: '$250,000'}],
-		["Front Company A", "Co-Conspirator #22", {type: 'Kickback', label: '$200,000'}],
-		["Traffic USA", "Costas Takkas; Friend of Co-Conspirator #2", {type: 'Kickback', label: '$500,000'}],
-		["Costas Takkas", "Jeffrey Webb", {type: 'Kickback', label: '-'}],
-		["Costas Takkas", "Jeffrey Webb", {type: 'Kickback', label: '-'}],
-		["Sports Marketing Company C", "?", {type: 'Kickback', label: '-'}],
+		["Traffic USA", "CFU", 						{type: 'Marketing', label: '$23,000,000'}],
+		["Traffic USA", "Jeffrey Webb", 			{type: 'Kickback', label: '$3,000,000'}],
+		
+		["Sports Marketing Company C", "Traffic USA", {type: 'Marketing', label: '-'}],
+
+		["Sports Marketing Company C", "Conspirator #13", {type: 'Basic', label: ''}],
+		["Sports Marketing Company C", "Conspirator #20", {type: 'Basic', label: ''}],
+		["Sports Marketing Company C", "Conspirator #21", {type: 'Basic', label: ''}],
+
+		["Traffic USA", "Front Company A", 			{type: 'Kickback', label: '$1,200,000'}],
+		
+		["Front Company A", "Costas Takkas", 		{type: 'Kickback', label: '$750,000'}],
+		["Front Company A", "Costas Takkas", 		{type: 'Kickback', label: '$250,000'}],
+		["Front Company A", "Co-Conspirator #22", 	{type: 'Kickback', label: '$200,000'}],
+
+		["Traffic USA", "Friend of Co-Conspirator #2", {type: 'Kickback', label: '$500,000'}],
+		["Friend of Co-Conspirator #2", "Costas Takkas", {type: 'Kickback', label: '$500,000'}],
+		["Costas Takkas", "Jeffrey Webb", 				{type: 'Kickback', label: '-'}],
+		["Costas Takkas", "Jeffrey Webb", 				{type: 'Kickback', label: '-'}],
+		["Sports Marketing Company C", "Costas Takkas", {type: 'Kickback', label: '-'}],		// formerly Unknown co-conspirator
 	]
 };
 

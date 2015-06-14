@@ -33,7 +33,7 @@ body {
 	position: relative;
 }
 .content {
-	width: 800px;
+	width: 820px;
 	overflow: hidden;
 	position: relative;
 	text-align: center;
@@ -138,6 +138,13 @@ button {
 	background-color: #FFF;
 	border: 1px solid #333;
 }
+button:hover, button:focus { 
+    background-color: #ccc;
+}
+button:active { 
+    background-color: #888;
+}
+
 .buttonbar {
 	padding: 10 16 10 4px;
 	margin-top: 12px;

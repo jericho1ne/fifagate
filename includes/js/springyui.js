@@ -37,7 +37,7 @@ jQuery.fn.makeItSpringy = function(params) {
 	var edgeFont 	= "12px Open Sans, sans-serif";
 	
 	var stiffness = params.stiffness || 800.0;
-	var repulsion = params.repulsion || 85.0;
+	var repulsion = params.repulsion || 1185.0;
 	var damping = params.damping || 0.15;
 	var minEnergyThreshold = params.minEnergyThreshold || 0.00001;
 	
@@ -483,7 +483,7 @@ jQuery.fn.makeItSpringy = function(params) {
 
 			var contentWidth = node.getWidth();
 			var contentHeight = node.getHeight();
-			var boxWidth = contentWidth + paddingX ;
+			var boxWidth = contentWidth + paddingX;
 			var boxHeight = contentHeight + paddingY;
 
 			// Add a fill behding node text
@@ -496,8 +496,8 @@ jQuery.fn.makeItSpringy = function(params) {
 				ctx.fillStyle = 'rgba(255, 123, 0, 0.65)';
 			} 
 			//else if (nearest !== null && nearest.node !== null && nearest.node.id === node.id) {
-		//		ctx.fillStyle = 'rgba(200, 200, 200, 0.45)';
-	//		} 
+			//	ctx.fillStyle = 'rgba(200, 200, 200, 0.45)';
+			//} 
 			else {
 				ctx.fillStyle = 'rgba(200, 200, 200, 0.55)';
 			}
@@ -512,8 +512,6 @@ jQuery.fn.makeItSpringy = function(params) {
 			// ===================== NODE FONT COLOR
 			var nodeColor = "#333333";
 			
-
-
 			// =============================== ACTOR NODE ICON ====================================
 			// 		(Federation, FIFA Member, Marketing, Broadcasting, Sportswear, Co-Conspirator)
 			var labelText = actorTypes[node.data.type].unicode;  //  node.id;
@@ -529,28 +527,30 @@ jQuery.fn.makeItSpringy = function(params) {
 			var radius = 22;	
 			ctx.font = faFontLg; 
 			// Where to anchor the Actor to the Node
-			var anchorX = s.x - contentWidth/2 + 11;
-			var anchorY = s.y - contentHeight/2 + 11;
+			var anchorX = s.x;
+			var anchorY = s.y - 2;
+			var nodeNameDisplace = 18;
+
+			ctx.strokeStyle = 'rgba(200,200,200,0.85)';
 
 			// override for special cases
 			if (node.data.type=="Co-Conspirator") {
-			    radius = 16;	
+			    radius = 16;
+			    nodeNameDisplace = 8;  // smaller displacement since it's a smaller icon
 			    ctx.font = faFontMd;
 			    ctx.fillStyle = 'rgba(255,255,255,0.02)'; 
+			    ctx.strokeStyle = 'rgba(200,200,200,0.0)';
 			}
-
-			
-			ctx.beginPath();
+		    ctx.beginPath();
 		    ctx.arc(anchorX, anchorY, radius, 0, 2 * Math.PI, false);
 		    //ctx.fillStyle = '#eee';    // ctx.fillStyle = 'rgba(147, 147, 147, 0.25)';
-		    ctx.fill();
-		    
-		    // ======================================================== DISPLAY NODE TEXT ===============
+		    ctx.fill();				// DRAW BUBBLE
 		   
-			
-		    ctx.lineWidth = 0.5;
-		    ctx.strokeStyle = 'rgba(200,200,200,0.15)';
 		    ctx.stroke();
+
+		    // ======================================================== DISPLAY NODE TEXT ===============			
+		    //ctx.lineWidth = 10.5;
+		    
 		    ctx.fillStyle = nodeColor;
 			// print text within at x,y position
 			ctx.fillText(labelText, anchorX-11, anchorY-11);
@@ -561,8 +561,9 @@ jQuery.fn.makeItSpringy = function(params) {
 		    ctx.strokeStyle = 'rgba(200,200,200,0.15)';
 		    ctx.stroke();
 		    ctx.fillStyle = nodeColor;
-			// print NODE NAME within at x,y position
-			ctx.fillText(node.id, anchorX+16, anchorY-4)
+
+			// =================================== NODE NAME at x,y position
+			ctx.fillText(node.id, anchorX + nodeNameDisplace, anchorY-8);
 		
 			
 			// only draw image if defined in array 
