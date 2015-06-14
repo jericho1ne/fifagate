@@ -148,7 +148,6 @@ jQuery.fn.makeItSpringy = function(params) {
 		renderer.start();
 	});
 
-
 	jQuery(window).bind('mouseup',function(e) {
 		dragged = null;
 	});

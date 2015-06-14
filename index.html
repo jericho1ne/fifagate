@@ -30,80 +30,17 @@ jQuery(function(){
 	// Load legend
 	loadLegend();
 
-	// Graph init
-	var graph = new Springy.Graph();
-	
-	var springy = jQuery('#springydemo').makeItSpringy({
-		graph: graph
-	});
+  	// magic url hashtag parsing
+	var schemeLetter = parseURL();
 
-
-	// Load A by default
-	graph.loadJSON(schemeA);
-	$("#schemeTitle").text("Scheme A");
-	
+	// Load the appropriate graph (parse URL to took for #schemeLetter)
+	loadScheme(schemeLetter);
 
 	// Button click listeners
-	$("#schemeA").click(function() {
-		$("#schemeTitle").text("Scheme A");
-		graph.loadJSON(schemeA);
+	$(".schemeButton").click(function() {
+		console.log(this);
+		loadScheme(this.id);
 	});
-
-	$("#schemeB").click(function() {
-		$("#schemeTitle").text("Scheme B");
-		graph.loadJSON(schemeB);
-	});
-	
-	$("#schemeC").click(function() {
-		$("#schemeTitle").text("Scheme C");
-		graph.loadJSON(schemeC);
-	});
-	
-	$("#schemeD").click(function() {
-		$("#schemeTitle").text("Scheme D");
-		graph.loadJSON(schemeD);
-	});
-
-	$("#schemeE").click(function() {
-		$("#schemeTitle").text("Scheme E");
-		graph.loadJSON(schemeE);
-	});
-	
-	$("#schemeF").click(function() {
-		$("#schemeTitle").text("Scheme F");
-		graph.loadJSON(schemeF);
-	});
-
-	$("#schemeG").click(function() {
-		$("#schemeTitle").text("Scheme G");
-		graph.loadJSON(schemeG);
-	});
-	
-	$("#schemeH").click(function() {
-		$("#schemeTitle").text("Scheme H");
-		graph.loadJSON(schemeH);
-	});
-
-	$("#schemeI").click(function() {
-		$("#schemeTitle").text("Scheme I");
-		graph.loadJSON(schemeI);
-	});
-	
-	$("#schemeJ").click(function() {
-		$("#schemeTitle").text("Scheme J");
-		graph.loadJSON(schemeJ);
-	});
-
-	$("#schemeK").click(function() {
-		$("#schemeTitle").text("Scheme K");
-		graph.loadJSON(schemeK);
-	});
-	
-	$("#schemeL").click(function() {
-		$("#schemeTitle").text("Scheme L");
-		graph.loadJSON(schemeL);
-	});
-
 
 	// Save canvas to image
 	$("#screenshot").click(function() {
@@ -121,10 +58,6 @@ jQuery(function(){
 	//$('#springydemo').width('400');
 
 });
-
-	
-
-
 </script>
 <div class="container">
 	<div class="content">
@@ -134,18 +67,18 @@ jQuery(function(){
 		  	<div class="textSubtitle">Payoff Flows 1998-2012</div>
 			  
 		  	<div class="buttonBar">
-			 	<button id="schemeA">Scheme A</button>
-				<button id="schemeB">Scheme B</button>
-				<button id="schemeC">Scheme C</button>
-				<button id="schemeD">Scheme D</button>
-				<button id="schemeE">Scheme E</button>
-				<button id="schemeF">Scheme F</button>
-				<button id="schemeG">Scheme G</button>
-				<button id="schemeH">Scheme H</button>
-				<button id="schemeI">Scheme I</button>
-				<button id="schemeJ">Scheme J</button>
-				<button id="schemeK">Scheme K</button>
-				<button id="schemeL">Scheme L</button>
+			 	<button id="A" class="schemeButton">Scheme A</button>
+				<button id="B" class="schemeButton">Scheme B</button>
+				<button id="C" class="schemeButton">Scheme C</button>
+				<button id="D" class="schemeButton">Scheme D</button>
+				<button id="E" class="schemeButton">Scheme E</button>
+				<button id="F" class="schemeButton">Scheme F</button>
+				<button id="G" class="schemeButton">Scheme G</button>
+				<button id="H" class="schemeButton">Scheme H</button>
+				<button id="I" class="schemeButton">Scheme I</button>
+				<button id="J" class="schemeButton">Scheme J</button>
+				<button id="K" class="schemeButton">Scheme K</button>
+				<button id="L" class="schemeButton">Scheme L</button>
 				<!-- <button id="screenshot">Take a Screenshot</button> -->
 			</div>
 		</div>

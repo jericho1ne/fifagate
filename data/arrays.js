@@ -283,6 +283,9 @@ var schemeH = {
 		["Traffic", "Co-Conspirator #4", 					{type: 'Basic', label: ''}],	
 		
 		["Traffic", "Julio Rocha", 							{type: 'Kickback', label: '$150,000'}],
+		["Traffic", "Julio Rocha", 							{type: 'Kickback', label: ' - - - $ - - -'}],
+		["Traffic", "Julio Rocha", 							{type: 'Kickback', label: ' - - - $ - - -'}],
+		["Traffic", "Co-Conspirator #19", 					{type: 'Kickback', label: '$50,000'}],
 		["Co-Conspirator #18", "Traffic", 					{type: 'Basic', label: ''}],
 		["Co-Conspirator #18", "Nicaraguan Soccer Federation", {type: 'Basic', label: ''}],
 		["Co-Conspirator #19", "Nicaraguan Soccer Federation", {type: 'Basic', label: ''}],
