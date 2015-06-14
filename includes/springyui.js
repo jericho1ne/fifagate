@@ -29,8 +29,8 @@ jQuery.fn.makeItSpringy = function(params) {
 	var graph = this.graph = params.graph || new Springy.Graph();
 	var nodeFont = "24px Open Sans, sans-serif";
 	var edgeFont = "12px Open Sans, sans-serif";
-	var stiffness = params.stiffness || 500.0;
-	var repulsion = params.repulsion || 65.0;
+	var stiffness = params.stiffness || 800.0;
+	var repulsion = params.repulsion || 85.0;
 	var damping = params.damping || 0.15;
 	var minEnergyThreshold = params.minEnergyThreshold || 0.0001;
 	var nodeSelected = params.nodeSelected || null;
@@ -167,6 +167,7 @@ jQuery.fn.makeItSpringy = function(params) {
 		else {
 			textHeight = nodeFont = 18;	
 		}
+	
 		//console.log(" >> " + textHeight);
 		return textHeight;
 		// In a more modular world, this would actually read the font size, but I think leaving it a constant is sufficient for now.
@@ -307,13 +308,13 @@ jQuery.fn.makeItSpringy = function(params) {
 			if (edge.data.type !== undefined) {
 				switch(edge.data.type) {
 					case 'Marketing':
-						stroke = fontColor = payoffTypeColors['Marketing'];
+						stroke = fontColor = vectorTypes['Marketing'];
 						break;
 					case 'Kickback':
-						stroke = fontColor = payoffTypeColors['Kickback'];
+						stroke = fontColor = vectorTypes['Kickback'];
 						break;
 					case 'Meeting Travel':
-						stroke = fontColor = payoffTypeColors['Meeting Travel'];
+						stroke = fontColor = vectorTypes['Meeting Travel'];
 						break;
 					default:
 						// default value already set outside switch

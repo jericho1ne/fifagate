@@ -5,13 +5,21 @@ body {
 #springydemo {
 	z-index: 10;
 	position:relative;
-	box-shadow: 0px 0px 2px 8px #333; 
-  	-webkit-box-shadow: 0px 2px 8px #333; 
-   	-ms-box-shadow: 0px 0px 2px #333;
-   	-o-box-shadow: 0px 0px 2px 10px #333; 
 	/* border-bottom: 3px solid #9DAEC1;
 	border-right: 3px solid #9DAEC1; */
 	
+}
+
+
+#title-bar {
+	z-index: 1000;
+	background-color: #D8D5DB;
+	border-bottom: 2px solid #020710;
+	vertical-align: center;
+	margin: 0px;
+	padding: 20 0 0 10px;
+	padding-left: 10px;
+ 	width: 100%;
 }
 #legend {
 	z-index: 999;
@@ -28,16 +36,6 @@ body {
 	border-radius: 10px;
 }
 
-#title-bar {
-	z-index: 20;
-	background-color: #D8D5DB;
-	border-bottom: 2px solid #020710;
-	vertical-align: center;
-	margin: 0px;
-	padding: 20 0 0 10px;
-	padding-left: 10px;
- 	width: 100%;
-}
 
 .textBanner  {
 	font-family: 'Open Sans', sans-serif;
@@ -47,6 +45,12 @@ body {
 .textSubtitle {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 18px; font-weight: 400;  line-height: 14px
+}
+
+.legend-square {
+	border: 1px solid #333333;
+	width: 30px;
+	height: 30px;
 }
 
 .textHeader {
@@ -66,6 +70,27 @@ body {
 	position: relative;
 }
 
+.content {
+	width: 1200px;
+	overflow: hidden;
+	position: relative;
+	text-align:center;
+	border: 2px solid gray;
+	margin-left: auto; margin-right: auto;
+	padding: 0px;
+	margin: 0px;
+}
+
+ul {
+	list-style-type: none;
+	margin-left: -30px;
+}
+
+li {
+	padding-left: 0px;
+}
+
+
 button {
 	padding: 6px;
 	font-size: 12px;
@@ -73,12 +98,4 @@ button {
 	border-radius: 5px;
 	background-color: #FFF;
 	border: 1px solid #333;
-}
-.content {
-	position: relative;
-	text-align:center;
-	border: 0px solid gray;
-	margin-left: auto; margin-right: auto;
-	padding: 0px;
-	margin: 0px;
 }

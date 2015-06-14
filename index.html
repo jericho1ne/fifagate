@@ -10,21 +10,31 @@
 <link rel="stylesheet" type="text/css" href="includes/style.css">
 
 <script>
-var payoffTypeColors = {
-  'Kickback' 		: '#55CEC5',
-  'Marketing'       : '#8A3E9D',
-  'Meeting Travel'  : '#2A3778', 
+var vectorTypes = {
+	'Basic Connection'	: '#333333', 
+ 	'Kickback' 			: '#55CEC5',
+ 	'Marketing'     	: '#8A3E9D',
+ 	'Meeting/Travel'	: '#2A3778',
+ 	'Offered Bribe'		: '#ccff33',
+ 	'Development' 		: '#669900', 
 };
 
 var actorTypes = {
-  'International'   : '#8A3E9D',
-  'Continental'     : '#492A7F',
-  'Nation'          : '#2A3778', 
-  'Individual'		: '#125878',
+ 	'Confederation' : '#8A3E9D',
+ 	'Marketing'     : '#492A7F',
+	'Broadcasting'  : '#2A3778',
+	'Sportswear'	: '#125878',
+	'Co-conspirator': '#eeeeee',
 };
 
 // onload 
 jQuery(function(){
+
+	// load legends
+	loadLegend();
+
+	
+	// 
 	var graph = new Springy.Graph();
 	
 	window.graph = graph;
@@ -128,14 +138,13 @@ jQuery(function(){
 	
 	<div class="content">
 	<div id="legend">
-		<span class="textHeader">LEGEND</span>
-		<ul>
-			<li><div id="Kickback"></div></li>
-			<li><div id="Marketing"></div></li>
-			<li><div id="Travel"></div></li>
-		</ul>
+		<span class="textHeader">ACTORS</span>
+		<ul id="actorsLegend"/> 
+
+		<span class="textHeader">VECTORS</span>
+		<ul id="vectorsLegend"/>
 	</div>
-		<canvas id="springydemo" width="1200" height="720" /></canvas>
+		<canvas id="springydemo" width="1200" height="820" /></canvas>
 	</div>
 </div>
 </body>

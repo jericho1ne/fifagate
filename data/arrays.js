@@ -7,28 +7,60 @@ var schemeA = {
 		"Traffic International",
 		"Co-Conspirator #2",
 		"Co-Conspirator #9",
-		"Co-Conspirator #2; Co-Conspirator 9",
+		// "Co-Conspirator #2; Co-Conspirator 9",
 		"Nicolas Leoz",   
-		"Traffic; Co-Conspirator #2",
+		// "Traffic; Co-Conspirator #2",
 		"Rafael Esquivel",
-		"Co-Conspirator #10; Alejandro Burzaco",
+		"Alejandro Burzaco",
+		"Co-Conspirator #10",
   	],
 	"edges": [
-		["FIFA", "CONMEBOL Copa America", {type: 'Basic', label: ''}],
-		["Rafael Esquivel", "CONMEBOL Copa America", {type: 'Basic', label: ''}],
-		["Nicolas Leoz", "CONMEBOL Copa America", {type: 'Basic', label: ''}],
+		["FIFA", 				"CONMEBOL Copa America", {type: 'Basic', label: ''}],
+		["Nicolas Leoz",		"CONMEBOL Copa America", {type: 'Basic', label: ''}],
+
+		// THESE TWO NODES SHOULD GRAVITATE TOWARDS EACH OTHER
+		["Traffic Brazil", 		"Traffic International", {type: 'Basic', label: ''}], 			//
+
+		["Rafael Esquivel", 	"CONMEBOL Copa America", {type: 'Basic', label: ''}],
+		["Traffic Brazil",  	"Co-Conspirator #2", 	 {type: 'Basic', label: ''}],
+		["Traffic International","Co-Conspirator #9", 	 {type: 'Basic', label: ''}],
+
 		["Traffic Brazil",			"CONMEBOL Copa America",{type: 'Marketing', label: '$1,700,000'}],
 		["Traffic Brazil",			"CONMEBOL Copa America",{type: 'Marketing', label: '$6,600,000'}],
-		["Co-Conspirator #2", 		"Nicolas Leoz",    		{type: 'Kickback', label: '-?-'}],
+
 		["Traffic Brazil", 			"CONMEBOL Copa America",{type: 'Marketing', label: '$440,000'}],
-		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '-?-'}],
 		["Traffic International", 	"CONMEBOL Copa America",{type: 'Marketing', label: '$12,000,000'}],
 		["Traffic International", 	"CONMEBOL Copa America",{type: 'Marketing', label: '$17,000,000'}],
 		["Traffic International", 	"CONMEBOL Copa America",{type: 'Marketing', label: '$22,000,000'}],
-		["Traffic; Co-Conspirator #2", "Rafael Esquivel",   {type: 'Kickback', label: '$1,000,000'}],
+
+		["Traffic International", 	"Rafael Esquivel",   	{type: 'Kickback', label: '$1,000,000'}],
 		["Co-Conspirator #9", 		"Rafael Esquivel",     	{type: 'Kickback', label: '$700,000'}],
-		["Co-Conspirator #2; Co-Conspirator 9", "Rafael Esquivel", 	{type: 'Kickback', label: '$1,000,000'}],
-		["Co-Conspirator #2", 	"Co-Conspirator #10; Alejandro Burzaco", {type: 'Kickback', label: '-?-'}],
+		
+		// 6-7 figure digit payments, 11 GHOST LINES
+		["Co-Conspirator #2", 		"Nicolas Leoz",    		{type: 'Kickback', label: '$X,000,000 (?)'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
+
+		// ? amounts, 7 GHOST LINES
+		["Co-Conspirator #2", 		"Rafael Esquivel", 		{type: 'Kickback', label: '$1,000,000'}],
+		["Co-Conspirator #2", 		"Rafael Esquivel",    	{type: 'Kickback', label: '$1,000,000'}],
+		["Co-Conspirator #2", 		"Rafael Esquivel",     	{type: 'Kickback', label: '- - - - -'}],
+		["Co-Conspirator #2", 		"Rafael Esquivel",     	{type: 'Kickback', label: '- - - - -'}],
+		["Co-Conspirator #2", 		"Rafael Esquivel",     	{type: 'Kickback', label: '- - - - -'}],
+		["Co-Conspirator #2", 		"Rafael Esquivel",     	{type: 'Kickback', label: '- - - - -'}],
+		["Co-Conspirator #2", 		"Rafael Esquivel",     	{type: 'Kickback', label: '- - - - -'}],
+
+		// 2 GHOST LINES
+		["Co-Conspirator #2", 	"Alejandro Burzaco", 	{type: 'Kickback', label: ' - - - 7 figure bribe - - - '}],
+		["Alejandro Burzaco", 	"Co-Conspirator #10", 	{type: 'Kickback', label: ' - - - 7 figure bribe - - - '}],	 
 	]
 };
 
@@ -63,16 +95,25 @@ var schemeC = {
   	"edges": [
 		["FIFA","CONMEBOL", 					{type: 'Basic', label: ''}],
 		["CONMEBOL","Nicolas Leoz", 			{type: 'Basic', label: ''}],
-		["Toyota", "CONMEBOL",                	{type: 'Marketing', label: '$35,000,000'}],
-		["Sports Mkt Co A", "Grupo Sartander",	{type: 'Marketing', label: '$40,000,000'}],
-		["Bridgestone", "Nicolas Leoz",      	{type: 'Marketing', label: '$57,000,000'}],
+
+		// Co-Conspirator #5 should be a SATELLITE NODE of Mkt Co A
+		["Sports Mkt Co A", "Co-Conspirator #5",{type: 'Basic', label: ''}],
+		
+		// ["Toyota", "CONMEBOL",                	{type: 'Marketing', label: '$35,000,000'}],
+		// ["Bridgestone", "Nicolas Leoz",      	{type: 'Marketing', label: '$57,000,000'}],
+
+		["Toyota", "Sports Mkt Co A", 			{type: 'Marketing', label: '$35,000,000'}],
+		["Bridgestone", "Sports Mkt Co A",      {type: 'Marketing', label: '$57,000,000'}],
+		["Grupo Sartander", "Sports Mkt Co A",	{type: 'Marketing', label: '$40,000,000'}],
+
+
 		["Sports Mkt Co A", "Nicolas Leoz",   	{type: 'Marketing', label: '$56,100,000'}],
-		["Co-Conspirator #5", "CONMEBOL",     	{type: 'Kickback', label: '$2,000,000'}],
-		["Co-Conspirator #5", "CONMEBOL",     	{type: 'Kickback', label: '$400,000'}],
-		["Co-Conspirator #5", "CONMEBOL",     	{type: 'Kickback', label: '$400,000'}],
-		["Co-Conspirator #5", "CONMEBOL",     	{type: 'Kickback', label: '$400,000'}],
-		["Co-Conspirator #5", "CONMEBOL",     	{type: 'Kickback', label: '$400,000'}],
-		["Co-Conspirator #5", "CONMEBOL",     	{type: 'Kickback', label: '$400,000'}],
+		["Co-Conspirator #5", "Nicolas Leoz",  	{type: 'Kickback', label: '$2,000,000'}],
+		["Co-Conspirator #5", "Nicolas Leoz",   {type: 'Kickback', label: '$400,000'}],
+		["Co-Conspirator #5", "Nicolas Leoz",   {type: 'Kickback', label: '$400,000'}],
+		["Co-Conspirator #5", "Nicolas Leoz",   {type: 'Kickback', label: '$400,000'}],
+		["Co-Conspirator #5", "Nicolas Leoz",   {type: 'Kickback', label: '$400,000'}],
+		["Co-Conspirator #5", "Nicolas Leoz",   {type: 'Kickback', label: '$400,000'}],
 	]
 };
 
@@ -80,22 +121,42 @@ var schemeD = {
   	"nodes": [
 		"FIFA", 
 		"Traffic",
+		// "Traffic Brazil",
+
 		"CBF",
 		"Sports Marketing Company B",
 		"Co-Conspirator #6",
-		"Traffic Brazil",
+		
 		"Co-Conspirator #2",
-		"Jose Maria Marin; Co-Conspirator #11; Co-Conspirator #12",
+		"Co-Conspirator #11",
+		"Co-Conspirator #12",
+		"Jose Maria Marin"
   	],
   	"edges" : [
-  		["FIFA",  "CBF", {type: 'Basic', label: ''}],
-		["Traffic", "CBF", {type: 'Marketing', label: ''}],
-		["Sports Marketing Company B", "Co-Conspirator #2", {type: 'Basic', label: ''}],		// assumed
+  		["FIFA",  "CBF", 									{type: 'Basic', label: ''}],
+  		["Traffic", "Sports Marketing Company B", 	{type: 'Basic', label: ''}],	// used tobe Traffic Brazil
+  		
+  		// SATELLITE NODE OF Traffic Intl
+  		// [ "Traffic Brazil", "Traffic", 			{type: 'Basic', label: ''}],
 
+  		// SATELLITE NODE
+  		[ "Traffic", "Co-Conspirator #2", 			{type: 'Basic', label: ''}],
+
+  		["Co-Conspirator #6", "Sports Marketing Company B",	{type: 'Basic', label: ''}],
+
+
+  		["Sports Marketing Company B", "Co-Conspirator #2", {type: 'Marketing', label: '- - - ? - - -'}],		// assumed
+
+  		// SATELLETINE NODES no edge in the future
+  		["Jose Maria Marin", "Co-Conspirator #11", {type: 'Basic', label: ''}],
+  		["Jose Maria Marin", "Co-Conspirator #12", {type: 'Basic', label: ''}],
+
+		["Traffic", "CBF", {type: 'Marketing', label: ''}],
 		["Sports Marketing Company B", "CBF", {type: 'Marketing', label: ''}],
 		["Co-Conspirator #6", "CBF", {type: 'Kickback', label: ''}],
-		["Sports Marketing Company B", "Traffic Brazil", {type: '', label: ''}],
-		["Co-Conspirator #2", "Jose Maria Marin; Co-Conspirator #11; Co-Conspirator #12", {type: 'Kickback', label: '$493,000'}],
+	
+		["Co-Conspirator #2", "Jose Maria Marin", {type: 'Kickback', label: '$493,000'}],
+		["Co-Conspirator #2", "Jose Maria Marin", {type: 'Kickback', label: '- - - $493,000 - - - '}],		// GHOST LINE
 	]
 };
 
@@ -110,7 +171,12 @@ var schemeE = {
   	],
 	"edges" : [
 		["FIFA","CBF", 	{type: 'Basic', label: ''}],		// assumed
-		["Co-Conspirator #2", "Traffic Brazil", 	{type: 'Basic', label: ''}],		// assumed
+
+		// SATELLITE
+		["Co-Conspirator #2", "Traffic Brazil",  {type: 'Basic', label: ''}],		// assumed
+
+		// SATELLITE!
+		["Co-Conspirator #11", "CBF", 			{type: 'Basic', label: ''}],		// assumed
 
 		["Sportswear Company A", "CBF", {type: 'Marketing', label: '$160,000,000'}],
 		["Sportswear Company A", "Traffic Brazil", {type: 'Kickback', label: '$30,000,000'}],
@@ -128,7 +194,10 @@ var schemeF = {
 		"Traffic",
 	],
 	"edges" : [
-		["FIFA",  "Jack Warner", {type: 'Basic', label: ''}],	// assumed
+		["FIFA",  "CFU", {type: 'Basic', label: ''}],	// assumed
+
+		// put these close together
+		["CFU",  "Jack Warner", {type: 'Basic', label: ''}],	// assumed
 
 		["Traffic USA", "CFU", {type: 'Marketing', label: '$900,000'}],
 		["Traffic USA", "Jack Warner", {type: 'Kickback', label: '$800,000'}],
@@ -145,7 +214,7 @@ var schemeG = {
 		"FIFA",
 		"Morocco",
 		"Co-Conspirator #1",
-		"South Africa Bid Committee & South African Governament",
+		"South Africa",  //  Bid Committee & South African Governament",
 		"CFU",
 		"FIFA high ranking individual",
 		"CFU and CONCACAF",
@@ -155,12 +224,26 @@ var schemeG = {
 		["FIFA",  "Morocco", {type: 'Basic', label: ''}],			// assumed
 		["FIFA",  "CFU", {type: 'Basic', label: ''}],				// assumed
 		["FIFA",  "CFU and CONCACAF", {type: 'Basic', label: ''}],	// assumed
+		["FIFA",  "South Africa", {type: 'Basic', label: ''}],	// assumed
+		
+		// FIFA Satellite
+		["FIFA", "FIFA high ranking individual", 	{type: 'Basic', label: ''}],	// assumed
 
-		["Morocco", "Co-Conspirator #1", {type: 'Kickback', label: '-'}],
-		["South Africa Bid Committee & South African Governament", "CFU", {type: 'Kickback', label: '-'}],
+		// Train tracks - not a kickback, it's DEVELOPMENT - more bening color YELLOW
+		["FIFA high ranking individual", "South Africa", {type: 'Kickback', label: '$10,000,000'}],
+
 		["FIFA high ranking individual", "CFU and CONCACAF", {type: 'Kickback', label: '$616,000'}],
 		["FIFA high ranking individual", "CFU and CONCACAF", {type: 'Kickback', label: '$1,600,000'}],
 		["FIFA high ranking individual", "CFU and CONCACAF", {type: 'Kickback', label: '$7,784,000'}],
+
+
+		// CHANGE TYPE TO OFFERED BRIBE - horizontal slashes or dots
+		["Morocco", "Co-Conspirator #1", {type: 'Offer', label: '$1,000,000'}],
+
+
+		["South Africa", "CFU", {type: 'Kickback', label: '-'}],
+
+
 		["CFU", "Jack Warner", {type: 'Kickback', label: '$200,000'}],
 		["CFU", "Jack Warner", {type: 'Kickback', label: '$1,400,000'}],
 		["CFU", "Co-Conspirator #1", {type: 'Kickback', label: '$298,500'}],
@@ -261,18 +344,19 @@ var schemeK = {
 	],
 	"edges" : [
 		["FIFA",  "CONCACAF", {type: 'Basic', label: ''}],							// assumed
-		["CONCACAF",  "Jeffrey Webb", {type: 'Basic', label: ''}],					// assumed
+		// ["CONCACAF",  "Jeffrey Webb", {type: 'Basic', label: ''}],					// assumed
 		["Jeffrey Webb", "Co-Conspirator #2", {type: 'Basic', label: ''}],			// assumed
-		["Traffic USA", "Co-Conspirator #4", {type: 'Basic', label: ''}],			// assumed
+		// ["Traffic USA", "Co-Conspirator #4", {type: 'Basic', label: ''}],			// assumed
+		["CONCACAF", "Co-Conspirator #4", {type: 'Basic', label: ''}],			// assumed
 		["Soccer Uniform Company A", "Co-Conspirator #23", {type: 'Basic', label: ''}],
 
 		["Traffic USA", "CONCACAF", {type: 'Marketing', label: '$15,500,000'}],
 		["Traffic USA", "CONCACAF", {type: 'Marketing', label: '$60,000,000'}],
-		["CONCACAF", "Jeffrey Webb", {type: 'Marketing', label: '$15,500,000'}],
-		["CONCACAF", "Jeffrey Webb", {type: 'Marketing', label: '$60,000,000'}],
-		["Traffic USA", "Jeffrey Webb", {type: 'Kickback', label: '-'}],
+		// ["Traffic USA", "Jeffrey Webb", {type: 'Kickback', label: '-'}],		// sought and obtained
 		["Traffic USA", "Soccer Uniform Company A", {type: 'Kickback', label: '$1,100,000'}],  //; Co-Conspirator #23 for TO
 		["Traffic USA", "Soccer Uniform Company A", {type: 'Kickback', label: '$2,000,000'}],  //
+		["Soccer Uniform Company A", "Jeffrey Webb", {type: 'Kickback', label: '$1,100,000'}],  //; Co-Conspirator #23 for TO
+		["Soccer Uniform Company A", "Jeffrey Webb", {type: 'Kickback', label: '$2,000,000'}],  //
 	]
 };
 
