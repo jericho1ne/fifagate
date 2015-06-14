@@ -143,24 +143,20 @@ var schemeD = {
 		["Jose Maria Marin", {type: 'FIFA Member', image: ''}],
   	],
   	"edges" : [
-  		["FIFA",  "CBF", 									{type: 'Basic', label: ''}],
+  		["FIFA",  "CBF", 							{type: 'Basic', label: ''}],
   		["Traffic", "Sports Marketing Company B", 	{type: 'Basic', label: ''}],	// used tobe Traffic Brazil
-  		
+  		[ "CBF", "Jose Maria Marin", 				{type: 'Basic', label: ''}],
+
   		// SATELLITE NODE OF Traffic Intl
   		// [ "Traffic Brazil", "Traffic", 			{type: 'Basic', label: ''}],
 
   		// SATELLITE NODE
-  		[ "Traffic", "Co-Conspirator #2", 			{type: 'Basic', label: ''}],
+  		[ "Traffic", "Co-Conspirator #2", 				{type: 'Basic', label: ''}],
+  		["CBF", "Co-Conspirator #11", 					{type: 'Basic', label: ''}],
+  		["CBF", "Co-Conspirator #12", 					{type: 'Basic', label: ''}],
 
   		["Co-Conspirator #6", "Sports Marketing Company B",	{type: 'Basic', label: ''}],
-
-
   		["Sports Marketing Company B", "Co-Conspirator #2", {type: 'Marketing', label: '- - - ? - - -'}],		// implied
-
-  		// SATELLETINE NODES no edge in the future
-  		["Jose Maria Marin", "Co-Conspirator #11", {type: 'Basic', label: ''}],
-  		["Jose Maria Marin", "Co-Conspirator #12", {type: 'Basic', label: ''}],
-
 		["Traffic", "CBF", {type: 'Marketing', label: ''}],
 		["Sports Marketing Company B", "CBF", {type: 'Marketing', label: ''}],
 		["Co-Conspirator #6", "CBF", {type: 'Kickback', label: ''}],
