@@ -20,8 +20,8 @@ var actorTypes = {
  		//'color': '#2A3778',
 	}, */
 	'Commercial': {
-		'icon' : 'fa-money',
-		'unicode': '\uf0d6',
+		'icon' : 'fa-bullhorn',		// 'fa-money',
+		'unicode': '\uf0a1',		// '\uf0d6',
  		//'color': '#2A3778',
 	},
 	'Bank': {
@@ -72,7 +72,7 @@ var vectorTypes = {
 		'unicode': '\uf0b1', 	
 		'color' : '#d1cb23'
 	}, 
-	'Development' : { 
+	'Sports Development' : { 
 		'icon'  : 'fa-wrench',
 		'unicode': '\uf169', 	
 		'color' : '#669900' 

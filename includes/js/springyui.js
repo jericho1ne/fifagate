@@ -35,6 +35,7 @@ jQuery.fn.makeItSpringy = function(params) {
 	
 
 	var edgeFont 	= "12px Open Sans, sans-serif";
+	var edgeFontLg	= "bold 16px Open Sans, sans-serif";
 	
 	var stiffness = params.stiffness || 800.0;
 	var repulsion = params.repulsion || 1185.0;
@@ -531,7 +532,7 @@ jQuery.fn.makeItSpringy = function(params) {
 			var anchorY = s.y - 2;
 			var nodeNameDisplace = 18;
 
-			ctx.strokeStyle = 'rgba(200,200,200,0.85)';
+			ctx.strokeStyle = 'rgba(200,200,200,0.0)';
 
 			// override for special cases
 			if (node.data.type=="Co-Conspirator") {
@@ -557,6 +558,11 @@ jQuery.fn.makeItSpringy = function(params) {
 
 
  			ctx.font = edgeFont;  // edgeFont;
+		    
+		    if (node.id == "FIFA")
+		    	ctx.font = edgeFontLg;
+
+
 		    ctx.lineWidth = 0.5;
 		    ctx.strokeStyle = 'rgba(200,200,200,0.15)';
 		    ctx.stroke();
