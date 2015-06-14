@@ -27,14 +27,24 @@ Copyright (c) 2010 Dennis Hotson
 
 jQuery.fn.makeItSpringy = function(params) {
 	var graph = this.graph = params.graph || new Springy.Graph();
-	var nodeFont = "24px Open Sans, sans-serif";
-	var edgeFont = "12px Open Sans, sans-serif";
+	
+	var nodeFont 	= "12px Open Sans, sans-serif";
+	var faFontSm	= "12px FontAwesome";
+	var faFontMd	= "20px FontAwesome";
+	var faFontLg	= "24px FontAwesome";
+	
+
+	var edgeFont 	= "12px Open Sans, sans-serif";
+	
 	var stiffness = params.stiffness || 800.0;
 	var repulsion = params.repulsion || 85.0;
 	var damping = params.damping || 0.15;
 	var minEnergyThreshold = params.minEnergyThreshold || 0.0001;
+	
 	var nodeSelected = params.nodeSelected || null;
 	var nodeImages = {};
+
+	// whether to redraw text when upside down
 	var edgeLabelsUpright = true;
 
 	var canvas = this[0];
@@ -80,6 +90,7 @@ jQuery.fn.makeItSpringy = function(params) {
 	var nearest = null;
 	var dragged = null;
 
+	//============== CLICK AND DRAG LISTENER =================
 	jQuery(canvas).mousedown(function(e) {
 		var pos = jQuery(this).offset();
 		var p = fromScreen({x: e.pageX - pos.left, y: e.pageY - pos.top});
@@ -96,16 +107,33 @@ jQuery.fn.makeItSpringy = function(params) {
 		renderer.start();
 	});
 
-	// Basic double click handler
+	//============== DOUBLE CLICK LISTENER =================
 	jQuery(canvas).dblclick(function(e) {
 		var pos = jQuery(this).offset();
 		var p = fromScreen({x: e.pageX - pos.left, y: e.pageY - pos.top});
 		selected = layout.nearest(p);
 		node = selected.node;
+
+		console.log( ' (+) dblclicked on ' + node.id );
+
 		if (node && node.data && node.data.ondoubleclick) {
 			node.data.ondoubleclick();
 		}
 	});
+
+	jQuery(canvas).click(
+		// TODO: toggle info window on / off
+		function(e) {
+			var pos = jQuery(this).offset();
+			var p = fromScreen({x: e.pageX - pos.left, y: e.pageY - pos.top});
+			nearest = layout.nearest(p);
+			node = selected.node;
+			console.log( ' (+) clicked ' + node.id );
+		
+
+			renderer.start();
+		}
+	);
 
 	jQuery(canvas).mousemove(function(e) {
 		var pos = jQuery(this).offset();
@@ -119,6 +147,7 @@ jQuery.fn.makeItSpringy = function(params) {
 
 		renderer.start();
 	});
+
 
 	jQuery(window).bind('mouseup',function(e) {
 		dragged = null;
@@ -138,7 +167,7 @@ jQuery.fn.makeItSpringy = function(params) {
 		ctx.save();
 
 		//============================== FONT SIZE (Doesn't do shit)
-		ctx.font = (node.data.font !== undefined) ? node.data.font : nodeFont;
+		ctx.font = nodeFont;
 		
 		//======================== WIDTH OF NODE DIV
 		var width = ctx.measureText(text).width;
@@ -251,7 +280,7 @@ jQuery.fn.makeItSpringy = function(params) {
 	var renderer = this.renderer = new Springy.Renderer(layout,
 		function clear() {
 			ctx = canvas.getContext("2d");
-			ctx.clearRect(0,0,canvas.width,canvas.height);
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
 		},
 
 		//=================================================================================
@@ -293,12 +322,12 @@ jQuery.fn.makeItSpringy = function(params) {
 			var boxWidth = edge.target.getWidth();
 			var boxHeight = edge.target.getHeight();
 
-			var intersection = intersect_line_box(s1, s2, {x: x2-boxWidth/2.0, y: y2-boxHeight/2.0}, boxWidth, boxHeight);
+			var multiplier = 2;
+			var intersection = intersect_line_box(s1, s2, {x: x2-boxWidth/multiplier, y: y2-boxHeight/multiplier}, boxWidth, boxHeight);
 
 			if (!intersection) {
 				intersection = s2;
-			}
-
+			} 
 
 			// =================== EDGE COLOR =================
 			// Default edge color: dk gray
@@ -308,13 +337,13 @@ jQuery.fn.makeItSpringy = function(params) {
 			if (edge.data.type !== undefined) {
 				switch(edge.data.type) {
 					case 'Marketing':
-						stroke = fontColor = vectorTypes['Marketing'];
+						stroke = fontColor = vectorTypes['Marketing'].color;
 						break;
 					case 'Kickback':
-						stroke = fontColor = vectorTypes['Kickback'];
+						stroke = fontColor = vectorTypes['Kickback'].color;
 						break;
 					case 'Meeting Travel':
-						stroke = fontColor = vectorTypes['Meeting Travel'];
+						stroke = fontColor = vectorTypes['Meeting/Travel'].color;
 						break;
 					default:
 						// default value already set outside switch
@@ -329,20 +358,66 @@ jQuery.fn.makeItSpringy = function(params) {
 
 			// SET EDGE THICKNESS
 			var edgeThickness = 0.5;
-			var labelText = edge.data.label;
+			
 
+			//================ EDGE TEXT / EDGE LABEL TEXT ============================ 
+			var labelText = '';
+
+			// choose appropriate connection icon
+			switch(edge.data.type) {
+				case 'Basic':
+					labelText += vectorTypes['Basic Connection'].unicode;
+					break;
+				case 'Marketing':
+					labelText += vectorTypes['Marketing'].unicode;
+					break;
+				case 'Kickback':
+					labelText += vectorTypes['Kickback'].unicode;
+					break;
+				case 'Meeting/Travel':
+					labelText += vectorTypes['Meeting/Travel'].unicode;
+					break;
+				default:
+					// default value already set outside switch
+			}
+			
+			labelText += ' ' + edge.data.label;
+			
 			// currency > int conversion
-			var labelTextInt = Number(labelText.replace(/[^0-9\.]+/g,""));
+			var labelTextInt = Number(edge.data.label.replace(/[^0-9\.]+/g,""));
 
-			// normalize amounts
-			if (labelTextInt >= 0 && labelTextInt < 50000) 					edgeThickness = 1.5; 
-			else if (labelTextInt >= 50000 && labelTextInt < 500000) 		edgeThickness = 2.25;
-			else if (labelTextInt >= 500000 && labelTextInt < 1000000)		edgeThickness = 4.25;
-			else if (labelTextInt >= 1000000 && labelTextInt < 5000000)		edgeThickness = 6.25;
-			else if (labelTextInt >= 5000000 && labelTextInt < 10000000)	edgeThickness = 8.25;
-			else if (labelTextInt >= 10000000 && labelTextInt < 50000000)	edgeThickness = 10.25;
-			else if (labelTextInt >= 50000000)								edgeThickness = 14.25;
+			// =====================  EDGE THICKNESS AND DISPLACEMENT
+			var displacement = -1;
 
+			// normalized categories
+			if (labelTextInt >= 0 && labelTextInt < 50000) {		
+				edgeThickness = 1.5;
+				displacement = -2;
+			}
+			else if (labelTextInt >= 50000 && labelTextInt < 500000) {		
+				edgeThickness = 2.25;
+				displacement = -3.5;
+			}
+			else if (labelTextInt >= 500000 && labelTextInt < 1000000) {		
+				edgeThickness = 3.75;
+				displacement = -4;
+			}
+			else if (labelTextInt >= 1000000 && labelTextInt < 5000000) {		
+				edgeThickness = 5.25;
+				displacement = -5.5;
+			}
+			else if (labelTextInt >= 5000000 && labelTextInt < 10000000) {		
+				edgeThickness = 7.25;
+				displacement = -6;
+			}
+			else if (labelTextInt >= 10000000 && labelTextInt < 50000000) {		
+				edgeThickness = 9.25;
+				displacement = -6.5;
+			}
+			else if (labelTextInt >= 50000000) {						
+				edgeThickness = 12.25;
+				displacement = -7;
+			}
 			var weight = (edge.data.weight !== undefined) ? edge.data.weight : 1.0;
 
 			ctx.lineWidth = Math.max(weight * edgeThickness, 0.001);
@@ -361,14 +436,14 @@ jQuery.fn.makeItSpringy = function(params) {
 				// Distance of arrow tip from edge line
 				lineEnd = intersection.subtract(direction.normalise().multiply(arrowTipLength * 1.01));
 			} else {
-				lineEnd = s2;
+				lineEnd = s2;  //s2;
 			}
 
 			ctx.strokeStyle = stroke;
 			ctx.beginPath();
 
-			var edgePadX = 20;
-			var edgePadY = 20;
+			var edgePadX = 10;
+			var edgePadY = 10;
 
 			ctx.moveTo(s1.x, s1.y);
 			ctx.lineTo(lineEnd.x, lineEnd.y);
@@ -391,21 +466,20 @@ jQuery.fn.makeItSpringy = function(params) {
 				ctx.restore();
 			}
 
-			// ============================== EDGE LABEL ($ AMOUNT)
-			if (edge.data.label !== undefined) {
-				text = edge.data.label
+			// ============================== EDGE LABEL TEXT (ICON + $ AMOUN===================
+			if (labelText !== undefined) {				
 				ctx.save();
 				ctx.textAlign = "center";
 				ctx.textBaseline = "top";
-				ctx.font = (edge.data.font !== undefined) ? edge.data.font : edgeFont;
+				ctx.font = faFontSm;  // edgeFont;
 				ctx.fillStyle = fontColor;
 				var angle = Math.atan2(s2.y - s1.y, s2.x - s1.x);
 
 				// ============================= FONT PLACEMENT IN RELATIONSHIP TO EDGE
-				var displacement = 0;
-
+				
+				// if flipped
 				if (edgeLabelsUpright && (angle > Math.PI/2 || angle < -Math.PI/2)) {
-					displacement = 2;
+					//displacement = -2;
 					angle += Math.PI;
 				}
 				
@@ -413,8 +487,8 @@ jQuery.fn.makeItSpringy = function(params) {
 				ctx.translate(textPos.x, textPos.y);
 				ctx.rotate(angle);
 
-				//				   x  y
-				ctx.fillText(text, 0, 4);
+				//				   		x  y
+				ctx.fillText(labelText, 0, 4);
 				ctx.restore();
 			}
 
@@ -433,7 +507,7 @@ jQuery.fn.makeItSpringy = function(params) {
 			// =============== NODE PADDING ==========================================================
 			// Pulled out the padding aspect so that the size functions could be used in multiple places
 			// These should probably be settable by the user (and scoped higher) but this suffices for now
-			var paddingX = paddingY = 10;
+			var paddingX = paddingY = 20;
 
 			var contentWidth = node.getWidth();
 			var contentHeight = node.getHeight();
@@ -445,78 +519,87 @@ jQuery.fn.makeItSpringy = function(params) {
 
 			// ============ NODE FILL BACKGROUND COLOR =====================================
 			
-			// Not selected case
+			// SELECTED
 			if (selected !== null && selected.node !== null && selected.node.id === node.id) {
-				ctx.fillStyle = 'rgba(255, 123, 0, 0.85)';
+				ctx.fillStyle = 'rgba(255, 123, 0, 0.65)';
 			} 
 			else if (nearest !== null && nearest.node !== null && nearest.node.id === node.id) {
-				ctx.fillStyle = 'rgba(200, 200, 200, 0.55)';
+				ctx.fillStyle = 'rgba(200, 200, 200, 0.45)';
 			} 
 			else {
 				ctx.fillStyle = 'rgba(200, 200, 200, 0.25)';
 			}
 			
+			// Old rectangular background
 			// ctx.fillRect(s.x - boxWidth/2, s.y - boxHeight/2, boxWidth, boxHeight);
 
-			if (node.data.image == undefined) {
-				//console.log( " NODE :: if" );
+			ctx.textAlign 		= "left";
+			ctx.textBaseline 	= "top";
+			ctx.font = (node.data.font !== undefined) ? node.data.font : nodeFont;
 
-				ctx.textAlign 		= "left";
-				ctx.textBaseline 	= "top";
-				ctx.font = (node.data.font !== undefined) ? node.data.font : nodeFont;
+			// ===================== NODE FONT COLOR
+			var nodeColor = "#333333";
+			
+			// Choose appropriate Actor icon
+			// 		(Federation, FIFA Member, Marketing, Broadcasting, Sportswear, Co-Conspirator)
+			
 
-				// ===================== NODE FONT COLOR
-				var nodeColor = "#000000";
-				
-				if (node.data.type !== undefined) {
-						
-					switch(node.data.type) {
-						case 'International':
-							nodeColor = actorTypes['International'];
-							break;
-						case 'Continental':
-							nodeColor = actorTypes['Continental'];
-							break;
-						case 'Nation':
-							nodeColor = actorTypes['Nation'];
-							break;
-						case 'Individual':
-							nodeColor = actorTypes['Individual'];
-							break;
-						default:
-							// default value already set outside switch
-					}
+			var labelText = actorTypes[node.data.type].unicode;  //  node.id;
+
+			if (node.data.type !== undefined) {
+					
+				switch(node.data.type) {
+					case 'International':
+						nodeColor = actorTypes['International'];
+						break;
+					case 'Continental':
+						nodeColor = actorTypes['Continental'];
+						break;
+					case 'Nation':
+						nodeColor = actorTypes['Nation'];
+						break;
+					case 'Individual':
+						nodeColor = actorTypes['Individual'];
+						break;
+					default:
+						// default value already set outside switch
 				}
+			}
 
-				//console.log(" >> image : " + node.data.image);
-				//console.log("   >> content W / H : " + contentWidth + ', '+ contentHeight);
-				//console.log("   >> s.x / s.y : " + s.x + ', '+ s.y);
-				
-				// Draw background circle
-				var radius = 60;
-				
-				// Where to anchor the Actor to the Node
-				var anchorX = s.x - contentWidth/2;
-				var anchorY = s.y - contentHeight/2;
+			//console.log(" >> image : " + node.data.image);
+			//console.log("   >> content W / H : " + contentWidth + ', '+ contentHeight);
+			//console.log("   >> s.x / s.y : " + s.x + ', '+ s.y);
+			
+			// Draw background circle
+			var radius = 26;
+			
+			// ============================ Where to anchor the Actor to the Node
+			var anchorX = s.x - contentWidth/2 + 10;
+			var anchorY = s.y - contentHeight/2 + 10;
 
-				//============================================================= DRAW A BUBBLE! ++++++++++++++++
-				ctx.beginPath();
-			    ctx.arc(anchorX + (radius/2), anchorY + 6, radius, 0, 2 * Math.PI, false);
-			    // ctx.fillStyle = '#eee';
-			   // ctx.fillStyle = 'rgba(147, 147, 147, 0.25)';
-			    ctx.fill();
-			    ctx.lineWidth = 1;
-			    ctx.strokeStyle = '#333';
-			    ctx.stroke();
-			    
-			    // ======================================================== DISPLAY NODE TEXT ===============
-				ctx.fillStyle = nodeColor;
-				var text = (node.data.label !== undefined) ? node.data.label : node.id;
+			//============================================================= DRAW A BUBBLE! ++++++++++++++++
+			ctx.beginPath();
+		    ctx.arc(anchorX, anchorY, radius, 0, 2 * Math.PI, false);
+		    // ctx.fillStyle = '#eee';
+		   // ctx.fillStyle = 'rgba(147, 147, 147, 0.25)';
+		    ctx.fill();
+		    ctx.font = faFontLg;  // edgeFont;
+		    ctx.lineWidth = 0.5;
+		    ctx.strokeStyle = 'rgba(200,200,200,0.15)';
+		    ctx.stroke();
+		    
+		    // ======================================================== DISPLAY NODE TEXT ===============
+			ctx.fillStyle = nodeColor;
+		
+			var text = (node.data.label !== undefined) ? node.data.label : node.id;
 
-				// print text within at x,y position
-				ctx.fillText(text, anchorX, anchorY);
-			} 
-			else {
+			// print text within at x,y position
+			ctx.fillText(labelText, anchorX-11, anchorY-11);
+		
+			
+			// only draw image if defined in array 
+			if (node.data.image !== undefined) {
+				//console.log(">???");
 				// console.log( " NODE :: else" );
 				// Currently we just ignore any labels if the image object is set. One might want to extend this logic to allow for both, or other composite nodes.
 				var src = node.data.image.src;  // There should probably be a sanity check here too, but un-src-ed images aren't exaclty a disaster.

@@ -57,7 +57,7 @@
 	var Node = Springy.Node = function(id, data) {
 		this.id = id;
 		this.data = (data !== undefined) ? data : {};
-
+		//console.log(data);
 	// Data fields used by layout algorithm in this file:
 	// this.data.mass
 	// Data used by default renderer in springyui.js
@@ -119,9 +119,15 @@
 	Graph.prototype.addNodes = function() {
 		// accepts variable number of arguments, where each argument
 		// is a string that becomes both node identifier and label
+		
+
+		// grab custom node information
 		for (var i = 0; i < arguments.length; i++) {
-			var name = arguments[i];
-			var node = new Node(name, {label:name});
+			var name = arguments[i][0];
+			var nodeDetails = arguments[i][1];
+
+			// console.log(nodeDetails);
+			var node = new Node(name, nodeDetails);
 			this.addNode(node);
 		}
 	};
@@ -133,7 +139,6 @@
 			var e = arguments[i];
 			
 			// console.log(e);
-
 
 			var node1 = this.nodeSet[e[0]];
 			window.nodeSet = this.nodeSet;

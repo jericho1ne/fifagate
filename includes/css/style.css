@@ -1,0 +1,118 @@
+/********************************************** 		
+		CONTAINERS AND PARENT DIVS
+***********************************************/
+body {
+	font-family: 'Open Sans', sans-serif; /*  font-weight: 400,600,800 */
+}
+#springydemo {
+	z-index: 1001;
+	position:relative;
+	/* border-bottom: 3px solid #9DAEC1;
+	border-right: 3px solid #9DAEC1; */
+	
+}
+#canvas-outer {
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	border-bottom: 1px solid gray;
+}
+#title-bar {
+	z-index: 1000;
+	background-color: #efefef;
+	border-bottom: 1px solid #333;
+	vertical-align: center;
+	margin: 0px;
+	padding: 20 0 0 10px;
+	padding-left: 10px;
+ 	width: 100%;
+}
+.container {
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+}
+.content {
+	width: 1200px;
+	overflow: hidden;
+	position: relative;
+	text-align:center;
+	margin-left: auto; margin-right: auto;
+	padding: 0px;
+	margin: 0px;
+}
+
+/********************************************** 		
+		LEGEND AND RELATED STYLES
+***********************************************/
+#legend {
+	z-index: 999;
+	position: absolute; /*newly added*/
+    left: 5px; /*newly added*/
+    top: 5px;
+	float: left;
+	text-align: left;
+	min-width: 180px; width: auto; height: auto;
+	opacity: 0.8;
+	padding: 10 10 4 10px; 
+	margin: 10px;
+	border: 1px solid #eee;
+	background-color: rgba(100,200,200, 0.15);
+	border-radius: 4px;
+}
+.legend-square {
+	display: inline;
+	border-bottom: 1px solid transparent;
+	border-radius: 2px;
+	width: 12px; min-width: 12px;
+	height: 10px;
+}
+ul {
+	list-style-type: none;
+	margin: 6 6 6 -40px;	/* top right bot left */
+	padding-bottom: 4px;
+}
+.legend li {
+	text-transform: capitalize;
+	padding: 1px;
+}
+.faIcon {
+	width: 20px;
+	padding-left: 2px;
+	padding-right: 4px;
+}
+.legend-header {
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px; font-weight: 800;
+}	
+.legend-text {
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px; font-weight: 400; 
+}
+
+/********************************************** 		
+		USER INTERFACE (BUTTONS, ETC)
+***********************************************/
+button {
+	padding: 6px;
+	font-size: 12px;
+	font-weight: 600;
+	border-radius: 5px;
+	background-color: #FFF;
+	border: 1px solid #333;
+}
+.buttonbar {
+	padding: 20 0 10 4px;
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+.textBanner  {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 36px; font-weight: 800; 
+}
+.textSubtitle {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px; font-weight: 400;  line-height: 14px
+}

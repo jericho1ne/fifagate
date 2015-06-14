@@ -1,33 +1,27 @@
 <html>
 <body>
-<script src="includes/jquery-1.11.3.min.js"></script>
-<script src="data/arrays.js"></script>
-<script src="includes/springy.js"></script>
-<script src="includes/springyui.js"></script>
-<script src="includes/ui-functions.js"></script>
+<script src="includes/js/jquery-1.11.3.min.js"></script>
 
-<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,800' rel='stylesheet' type='text/css'> -->
-<link rel="stylesheet" type="text/css" href="includes/style.css">
+<!-- Node and Egde names, colors, and icons -->
+<script src="data/globals.js"></script>
+
+<!-- Node and Vector names, colors, and icons -->
+<script src="data/arrays.js"></script>
+
+<!-- Helper functions -->
+<script src="includes/js/ui-functions.js"></script>
+
+<!-- Node and Egde names, colors, and icons -->
+<script src="includes/js/springy.js"></script>
+<script src="includes/js/springyui.js"></script>
+
+<!-- CSS styles -->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,800' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="includes/css/style.css">
+<link rel="stylesheet" type="text/css" href="includes/css/font-awesome.min.css">
 
 <script>
-var vectorTypes = {
-	'Basic Connection'	: '#333333', 
- 	'Kickback' 			: '#55CEC5',
- 	'Marketing'     	: '#8A3E9D',
- 	'Meeting/Travel'	: '#2A3778',
- 	'Offered Bribe'		: '#ccff33',
- 	'Development' 		: '#669900', 
-};
-
-var actorTypes = {
- 	'Confederation' : '#8A3E9D',
- 	'Marketing'     : '#492A7F',
-	'Broadcasting'  : '#2A3778',
-	'Sportswear'	: '#125878',
-	'Co-conspirator': '#eeeeee',
-};
-
-// onload 
+// onload, let it rip
 jQuery(function(){
 
 	// load legends
@@ -137,14 +131,17 @@ jQuery(function(){
 <div class="container">
 	
 	<div class="content">
-	<div id="legend">
-		<span class="textHeader">ACTORS</span>
-		<ul id="actorsLegend"/> 
+		<div id="legend">
+			<span class="legend-header">Involved Parties</span>
+			<ul id="actorsLegend" class="legend"></ul> 
 
-		<span class="textHeader">VECTORS</span>
-		<ul id="vectorsLegend"/>
-	</div>
-		<canvas id="springydemo" width="1200" height="820" /></canvas>
+			<span class="legend-header">Connections</span>
+			<ul id="vectorsLegend" class="legend"></ul>
+		</div>
+
+		<div id="canvas-outer">
+			<canvas id="springydemo" width="1200" height="820" /></canvas>
+		</div>
 	</div>
 </div>
 </body>
