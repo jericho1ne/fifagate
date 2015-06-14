@@ -190,9 +190,6 @@ jQuery.fn.makeItSpringy = function(params) {
 		if (node.id=="FIFA") {
 			textHeight = nodeFont = 24;
 		}
-		else if ($.inArray(node.id, ["CONMEBOL Copa America","CAF","UEFA","CONCACAF","CONMEBOL"])!=-1) {
-			textHeight = nodeFont = 21;
-		}
 		else {
 			textHeight = nodeFont = 18;	
 		}
@@ -499,7 +496,7 @@ jQuery.fn.makeItSpringy = function(params) {
 		//		ctx.fillStyle = 'rgba(200, 200, 200, 0.45)';
 	//		} 
 			else {
-				ctx.fillStyle = 'rgba(200, 200, 200, 0.35)';
+				ctx.fillStyle = 'rgba(200, 200, 200, 0.55)';
 			}
 			
 			// Old rectangular background
@@ -512,51 +509,41 @@ jQuery.fn.makeItSpringy = function(params) {
 			// ===================== NODE FONT COLOR
 			var nodeColor = "#333333";
 			
-			// Choose appropriate Actor icon
-			// 		(Federation, FIFA Member, Marketing, Broadcasting, Sportswear, Co-Conspirator)
-			
 
+
+			// =============================== ACTOR NODE ICON ====================================
+			// 		(Federation, FIFA Member, Marketing, Broadcasting, Sportswear, Co-Conspirator)
 			var labelText = actorTypes[node.data.type].unicode;  //  node.id;
 
-			if (node.data.type !== undefined) {
-					
-				switch(node.data.type) {
-					case 'International':
-						nodeColor = actorTypes['International'];
-						break;
-					case 'Continental':
-						nodeColor = actorTypes['Continental'];
-						break;
-					case 'Nation':
-						nodeColor = actorTypes['Nation'];
-						break;
-					case 'Individual':
-						nodeColor = actorTypes['Individual'];
-						break;
-					default:
-						// default value already set outside switch
-				}
-			}
 
 			//console.log(" >> image : " + node.data.image);
 			//console.log("   >> content W / H : " + contentWidth + ', '+ contentHeight);
 			// console.log("   >> s.x / s.y : " + s.x + ', '+ s.y);
 			
-			// Draw background circle
-			var radius = 22;
-			
-			// ============================ Where to anchor the Actor to the Node
+
+			//============================================================= DRAW A BUBBLE! ++++++++++++++++
+			// DEFAULTS
+			var radius = 22;	
+			ctx.font = faFontLg; 
+			// Where to anchor the Actor to the Node
 			var anchorX = s.x - contentWidth/2 + 11;
 			var anchorY = s.y - contentHeight/2 + 11;
 
-			//============================================================= DRAW A BUBBLE! ++++++++++++++++
+			// override for special cases
+			if (node.data.type=="Co-Conspirator") {
+			    ctx.font = faFontMd; 
+			    radius = 1;	
+			}
+
+			
 			ctx.beginPath();
 		    ctx.arc(anchorX, anchorY, radius, 0, 2 * Math.PI, false);
 		    //ctx.fillStyle = '#eee';    // ctx.fillStyle = 'rgba(147, 147, 147, 0.25)';
 		    ctx.fill();
 		    
 		    // ======================================================== DISPLAY NODE TEXT ===============
-		    ctx.font = faFontLg;  // edgeFont;
+		   
+			
 		    ctx.lineWidth = 0.5;
 		    ctx.strokeStyle = 'rgba(200,200,200,0.15)';
 		    ctx.stroke();
