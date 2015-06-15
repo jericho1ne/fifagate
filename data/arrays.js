@@ -404,7 +404,7 @@ var schemeL = {
 		["FIFA",					{type: 'Federation'}],
 		["Co-Conspirator #2",		{type: 'Co-Conspirator'}],	// (representing Traffic
 		["CONMEBOL",				{type: 'Federation'}],
-		["Datisan",					{type: 'Commercial'}],
+		["Datisan",					{type: 'Commercial', notes: 'Datisan paid massive bribe of $100,000,000 for 2013 Copa America contract.  Also secured worldwide, exclusive commercial rights to Copa America\'s 2015, 2016, 2019, and 2023 editions.'}],
 		["Traffic International",	{type: 'Commercial'}],
 		["Cross Trading",			{type: 'Corporation'}],
 		["FTP (Tornes Affiliate)",	{type: 'Corporation'}],
@@ -418,6 +418,11 @@ var schemeL = {
 	"edges" : [
 		["FIFA",  "CONMEBOL", {type: 'Basic', label: ''}],					// implied
 		["FIFA",  "CONCACAF", {type: 'Basic', label: ''}],					// implied
+
+		["Datisan", "FTP (Tornes Affiliate)", {type: 'Basic', label: ''}],					// implied
+		["Datisan", "Cross Trading",  {type: 'Basic', label: ''}],					// implied
+		["Datisan", "Bayan Group S.A.",  {type: 'Basic', label: ''}],					// implied
+
 		["CONMEBOL",  "Rafael Esquivel", {type: 'Basic', label: ''}],					// implied
 		["CONMEBOL",  "CONMEBOL officials", {type: 'Basic', label: ''}],
 		["Traffic International",  "Co-Conspirator #2", {type: 'Basic', label: ''}],					// implied
