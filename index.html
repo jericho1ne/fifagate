@@ -39,12 +39,7 @@ jQuery(function(){
 	// Button click listeners
 	$(".schemeButton").click(function() {
 		$('.schemeButton').attr('disabled','disabled');
-
 		loadScheme(this.id);
-		// Re-enable UI buttons after a second or so
-		//setTimeout(function(){
-  		//	$('.schemeButton').removeAttr('disabled');
-		//}, 1200);
 	});
 
 	// Save canvas to image
