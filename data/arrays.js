@@ -7,7 +7,7 @@
 var schemeA = { 
 	"nodes": [
 		["FIFA", 					{type: 'Federation'}], 
-		["CONMEBOL Copa America", 	{type: 'Federation'}],
+		["CONMEBOL Copa America", 	{type: 'Federation', notes: 'Received three payments totaling $8,740,000 from Traffic Brazil between 1987-1993 for commercial and broadcast rights.  Received $51,000,000 from 2004-2011 for rights Wire payment from US to Paraguary for rights associated with 2004, 2007, and 2011 Copa America edition.'}],
 		["Traffic",	{type: 'Commercial'}], 
 		["Co-Conspirator #2",		{type: 'Co-Conspirator', notes: 'Co-Conspirator #2 paid a 6-7 digit figure bribe 11 times to Leoz, and five times to Esquivel.'}], 
 		["Co-Conspirator #9",		{type: 'Co-Conspirator'}], 
@@ -31,13 +31,17 @@ var schemeA = {
 		["Traffic","Co-Conspirator #9", 	 {type: 'Basic', label: ''}],
 
 		// CONMEBOL == CONMEBOL Copa America
-		["Traffic",	"CONMEBOL Copa America",{type: 'Marketing', label: '$1,700,000'}],
-		["Traffic",	"CONMEBOL Copa America",{type: 'Marketing', label: '$6,600,000'}],
+		// 
+		// 
+		["Traffic",	"CONMEBOL Copa America",{type: 'Marketing', label: '$8,740,000'}],
+		//["Traffic",	"CONMEBOL Copa America",{type: 'Marketing', label: '$1,700,000'}],
+		//["Traffic",	"CONMEBOL Copa America",{type: 'Marketing', label: '$6,600,000'}],
+		//["Traffic", "CONMEBOL Copa America",{type: 'Marketing', label: '$440,000'}],
 
-		["Traffic", "CONMEBOL Copa America",{type: 'Marketing', label: '$440,000'}],
-		["Traffic", "CONMEBOL Copa America",{type: 'Marketing', label: '$12,000,000'}],
-		["Traffic", "CONMEBOL Copa America",{type: 'Marketing', label: '$17,000,000'}],
-		["Traffic", "CONMEBOL Copa America",{type: 'Marketing', label: '$22,000,000'}],
+		["Traffic", "CONMEBOL Copa America",{type: 'Marketing', label: '$51,000,000'}],
+		//["Traffic", "CONMEBOL Copa America",{type: 'Marketing', label: '$12,000,000'}],
+		//["Traffic", "CONMEBOL Copa America",{type: 'Marketing', label: '$17,000,000'}],
+		//["Traffic", "CONMEBOL Copa America",{type: 'Marketing', label: '$22,000,000'}],
 
 		["Traffic", "Rafael Esquivel",   	{type: 'Kickback', label: '$1,000,000'}],
 		["Co-Conspirator #9", 		"Rafael Esquivel",     	{type: 'Kickback', label: '$700,000'}],
