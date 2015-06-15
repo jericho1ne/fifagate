@@ -87,8 +87,8 @@ body {
 	text-align: left;
 	min-width: 120px; width: auto; height: auto;
 	opacity: 0.8;
-	padding: 10 10 4 10px; 
-	margin: 10px;
+	padding: 6 2 2 6px; 
+	margin: 6px;
 	border: 1px solid #eee;
 	background-color: rgba(200,200,200, 0.25);
 	border-radius: 4px;
@@ -175,7 +175,7 @@ hr.hr-dashed {
 	color:#fff;
 	background-color: transparent;
 	height: 2px;
-	width: 40px;
+	width: 24px;
 	margin-right: 8px;
 }
 
@@ -186,7 +186,7 @@ hr.hr-solid {
 	color: #fff;
 	background-color: transparent;
 	height: 2px;
-	width: 40px;
+	width: 24px;
 	margin-right: 8px;
 }
 
