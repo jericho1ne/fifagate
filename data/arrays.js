@@ -220,15 +220,14 @@ var schemeG = {
 		["Morocco",				{type: 'Federation'}],
 		["Co-Conspirator #1",	{type: 'Co-Conspirator'}],
 		["South Africa",  		{type: 'Federation'}], //  Bid Committee & South African Governament",
-		["CFU",					{type: 'Federation'}],
 		["FIFA high ranking individual",	{type: 'FIFA Member'}],
-		["CFU and CONCACAF",				{type: 'Federation'}],
+		["CFU",					{type: 'Federation', notes:'Including three legal FIFA payments diverted from South Africa to CFU accounts controlled by Warner as bribes. Money moved from Swiss account to New York accounts, to Trinidad and Tobago account.'}],
 		["Jack Warner",						{type: 'FIFA Member'}],
 	],
 	"edges" : [
 		["FIFA",  "Morocco", {type: 'Basic', label: ''}],			// implied
 		["FIFA",  "CFU", {type: 'Basic', label: ''}],				// implied
-		["FIFA",  "CFU and CONCACAF", {type: 'Basic', label: ''}],	// implied
+		["FIFA",  "CFU", {type: 'Basic', label: ''}],	// implied
 		["FIFA",  "South Africa", {type: 'Basic', label: ''}],	// implied
 		
 		// FIFA Satellite
@@ -236,9 +235,9 @@ var schemeG = {
 
 		// Train tracks - not a kickback, it's DEVELOPMENT - more bening color YELLOW
 		["FIFA high ranking individual", "South Africa", {type: 'Sports Development', label: '$10,000,000'}],
-		["FIFA high ranking individual", "CFU and CONCACAF", {type: 'Kickback', label: '$616,000'}],
-		["FIFA high ranking individual", "CFU and CONCACAF", {type: 'Kickback', label: '$1,600,000'}],
-		["FIFA high ranking individual", "CFU and CONCACAF", {type: 'Kickback', label: '$7,784,000'}],
+		["FIFA high ranking individual", "CFU", {type: 'Kickback', label: '$616,000'}],
+		["FIFA high ranking individual", "CFU", {type: 'Kickback', label: '$1,600,000'}],
+		["FIFA high ranking individual", "CFU", {type: 'Kickback', label: '$7,784,000'}],
 
 		// CHANGE TYPE TO OFFERED BRIBE - horizontal slashes or dots
 		["Morocco", "Co-Conspirator #1", {type: 'Offered Bribe', label: '$1,000,000'}],
