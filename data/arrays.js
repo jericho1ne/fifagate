@@ -412,7 +412,6 @@ var schemeL = {
 		["Bayan Group S.A.",		{type: 'Bank'}],
 		["Rafael Esquivel",			{type: 'FIFA Member'}],
 		["Jose Margulies",			{type: 'FIFA Member', image: '', notes: 'Margulies Intermediaries'}],			 
-		["Bayan Account controlled by Rafael Esquivel",	{type: 'Bank'}],		// bank or fifa member here?
 		["CONCACAF",				{type: 'Federation'}],
 		["Jeffrey Webb",			{type: 'FIFA Member'}],
 	],
@@ -433,7 +432,7 @@ var schemeL = {
 		["Bayan Group S.A.", "Rafael Esquivel", {type: 'Kickback', label: '$250,000'}],
 		["Bayan Group S.A.", "Rafael Esquivel", {type: 'Kickback', label: '$400,000'}],
 		["Datisan", "Jose Margulies", {type: 'Kickback', label: '$3,800,000'}],
-		["Jose Margulies", "Bayan Account controlled by Rafael Esquivel", {type: 'Kickback', label: '$2,000,000'}],
+		["Jose Margulies", "Bayan Group S.A.", {type: 'Kickback', label: '$2,000,000'}],
 		["Datisan", "CONCACAF", {type: 'Marketing', label: '$35,000,000'}],
 		["Datisan", "Jeffrey Webb", {type: 'Kickback', label: '-'}],
 	]
