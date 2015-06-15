@@ -371,16 +371,18 @@ var schemeK = {
 		["Co-Conspirator #2",		{type: 'Co-Conspirator'}],
 		["Co-Conspirator #4",		{type: 'Co-Conspirator'}],	
 		["Co-Conspirator #23",		{type: 'Co-Conspirator'}],
+		["Aaron Davidson",			{type: 'Co-Conspirator'}],
 		// "Jeffrey Webb; Co-Conspirators #2",
 		// "Traffic USA; ",
 		["Soccer Uniform Company A", {type: 'Sportswear'}],//"Soccer Uniform Company A; Co-Conspirator #23",
 	],
 	"edges" : [
 		["FIFA",  "CONCACAF", {type: 'Basic', label: ''}],							// implied
-		// ["CONCACAF",  "Jeffrey Webb", {type: 'Basic', label: ''}],					// implied
-		["Jeffrey Webb", "Co-Conspirator #2", {type: 'Basic', label: ''}],			// implied
-		// ["Traffic USA", "Co-Conspirator #4", {type: 'Basic', label: ''}],			// implied
-		["CONCACAF", "Co-Conspirator #4", {type: 'Basic', label: ''}],			// implied
+		["Traffic USA", "Aaron Davidson", {type: 'Basic', label: ''}],				// implied
+		// ["CONCACAF",  "Jeffrey Webb", {type: 'Basic', label: ''}],				// implied
+		["Co-Conspirator #2", "Traffic USA",  {type: 'Basic', label: ''}],			// implied
+		// ["Traffic USA", "Co-Conspirator #4", {type: 'Basic', label: ''}],		// implied
+		["CONCACAF", "Co-Conspirator #4", {type: 'Basic', label: ''}],				// implied
 		["Soccer Uniform Company A", "Co-Conspirator #23", {type: 'Basic', label: ''}],
 
 		["Traffic USA", "CONCACAF", {type: 'Marketing', label: '$15,500,000'}],
