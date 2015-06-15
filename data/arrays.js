@@ -81,6 +81,7 @@ var schemeB = {
 	],
   	"edges": [
 		["FIFA", "CONCACAF", 					{type: 'Basic', label: ''}],
+		["Traffic USA", "Co-Conspirator #1", 	{type: 'Basic', label: ''}],
 		["Jack Warner", "CONCACAF", 			{type: 'Basic', label: ''}],
 		["Traffic USA", "CONCACAF", 			{type: 'Marketing', label: '$9,750,000'}],
 		["Traffic USA", "Co-Conspirator #1", 	{type: 'Kickback', label: '$200,000'}],
