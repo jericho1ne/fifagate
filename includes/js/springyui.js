@@ -519,11 +519,6 @@ jQuery.fn.makeItSpringy = function(params) {
 			var labelText = actorTypes[node.data.type].unicode;  //  node.id;
 
 
-			//console.log(" >> image : " + node.data.image);
-			//console.log("   >> content W / H : " + contentWidth + ', '+ contentHeight);
-			// console.log("   >> s.x / s.y : " + s.x + ', '+ s.y);
-			
-
 			//============================================================= DRAW A BUBBLE! ++++++++++++++++
 			// DEFAULTS
 			var radius = 22;	
@@ -576,7 +571,7 @@ jQuery.fn.makeItSpringy = function(params) {
 			// =================================== NODE NAME at x,y position
 			ctx.fillText(node.id, anchorX + nodeNameDisplace, anchorY-8);
 		
-			
+			/*
 			// only draw image if defined in array 
 			if (node.data.image !== undefined) {
 				// Currently we just ignore any labels if the image object is set. One might want to extend this logic to allow for both, or other composite nodes.
@@ -599,7 +594,7 @@ jQuery.fn.makeItSpringy = function(params) {
 					});
 					img.src = src;
 				}
-			}
+			}*/
 			ctx.restore();
 		}
 	);
