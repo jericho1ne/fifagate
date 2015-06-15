@@ -194,8 +194,8 @@ var schemeE = {
 var schemeF = { 
 	"nodes" : [
 		["FIFA",			{type: 'Federation'}],
-		["Traffic USA",		{type: 'Commercial'}],
-		["Traffic",			{type: 'Commercial'}],
+		// ["Traffic USA",		{type: 'Commercial'}],
+		["Traffic",			{type: 'Commercial', notes: 'Traffic + Traffic USA combined'}],
 		["CFU",				{type: 'Federation'}],
 		["Jack Warner",		{type: 'FIFA Member'}],
 	],
@@ -205,12 +205,12 @@ var schemeF = {
 		// put these close together
 		["CFU",  "Jack Warner", {type: 'Basic', label: ''}],	// implied
 
-		["Traffic USA", "CFU", {type: 'Marketing', label: '$900,000'}],
-		["Traffic USA", "Jack Warner", {type: 'Kickback', label: '$800,000'}],
+		["Traffic", "CFU", {type: 'Marketing', label: '$900,000'}],
+		["Traffic", "Jack Warner", {type: 'Kickback', label: '$800,000'}],
 		["Traffic", "Jack Warner", {type: 'Kickback', label: '$40,000'}],
 		["Traffic", "CFU", {type: 'Marketing', label: '$2,200,000'}],
 		["Traffic", "Jack Warner", {type: 'Kickback', label: '$800,000'}],
-		["Traffic USA", "Jack Warner", {type: 'Kickback', label: '$40,000'}],
+		["Traffic", "Jack Warner", {type: 'Kickback', label: '$40,000'}],
 	]
 };
 
