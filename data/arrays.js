@@ -15,7 +15,7 @@ var schemeA = {
 		// "Co-Conspirator #2; Co-Conspirator 9",
 		["Nicolas Leoz",   			{type: 'FIFA Member', notes: 'Received a 6-7 digit figure bribe 11 times from Co-Conspirator #2.'}], 
 		// "Traffic; Co-Conspirator #2",
-		["Rafael Esquivel",			{type: 'FIFA Member', notes: 'Received a 6-7 digit figure bribe 5 times from Co-Conspirator #2.'}], 
+		["Rafael Esquivel",			{type: 'FIFA Member', notes: 'Received a 6-7 digit figure bribe 5 times from Co-Conspirator #2.  Received $2,000,000 additional kickback (retroactively demanded) for 2007 Copa America commerical and broadcast rights due to substantial profitability. Co-conspirators sought favorable position on commercial and marketing contracts up for bids, against competitor, Full Play.'}], 
 		["Alejandro Burzaco",		{type: 'FIFA Member'}], 
 		["Co-Conspirator #10",		{type: 'Co-Conspirator'}], 
   	],
@@ -60,8 +60,8 @@ var schemeA = {
 		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '', ghost: 'true'}],*/
 
 		// ? amounts, 7 GHOST LINES
-		["Co-Conspirator #2", 		"Rafael Esquivel", 		{type: 'Kickback', label: '$1,000,000', ghost: 'true'}],
-		["Co-Conspirator #2", 		"Rafael Esquivel",    	{type: 'Kickback', label: '$1,000,000', ghost: 'true'}],
+		["Co-Conspirator #2", 		"Rafael Esquivel", 		{type: 'Kickback', label: '$2,000,000', ghost: 'true'}],
+		// ["Co-Conspirator #2", 		"Rafael Esquivel",    	{type: 'Kickback', label: '$1,000,000', ghost: 'true'}],
 		["Co-Conspirator #2", 		"Rafael Esquivel",     	{type: 'Kickback', label: '6-7 digit figure', ghost: 'true'}],
 		/*["Co-Conspirator #2", 		"Rafael Esquivel",     	{type: 'Kickback', label: '', ghost: 'true'}],
 		["Co-Conspirator #2", 		"Rafael Esquivel",     	{type: 'Kickback', label: '', ghost: 'true'}],
