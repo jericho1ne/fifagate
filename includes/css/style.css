@@ -17,15 +17,15 @@ body {
 }
 
 #canvas-outer {
-	background-image: 'background.jpg';
-	border-left: 1px solid #bbb;
-	border-right: 1px solid #bbb;
-	border-bottom: 1px solid #bbb;
+	background: url(../../field.png);
+	border-left: 1px solid #777;
+	border-right: 1px solid #777;
+	border-bottom: 1px solid #777;
 }
 #title-bar {
 	z-index: 1001;
 	background-color: #efefef;
-	border-bottom: 1px solid #bbb;
+	border-bottom: 1px solid #777;
 	vertical-align: center;
 	margin: 0px;
 	padding: 20 0 0 10px;
@@ -33,14 +33,12 @@ body {
  	width: 100%;
 }
 .container {
-	background-image: 'background.jpg';
 	width: 100%;
 	padding: 0px;
 	margin: 0px;
 	position: relative;
 }
 .content {
-	background-image: 'background.jpg';
 	width: 1000px;
 	overflow: hidden;
 	position: relative;
@@ -93,11 +91,10 @@ body {
 	float: left;
 	text-align: left;
 	min-width: 120px; width: auto; height: auto;
-	opacity: 0.8;
+	opacity: 0.9;
 	padding: 6 2 2 6px; 
 	margin: 6px;
-	border: 1px solid #eee;
-	background-color: rgba(200,200,200, 0.25);
+	background-color: rgba(230,230,230, 0.65);
 	border-radius: 4px;
 }
 .legend-square {
