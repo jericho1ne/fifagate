@@ -93,7 +93,7 @@ var schemeC = {
 		["FIFA", 			{type: 'Federation'}],	
 		["CONMEBOL", 		{type: 'Federation'}],
 		["Sports Mkt Co A",	{type: 'Commercial'}],
-		["Grupo Sartander",	{type: 'Bank'}],	
+		["Grupo Sartander",	{type: 'Corporation'}],	
 		["Bridgestone", 	{type: 'Corporation'}],
 		["Toyota", 			{type: 'Corporation'}],
 		["Nicolas Leoz", 	{type: 'FIFA Member'}],
@@ -124,6 +124,7 @@ var schemeC = {
 	]
 };
 
+
 var schemeD = { 
   	"nodes": [
 		["FIFA", 						{type: 'Federation'}],	
@@ -131,7 +132,7 @@ var schemeD = {
 		["Jose Maria Marin", 			{type: 'FIFA Member'}],
 		["Traffic", 					{type: 'Commercial'}],		// including traffic brazil
 		["Sports Marketing Company B", 	{type: 'Commercial'}],
-		["Co-Conspirator #6", 			{type: 'Co-Conspirator'}],
+		["Co-Conspirator #6", 			{type: 'Co-Conspirator', notes: 'One of the three receipients of Co-Conspirator #6\'s payment used it to buy a yacht.' }],
 		["Co-Conspirator #2", 			{type: 'Co-Conspirator'}],
 		["Co-Conspirator #11",			{type: 'Co-Conspirator'}],
 		["Co-Conspirator #12",			{type: 'Co-Conspirator'}],
@@ -145,17 +146,23 @@ var schemeD = {
   		// [ "Traffic Brazil", "Traffic", 			{type: 'Basic', label: ''}],
 
   		// SATELLITE NODE
-  		[ "Traffic", "Co-Conspirator #2", 				{type: 'Basic', label: ''}],
+  		["Traffic", "Co-Conspirator #2", 				{type: 'Basic', label: ''}],
   		["CBF", "Co-Conspirator #11", 					{type: 'Basic', label: ''}],
   		["CBF", "Co-Conspirator #12", 					{type: 'Basic', label: ''}],
 
   		["Co-Conspirator #6", "Sports Marketing Company B",	{type: 'Basic', label: ''}],
   		["Traffic", "CBF", {type: 'Marketing', label: ''}],
 		["Sports Marketing Company B", "CBF", {type: 'Marketing', label: ''}],
-		["Co-Conspirator #6", "CBF", {type: 'Kickback', label: ''}],
+		
+		["Co-Conspirator #6", "Jose Maria Marin", {type: 'Kickback', label: ''}],
+		["Co-Conspirator #6", "Co-Conspirator #11", {type: 'Kickback', label: ''}],
+		["Co-Conspirator #6", "Co-Conspirator #12", {type: 'Kickback', label: ''}],
 	
+		["Jose Maria Marin", "Co-Conspirator #11", {type: 'Kickback', label: '$246,500'}],
+		["Jose Maria Marin", "Co-Conspirator #12", {type: 'Kickback', label: '$246,500'}],
+
 		["Co-Conspirator #2", "Jose Maria Marin", {type: 'Kickback', label: '$493,000'}],
-		["Co-Conspirator #2", "Jose Maria Marin", {type: 'Kickback', label: '- - - $493,000 - - - '}],		// GHOST LINE
+		["Co-Conspirator #2", "Jose Maria Marin", {type: 'Kickback', label: '$493,000', ghost: "true"}], // GHOST LINE
 	]
 };
 

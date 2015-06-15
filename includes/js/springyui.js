@@ -38,9 +38,9 @@ jQuery.fn.makeItSpringy = function(params) {
 	var edgeFontMd	= "bold 15px Open Sans, sans-serif";
 	var edgeFontLg	= "bold 20px Open Sans, sans-serif";
 	
-	var stiffness = params.stiffness || 800.0;
-	var repulsion = params.repulsion || 1185.0;
-	var damping = params.damping || 0.15;
+	var stiffness = params.stiffness || 600.0;
+	var repulsion = params.repulsion || 600.0;
+	var damping = params.damping || 0.25;
 	var minEnergyThreshold = params.minEnergyThreshold || 0.00001;
 	
 	var nodeSelected = params.nodeSelected || null;
@@ -339,7 +339,7 @@ jQuery.fn.makeItSpringy = function(params) {
 
 			//================FONT COLOR /  EDGE TEXT / EDGE LABEL TEXT ============================ 
 			if (edge.data.type !== undefined) {	
-				// console.log(edge.data.type);
+				//console.log(edge.data.type);
 
 				// Color
 				stroke = fontColor = vectorTypes[edge.data.type].color;
