@@ -8,8 +8,7 @@ var schemeA = {
 	"nodes": [
 		["FIFA", 					{type: 'Federation'}], 
 		["CONMEBOL Copa America", 	{type: 'Federation'}],
-		["Traffic Brazil",			{type: 'Commercial'}], 
-		["Traffic International",	{type: 'Commercial'}], 
+		["Traffic",	{type: 'Commercial'}], 
 		["Co-Conspirator #2",		{type: 'Co-Conspirator', notes: 'Co-Conspirator #2 paid a 6-7 digit figure bribe 11 times to Leoz, and five times to Esquivel.'}], 
 		["Co-Conspirator #9",		{type: 'Co-Conspirator'}], 
 		
@@ -25,22 +24,22 @@ var schemeA = {
 		["Nicolas Leoz",		"CONMEBOL Copa America", {type: 'Basic', label: ''}],
 
 		// THESE TWO NODES SHOULD GRAVITATE TOWARDS EACH OTHER
-		["Traffic Brazil", 		"Traffic International", {type: 'Basic', label: ''}], 			//
+		["Co-Conspirator #10", "CONMEBOL Copa America", {type: 'Basic', label: ''}], 			//
 
-		["Rafael Esquivel", 	"CONMEBOL Copa America", {type: 'Basic', label: ''}],
-		["Traffic Brazil",  	"Co-Conspirator #2", 	 {type: 'Basic', label: ''}],
-		["Traffic International","Co-Conspirator #9", 	 {type: 'Basic', label: ''}],
+		["Rafael Esquivel", "CONMEBOL Copa America", {type: 'Basic', label: ''}],
+		["Traffic", "Co-Conspirator #2", 	 {type: 'Basic', label: ''}],
+		["Traffic","Co-Conspirator #9", 	 {type: 'Basic', label: ''}],
 
 		// CONMEBOL == CONMEBOL Copa America
-		["Traffic Brazil",			"CONMEBOL Copa America",{type: 'Marketing', label: '$1,700,000'}],
-		["Traffic Brazil",			"CONMEBOL Copa America",{type: 'Marketing', label: '$6,600,000'}],
+		["Traffic",	"CONMEBOL Copa America",{type: 'Marketing', label: '$1,700,000'}],
+		["Traffic",	"CONMEBOL Copa America",{type: 'Marketing', label: '$6,600,000'}],
 
-		["Traffic Brazil", 			"CONMEBOL Copa America",{type: 'Marketing', label: '$440,000'}],
-		["Traffic International", 	"CONMEBOL Copa America",{type: 'Marketing', label: '$12,000,000'}],
-		["Traffic International", 	"CONMEBOL Copa America",{type: 'Marketing', label: '$17,000,000'}],
-		["Traffic International", 	"CONMEBOL Copa America",{type: 'Marketing', label: '$22,000,000'}],
+		["Traffic", "CONMEBOL Copa America",{type: 'Marketing', label: '$440,000'}],
+		["Traffic", "CONMEBOL Copa America",{type: 'Marketing', label: '$12,000,000'}],
+		["Traffic", "CONMEBOL Copa America",{type: 'Marketing', label: '$17,000,000'}],
+		["Traffic", "CONMEBOL Copa America",{type: 'Marketing', label: '$22,000,000'}],
 
-		["Traffic International", 	"Rafael Esquivel",   	{type: 'Kickback', label: '$1,000,000'}],
+		["Traffic", "Rafael Esquivel",   	{type: 'Kickback', label: '$1,000,000'}],
 		["Co-Conspirator #9", 		"Rafael Esquivel",     	{type: 'Kickback', label: '$700,000'}],
 		
 		// 6-7 figure digit payments, 11 GHOST LINES
