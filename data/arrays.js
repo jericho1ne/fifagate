@@ -97,7 +97,7 @@ var schemeC = {
 		["Grupo Sartander",	{type: 'Corporation'}],	
 		["Bridgestone", 	{type: 'Corporation'}],
 		["Toyota", 			{type: 'Corporation'}],
-		["Nicolas Leoz", 	{type: 'FIFA Member'}],
+		["Nicolas Leoz", 	{type: 'FIFA Member', notes: 'One of the $2 million payments was paid in five $400,000 installments.' }],
 		["Co-Conspirator #5",{type: 'Co-Conspirator'}],
   	],
   	"edges": [
@@ -117,11 +117,12 @@ var schemeC = {
 
 		["Sports Mkt Co A", "Nicolas Leoz",   	{type: 'Marketing', label: '$56,100,000'}],
 		["Co-Conspirator #5", "Nicolas Leoz",  	{type: 'Kickback', label: '$2,000,000'}],
-		["Co-Conspirator #5", "Nicolas Leoz",   {type: 'Kickback', label: '$400,000'}],
-		["Co-Conspirator #5", "Nicolas Leoz",   {type: 'Kickback', label: '$400,000'}],
-		["Co-Conspirator #5", "Nicolas Leoz",   {type: 'Kickback', label: '$400,000'}],
-		["Co-Conspirator #5", "Nicolas Leoz",   {type: 'Kickback', label: '$400,000'}],
-		["Co-Conspirator #5", "Nicolas Leoz",   {type: 'Kickback', label: '$400,000'}],
+		["Co-Conspirator #5", "Nicolas Leoz",  	{type: 'Kickback', label: '$2,000,000'}],
+		//["Co-Conspirator #5", "Nicolas Leoz",   {type: 'Kickback', label: '$400,000'}],
+		//["Co-Conspirator #5", "Nicolas Leoz",   {type: 'Kickback', label: '$400,000'}],
+		//["Co-Conspirator #5", "Nicolas Leoz",   {type: 'Kickback', label: '$400,000'}],
+		//["Co-Conspirator #5", "Nicolas Leoz",   {type: 'Kickback', label: '$400,000'}],
+		//["Co-Conspirator #5", "Nicolas Leoz",   {type: 'Kickback', label: '$400,000'}],
 	]
 };
 
