@@ -24,19 +24,19 @@ var actorTypes = {
 		'unicode': '\uf0a1',		// '\uf0d6',
  		//'color': '#2A3778',
 	},
-	'Bank': {
+	/*'Bank': {
 		'icon' : 'fa-bank',
 		'unicode': '\uf19c',
  		//'color': '#2A3778',
-	},
+	},*/
 	'Sportswear': {
 		'icon' : 'fa-tag',   		// fa-star-o
 		'unicode': '\uf02b',
  		//'color': '#125878',
 	},
 	'Corporation' : {
-		'icon' : 'fa-building-o',
-		'unicode': '\uf0f7'
+		'icon' : 'fa-building',
+		'unicode': '\uf1ad'
 	},
 	'Co-Conspirator': {
 		'icon'  : 'fa-user-secret', 	// 	fa-users
