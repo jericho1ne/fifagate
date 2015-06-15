@@ -419,9 +419,10 @@ var schemeL = {
 		["FIFA",  "CONMEBOL", {type: 'Basic', label: ''}],					// implied
 		["FIFA",  "CONCACAF", {type: 'Basic', label: ''}],					// implied
 		["CONMEBOL",  "Rafael Esquivel", {type: 'Basic', label: ''}],					// implied
+		["CONMEBOL",  "CONMEBOL officials", {type: 'Basic', label: ''}],
 		["Traffic International",  "Co-Conspirator #2", {type: 'Basic', label: ''}],					// implied
 
-		["Co-Conspirator #2", "CONMEBOL", {type: 'Kickback', label: '$10,000,000'}],
+		["Co-Conspirator #2", "CONMEBOL officials", {type: 'Kickback', label: '$10,000,000'}],
 		["Datisan", "CONMEBOL", {type: 'Marketing', label: '$317,500,000'}],
 		["Traffic International", "Cross Trading", {type: 'Kickback', label: '$5,000,000'}],
 		["Traffic International", "FTP (Tornes Affiliate)", {type: 'Kickback', label: '$5,000,000'}],
