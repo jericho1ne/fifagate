@@ -107,25 +107,25 @@ jQuery.fn.makeItSpringy = function(params) {
 		}
 		renderer.start();
 	});
-	// 
+	// DRAG
 	jQuery(canvas).mousemove(function(e) {
 		var pos = jQuery(this).offset();
 		var p = fromScreen({x: e.pageX - pos.left, y: e.pageY - pos.top});
-		nearest = layout.nearest(p);
-
+		// nearest = layout.nearest(p);
 		if (dragged !== null && dragged.node !== null) {
 			dragged.point.p.x = p.x;
 			dragged.point.p.y = p.y;
 		}
-
 		renderer.start();
 	});
-	// 
+	// EDN DRAG
 	jQuery(window).bind('mouseup',function(e) {
 		dragged = null;
 	});
 
+	
 	//============== DOUBLE CLICK LISTENER =================
+	/*
 	jQuery(canvas).dblclick(function(e) {
 		var pos = jQuery(this).offset();
 		var p = fromScreen({x: e.pageX - pos.left, y: e.pageY - pos.top});
@@ -138,6 +138,7 @@ jQuery.fn.makeItSpringy = function(params) {
 		//	node.data.ondoubleclick();
 		//}
 	});
+	*/
 
 	//============== SINGLE CLICK LISTENER =================
 	jQuery(canvas).click(
@@ -362,36 +363,53 @@ jQuery.fn.makeItSpringy = function(params) {
 			var labelTextInt = Number(edge.data.label.replace(/[^0-9\.]+/g,""));
 
 			// =====================  EDGE THICKNESS AND DISPLACEMENT
-			var displacement = -1;
+			var displacement = -14;
+			var displacementFlip = -1;
 
-			// normalized categories
+			// NORMALIZED PAYMENT CATEGORIES
+			// ------>	displacement 
+			// <-----	displacementFlip
+			// < 5k
 			if (labelTextInt >= 0 && labelTextInt < 50000) {		
-				edgeThickness = 1.5;
-				displacement = -2;
+				edgeThickness = 1.25;
+				displacement = -4;
+				displacementFlip = 4;
 			}
+			// 5k > 500k
 			else if (labelTextInt >= 50000 && labelTextInt < 500000) {		
 				edgeThickness = 2.25;
 				displacement = -3.5;
+				displacementFlip = 3.5;
 			}
+			// 500k > 1million
 			else if (labelTextInt >= 500000 && labelTextInt < 1000000) {		
-				edgeThickness = 3.75;
+				edgeThickness = 3.5;
 				displacement = -4;
+				displacementFlip = 3;
 			}
+			// 1 million > 5 million
 			else if (labelTextInt >= 1000000 && labelTextInt < 5000000) {		
-				edgeThickness = 5.25;
-				displacement = -5.5;
+				edgeThickness = 4.75;
+				displacement = -2.5;
+				displacementFlip = 2.25;
 			}
+			// 5 million > 10 million
 			else if (labelTextInt >= 5000000 && labelTextInt < 10000000) {		
-				edgeThickness = 7.25;
-				displacement = -6;
+				edgeThickness = 6.75;
+				displacement = -2;
+				displacementFlip = 2;
 			}
+			// 10 million > 50 million
 			else if (labelTextInt >= 10000000 && labelTextInt < 50000000) {		
 				edgeThickness = 9.25;
-				displacement = -6.5;
+				displacement = 0;
+				displacementFlip = 0.25;
 			}
+			// > 50 million
 			else if (labelTextInt >= 50000000) {						
 				edgeThickness = 12.25;
-				displacement = -7;
+				displacement = 1.5;
+				displacementFlip = 20;
 			}
 			var weight = (edge.data.weight !== undefined) ? edge.data.weight : 1.0;
 
@@ -460,9 +478,9 @@ jQuery.fn.makeItSpringy = function(params) {
 
 				// ============================= FONT PLACEMENT IN RELATIONSHIP TO EDGE
 				
-				// if flipped
+				// ======== FLIPPED CASE
 				if (edgeLabelsUpright && (angle > Math.PI/2 || angle < -Math.PI/2)) {
-					//displacement = -2;
+					displacement = displacementFlip;
 					angle += Math.PI;
 				}
 				

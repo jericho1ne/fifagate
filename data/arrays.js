@@ -256,7 +256,6 @@ var schemeG = {
 var schemeH = { 
 	"nodes" : [
 		["FIFA",							{type: 'Federation'}],
-		["Traffic USA",						{type: 'Commercial'}],
 		["Costa Rican Soccer Federation",	{type: 'Federation'}],
 		["Traffic",							{type: 'Commercial'}],
 		["Eduardo Li",						{type: 'FIFA Member'}],
@@ -272,15 +271,15 @@ var schemeH = {
 		["FIFA",  "Eduardo Li", 							{type: 'Basic', label: ''}],	// implied
 		["FIFA",  "Julio Rocha", 		{type: 'Basic', label: ''}],	// implied
 
-		["Traffic USA", "Costa Rican Soccer Federation", 	{type: 'Marketing', label: '~$2,500,000'}],
-		["Traffic USA", "Nicaraguan Soccer Federation", 	{type: 'Marketing', label: '~$1,138,000'}],
+		["Traffic", "Costa Rican Soccer Federation", 	{type: 'Marketing', label: '~$2,500,000'}],
+		["Traffic", "Nicaraguan Soccer Federation", 	{type: 'Marketing', label: '~$1,138,000'}],
 
 		["Traffic", "Eduardo Li", 							{type: 'Kickback', label: ''}],
 		["Traffic", "Co-Conspirator #4", 					{type: 'Basic', label: ''}],	
 		
 		["Traffic", "Julio Rocha", 							{type: 'Kickback', label: '$150,000'}],
-		["Traffic", "Julio Rocha", 							{type: 'Kickback', label: ' - - - $ - - -'}],
-		["Traffic", "Julio Rocha", 							{type: 'Kickback', label: ' - - - $ - - -'}],
+		["Traffic", "Julio Rocha", 							{type: 'Kickback', label: '', ghost: 'true'}],
+		["Traffic", "Julio Rocha", 							{type: 'Kickback', label: '', ghost: 'true'}],
 		["Traffic", "Co-Conspirator #19", 					{type: 'Kickback', label: '$50,000'}],
 		["Co-Conspirator #18", "Traffic", 					{type: 'Basic', label: ''}],
 		["Co-Conspirator #18", "Nicaraguan Soccer Federation", {type: 'Basic', label: ''}],
