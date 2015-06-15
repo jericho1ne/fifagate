@@ -99,12 +99,9 @@ foreach ($schemes as $key=>$datarows) {
 
 }
 
-
 /*
-
 $output_filename = "data/newfile.txt";
 writeToFile($output_filename, $schemeData);
-
 */
 
 ?>

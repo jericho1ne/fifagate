@@ -344,8 +344,9 @@ jQuery.fn.makeItSpringy = function(params) {
 				// Color
 				stroke = fontColor = vectorTypes[edge.data.type].color;
 			
-				// Connection Icon
-				labelText += vectorTypes[edge.data.type].unicode;
+				// Connection Icon - only use if Basic Connection
+				if (edge.data.type == "Basic")
+					labelText += vectorTypes[edge.data.type].unicode;
 			}
 
 			// ============================ EDGE WEIGHT + ARROW STYLING ===============
@@ -401,7 +402,7 @@ jQuery.fn.makeItSpringy = function(params) {
 			// original case check, we never pass in directional though
 			var directional = (edge.data.directional !== undefined) ? edge.data.directional : true;
 
-			// decide if arrow gets drawn based on Edge Type (Basic == no arrow)
+			// ============ DRAW ARROW ?  (Basic == no arrow)
 			directional = (edge.data.type=="Basic" ? 0 : 1);
 
 			// line
@@ -418,6 +419,14 @@ jQuery.fn.makeItSpringy = function(params) {
 
 			var edgePadX = 10;
 			var edgePadY = 10;
+
+
+			// ============================ SET DASHED LINES before calling moveTo & lineTo
+			if (edge.data.type=="Offered Bribe" || edge.data.ghost=="true")
+				ctx.setLineDash([4,8]);
+			// If not, turn it off to go back to solid
+			else
+				ctx.setLineDash([]);
 
 			ctx.moveTo(s1.x, s1.y);
 			ctx.lineTo(lineEnd.x, lineEnd.y);

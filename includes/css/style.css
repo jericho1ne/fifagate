@@ -97,17 +97,21 @@ body {
 	display: inline;
 	border-bottom: 1px solid transparent;
 	border-radius: 2px;
-	width: 12px; min-width: 12px;
+	width: 20px; min-width: 20px;
 	height: 10px;
+	margin-right: 6px;
 }
 ul {
 	list-style-type: none;
 	margin: 6 6 6 -40px;	/* top right bot left */
 	padding-bottom: 4px;
 }
-.legend li {
+li.legend {
 	text-transform: capitalize;
 	padding: 1px;
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 11px; font-weight: 400; 
 }
 .faIcon {
 	width: 20px;
@@ -163,3 +167,27 @@ hr {
 	border: 1px;
 	background: #333;
 }
+
+hr.hr-dashed {
+	display: inline-block;
+	border: none;
+	border-top: 2px dotted #333;
+	color:#fff;
+	background-color: transparent;
+	height: 2px;
+	width: 40px;
+	margin-right: 8px;
+}
+
+hr.hr-solid {
+	display: inline-block;
+	border: none;
+	border-top: 2px solid #333;
+	color: #fff;
+	background-color: transparent;
+	height: 2px;
+	width: 40px;
+	margin-right: 8px;
+}
+
+

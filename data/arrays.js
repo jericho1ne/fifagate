@@ -4,9 +4,6 @@
 // 
 // 		Federation, FIFA Member, Marketing, Broadcasting, Sportswear, Co-Conspirator
 // 
-// 
-
-
 var schemeA = { 
 	"nodes": [
 		["FIFA", 					{type: 'Federation'}], 
@@ -47,30 +44,30 @@ var schemeA = {
 		["Co-Conspirator #9", 		"Rafael Esquivel",     	{type: 'Kickback', label: '$700,000'}],
 		
 		// 6-7 figure digit payments, 11 GHOST LINES
-		["Co-Conspirator #2", 		"Nicolas Leoz",    		{type: 'Kickback', label: '$X,000,000 (?)'}],
-		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
-		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
-		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
-		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
-		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
-		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
-		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
-		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
-		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
-		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '- - - - -'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",    		{type: 'Kickback', label: '6-digit $', ghost: 'true'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '', ghost: 'true'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '', ghost: 'true'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '', ghost: 'true'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '', ghost: 'true'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '', ghost: 'true'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '', ghost: 'true'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '', ghost: 'true'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '', ghost: 'true'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '', ghost: 'true'}],
+		["Co-Conspirator #2", 		"Nicolas Leoz",       	{type: 'Kickback', label: '', ghost: 'true'}],
 
 		// ? amounts, 7 GHOST LINES
-		["Co-Conspirator #2", 		"Rafael Esquivel", 		{type: 'Kickback', label: '$1,000,000'}],
-		["Co-Conspirator #2", 		"Rafael Esquivel",    	{type: 'Kickback', label: '$1,000,000'}],
-		["Co-Conspirator #2", 		"Rafael Esquivel",     	{type: 'Kickback', label: '- - - - -'}],
-		["Co-Conspirator #2", 		"Rafael Esquivel",     	{type: 'Kickback', label: '- - - - -'}],
-		["Co-Conspirator #2", 		"Rafael Esquivel",     	{type: 'Kickback', label: '- - - - -'}],
-		["Co-Conspirator #2", 		"Rafael Esquivel",     	{type: 'Kickback', label: '- - - - -'}],
-		["Co-Conspirator #2", 		"Rafael Esquivel",     	{type: 'Kickback', label: '- - - - -'}],
+		["Co-Conspirator #2", 		"Rafael Esquivel", 		{type: 'Kickback', label: '$1,000,000', ghost: 'true'}],
+		["Co-Conspirator #2", 		"Rafael Esquivel",    	{type: 'Kickback', label: '$1,000,000', ghost: 'true'}],
+		["Co-Conspirator #2", 		"Rafael Esquivel",     	{type: 'Kickback', label: '', ghost: 'true'}],
+		["Co-Conspirator #2", 		"Rafael Esquivel",     	{type: 'Kickback', label: '', ghost: 'true'}],
+		["Co-Conspirator #2", 		"Rafael Esquivel",     	{type: 'Kickback', label: '', ghost: 'true'}],
+		["Co-Conspirator #2", 		"Rafael Esquivel",     	{type: 'Kickback', label: '', ghost: 'true'}],
+		["Co-Conspirator #2", 		"Rafael Esquivel",     	{type: 'Kickback', label: '', ghost: 'true'}],
 
 		// 2 GHOST LINES
-		["Co-Conspirator #2", 	"Alejandro Burzaco", 	{type: 'Kickback', label: ' - - - 7 figure bribe - - - '}],
-		["Alejandro Burzaco", 	"Co-Conspirator #10", 	{type: 'Kickback', label: ' - - - 7 figure bribe - - - '}],	 
+		["Co-Conspirator #2", 	"Alejandro Burzaco", 	{type: 'Kickback', label: '7-digit $', ghost: 'true'}],
+		["Alejandro Burzaco", 	"Co-Conspirator #10", 	{type: 'Kickback', label: '7-digit $', ghost: 'true'}],	 
 	]
 };
 
@@ -129,18 +126,15 @@ var schemeC = {
 
 var schemeD = { 
   	"nodes": [
-		["FIFA", {type: 'Federation'}],	
-		["Traffic", {type: 'Commercial'}],
-		// "Traffic Brazil",
-
-		["CBF", {type: 'Federation'}],	
-		["Sports Marketing Company B", {type: 'Commercial'}],
-		["Co-Conspirator #6", {type: 'Co-Conspirator'}],
-		
-		["Co-Conspirator #2", {type: 'Co-Conspirator'}],
-		["Co-Conspirator #11",{type: 'Co-Conspirator'}],
-		["Co-Conspirator #12",{type: 'Co-Conspirator'}],
-		["Jose Maria Marin", {type: 'FIFA Member'}],
+		["FIFA", 						{type: 'Federation'}],	
+		["CBF", 						{type: 'Federation'}],	
+		["Jose Maria Marin", 			{type: 'FIFA Member'}],
+		["Traffic", 					{type: 'Commercial'}],		// including traffic brazil
+		["Sports Marketing Company B", 	{type: 'Commercial'}],
+		["Co-Conspirator #6", 			{type: 'Co-Conspirator'}],
+		["Co-Conspirator #2", 			{type: 'Co-Conspirator'}],
+		["Co-Conspirator #11",			{type: 'Co-Conspirator'}],
+		["Co-Conspirator #12",			{type: 'Co-Conspirator'}],
   	],
   	"edges" : [
   		["FIFA",  "CBF", 							{type: 'Basic', label: ''}],
@@ -156,8 +150,7 @@ var schemeD = {
   		["CBF", "Co-Conspirator #12", 					{type: 'Basic', label: ''}],
 
   		["Co-Conspirator #6", "Sports Marketing Company B",	{type: 'Basic', label: ''}],
-  		["Sports Marketing Company B", "Co-Conspirator #2", {type: 'Marketing', label: '- - - ? - - -'}],		// implied
-		["Traffic", "CBF", {type: 'Marketing', label: ''}],
+  		["Traffic", "CBF", {type: 'Marketing', label: ''}],
 		["Sports Marketing Company B", "CBF", {type: 'Marketing', label: ''}],
 		["Co-Conspirator #6", "CBF", {type: 'Kickback', label: ''}],
 	

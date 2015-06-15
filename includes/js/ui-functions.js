@@ -35,7 +35,7 @@ function loadLegend() {
 		$("#vectorsLegend").append(
 			'<li>'+
 				'<div class="legend-square" style="background-color:'+ val.color +';">&nbsp;&nbsp;&nbsp;&nbsp;</div> '+
-				'<i class="fa ' + val.icon + ' faIcon"></i>' + 
+				//'<i class="fa ' + val.icon + ' faIcon"></i>' + 
 				'<span class="legend-text">' + key + '</span>'+
 			'</li>'
 		);
