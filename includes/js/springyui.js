@@ -105,8 +105,9 @@ jQuery.fn.makeItSpringy = function(params) {
 				nodeSelected(selected.node);
 			}
 		}
-		renderer.start();
+		// renderer.start();
 	});
+
 	// DRAG
 	jQuery(canvas).mousemove(function(e) {
 		var pos = jQuery(this).offset();
@@ -116,7 +117,7 @@ jQuery.fn.makeItSpringy = function(params) {
 			dragged.point.p.x = p.x;
 			dragged.point.p.y = p.y;
 		}
-		renderer.start();
+		// renderer.start();
 	});
 	// EDN DRAG
 	jQuery(window).bind('mouseup',function(e) {

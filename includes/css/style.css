@@ -9,9 +9,15 @@ body {
 	position:relative;
 	/* border-bottom: 3px solid #9DAEC1;
 	border-right: 3px solid #9DAEC1; */
-	
 }
+
+#demobg {
+	z-index: 999;
+	position: relative;
+}
+
 #canvas-outer {
+	background-image: 'background.jpg';
 	border-left: 1px solid #bbb;
 	border-right: 1px solid #bbb;
 	border-bottom: 1px solid #bbb;
@@ -27,12 +33,14 @@ body {
  	width: 100%;
 }
 .container {
+	background-image: 'background.jpg';
 	width: 100%;
 	padding: 0px;
 	margin: 0px;
 	position: relative;
 }
 .content {
+	background-image: 'background.jpg';
 	width: 1000px;
 	overflow: hidden;
 	position: relative;
@@ -62,15 +70,14 @@ body {
 }
 
 #notepad {
-	z-index: 1001;
+	z-index: 999;
 	position: absolute; /*newly added*/
     right: 5px; /*newly added*/
     bottom: 5px;
 	float: left;
 	text-align: left;
-	max-width: 210px; width: auto; height: auto;
+	max-width: 300px; width: auto; height: auto;
 	opacity: 0.8;
-	padding: 10 10 4 10px; 
 	margin: 10px;
 	/* background-color: rgba(100,200,200, 0.15); */
 

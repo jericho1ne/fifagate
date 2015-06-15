@@ -172,13 +172,15 @@
 
 	// add nodes and edges from JSON object
 	Graph.prototype.loadJSON = function(json) {
+		console.log(" >> Graph.prototype.loadJSON << ");
+		
 		while (this.edges.length > 0) {
-    		// console.log(graph.edges[0]);
+    		console.log(graph.edges[0]);
     		this.removeEdge(this.edges[0]);
 		}
 
 		while (this.nodes.length > 0) {
-			// console.log(graph.nodes[0]);
+			console.log(graph.nodes[0]);
 			this.removeNode(this.nodes[0]);
 		}
 		/**
@@ -203,8 +205,10 @@
 			}
 
 		**/
+
 		// parse if a string is passed (EC5+ browsers)
 		if (typeof json == 'string' || json instanceof String) {
+			console.log(">>>>>>>>> PARSING JSON <<<<<<<<<<");
 			json = JSON.parse( json );
 		}
 
@@ -212,6 +216,12 @@
 			this.addNodes.apply(this, json['nodes']);
 			this.addEdges.apply(this, json['edges']);
 		}
+
+
+		setTimeout(function(){
+  			$('.schemeButton').removeAttr('disabled');
+		}, 600);
+		
 	}
 
 

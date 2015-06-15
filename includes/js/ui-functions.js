@@ -53,6 +53,9 @@ function loadScheme(letter) {
 
 	$("#schemeTitle").text("Scheme " + letter);
 
+	// clear anything that may be left in the notepad
+	$("#notepad").html("");
+	 
 	switch(letter) {
 	    case "A":
 	    	graph.loadJSON(schemeA);
@@ -95,7 +98,7 @@ function loadScheme(letter) {
 
 	var springy = jQuery('#springydemo').makeItSpringy({
 		graph: graph
-	});
+	});	
 }
 
 

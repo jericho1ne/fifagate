@@ -412,8 +412,8 @@ var schemeL = {
 		["Bayan Group S.A.",		{type: 'Corporation'}],
 		["Rafael Esquivel",			{type: 'FIFA Member'}],
 		["Jose Margulies",			{type: 'FIFA Member', image: '', notes: 'Margulies Intermediaries'}],			 
-		["CONCACAF",				{type: 'Federation'}],
-		["Jeffrey Webb",			{type: 'FIFA Member'}],
+		["CONCACAF",				{type: 'Federation', notes: 'Datisan seeks and obtains CONCACAF commercial rights for special 2016 Centenario Contract.'}],
+		["Jeffrey Webb",			{type: 'FIFA Member', notes: 'Datisan agrees to unspecified bribe payment to Webb for CONCACAF contract.'}],
 	],
 	"edges" : [
 		["FIFA",  "CONMEBOL", {type: 'Basic', label: ''}],					// implied
