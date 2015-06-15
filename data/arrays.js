@@ -405,7 +405,6 @@ var schemeL = {
 		["Co-Conspirator #2",		{type: 'Co-Conspirator'}],	// (representing Traffic
 		["CONMEBOL",				{type: 'Federation'}],
 		["Datisan",					{type: 'Commercial'}],
-		["?",						{type: 'Co-Conspirator'}],		// ?? type ??
 		["Traffic International",	{type: 'Commercial'}],
 		["Cross Trading",			{type: 'Bank'}],
 		["FTP (Tornes Affiliate)",	{type: 'Bank'}],
@@ -425,7 +424,6 @@ var schemeL = {
 
 		["Co-Conspirator #2", "CONMEBOL", {type: 'Kickback', label: '$10,000,000'}],
 		["Datisan", "CONMEBOL", {type: 'Marketing', label: '$317,500,000'}],
-		["Datisan", "?", {type: 'Kickback', label: ''}],
 		["Traffic International", "Cross Trading", {type: 'Kickback', label: '$5,000,000'}],
 		["Traffic International", "FTP (Tornes Affiliate)", {type: 'Kickback', label: '$5,000,000'}],
 		["Traffic International", "FTP (Tornes Affiliate)", {type: 'Kickback', label: '$1,666,667'}],
