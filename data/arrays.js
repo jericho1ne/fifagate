@@ -154,12 +154,12 @@ var schemeD = {
   		["Traffic", "CBF", {type: 'Marketing', label: ''}],
 		["Sports Marketing Company B", "CBF", {type: 'Marketing', label: ''}],
 		
-		["Co-Conspirator #6", "Jose Maria Marin", {type: 'Kickback', label: ''}],
+		["Co-Conspirator #6", "Jose Maria Marin", {type: 'Kickback', label: '$493,000'}],  //164,333.
 		["Co-Conspirator #6", "Co-Conspirator #11", {type: 'Kickback', label: ''}],
 		["Co-Conspirator #6", "Co-Conspirator #12", {type: 'Kickback', label: ''}],
 	
-		["Jose Maria Marin", "Co-Conspirator #11", {type: 'Kickback', label: '$246,500'}],
-		["Jose Maria Marin", "Co-Conspirator #12", {type: 'Kickback', label: '$246,500'}],
+		["Jose Maria Marin", "Co-Conspirator #11", {type: 'Kickback', label: ''}],
+		["Jose Maria Marin", "Co-Conspirator #12", {type: 'Kickback', label: ''}],
 
 		["Co-Conspirator #2", "Jose Maria Marin", {type: 'Kickback', label: '$493,000'}],
 		["Co-Conspirator #2", "Jose Maria Marin", {type: 'Kickback', label: '$493,000', ghost: "true"}], // GHOST LINE
@@ -241,7 +241,7 @@ var schemeG = {
 
 		// CHANGE TYPE TO OFFERED BRIBE - horizontal slashes or dots
 		["Morocco", "Co-Conspirator #1", {type: 'Offered Bribe', label: '$1,000,000'}],
-		["South Africa", "CFU", {type: 'Kickback', label: '-'}],
+		["South Africa", "CFU", {type: 'Kickback', label: ''}],
 
 		["CFU", "Jack Warner", {type: 'Kickback', label: '$200,000'}],
 		["CFU", "Jack Warner", {type: 'Kickback', label: '$1,400,000'}],
