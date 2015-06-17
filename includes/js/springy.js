@@ -172,7 +172,7 @@
 
 	// add nodes and edges from JSON object
 	Graph.prototype.loadJSON = function(json) {
-		console.log(" >> Graph.prototype.loadJSON << ");
+		// console.log(" >> Graph.prototype.loadJSON << ");
 		
 		while (this.edges.length > 0) {
     		console.log(graph.edges[0]);

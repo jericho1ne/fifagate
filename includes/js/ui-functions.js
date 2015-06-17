@@ -55,7 +55,14 @@ function loadScheme(letter) {
 
 	// clear anything that may be left in the notepad
 	$("#notepad").html("");
-	 
+
+	if (schemes[letter] != '') {
+		$("#notepad").html(schemes[letter]);
+		$('#notepad').show();
+	}
+	else {
+		$('#notepad').hide();
+	}
 	switch(letter) {
 	    case "A":
 	    	graph.loadJSON(schemeA);

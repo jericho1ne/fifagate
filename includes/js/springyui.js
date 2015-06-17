@@ -151,6 +151,7 @@ jQuery.fn.makeItSpringy = function(params) {
 			node = selected.node;
 			
 			// take the following UI action
+			$('#notepad').show();
 			$('#notepad').html('<div class="legend-header">'+node.id + '</div>');
 
 			if (node.data.notes !== undefined) {
@@ -373,44 +374,50 @@ jQuery.fn.makeItSpringy = function(params) {
 			// < 5k
 			if (labelTextInt >= 0 && labelTextInt < 50000) {		
 				edgeThickness = 1.25;
-				displacement = -4;
-				displacementFlip = 4;
+				displacement = -5;
+				displacementFlip = 5;
 			}
 			// 5k > 500k
 			else if (labelTextInt >= 50000 && labelTextInt < 500000) {		
 				edgeThickness = 2.25;
-				displacement = -3.5;
-				displacementFlip = 3.5;
+				displacement = -6.0;
+				displacementFlip = 6.0;
 			}
 			// 500k > 1million
 			else if (labelTextInt >= 500000 && labelTextInt < 1000000) {		
 				edgeThickness = 3.5;
-				displacement = -4;
-				displacementFlip = 3;
+				displacement = -6;
+				displacementFlip = 5.5;
 			}
 			// 1 million > 5 million
 			else if (labelTextInt >= 1000000 && labelTextInt < 5000000) {		
 				edgeThickness = 4.75;
-				displacement = -2.5;
-				displacementFlip = 2.25;
+				displacement = -5.15;
+				displacementFlip = 4.75;
 			}
 			// 5 million > 10 million
 			else if (labelTextInt >= 5000000 && labelTextInt < 10000000) {		
 				edgeThickness = 6.75;
-				displacement = -2;
-				displacementFlip = 2;
+				displacement = -4;
+				displacementFlip = 3.75;
 			}
 			// 10 million > 50 million
 			else if (labelTextInt >= 10000000 && labelTextInt < 50000000) {		
 				edgeThickness = 9.25;
-				displacement = 0;
-				displacementFlip = 0.25;
+				displacement = -2;
+				displacementFlip = 2.25;
 			}
-			// > 50 million
-			else if (labelTextInt >= 50000000) {						
+			// 50 million > 250 million
+			else if (labelTextInt >= 50000000 && labelTextInt < 250000000) {						
 				edgeThickness = 12.25;
-				displacement = 1.5;
-				displacementFlip = 20;
+				displacement = -1;
+				displacementFlip = 1.5;
+			}
+			// > 250 million
+			else if (labelTextInt >= 250000000) {						
+				edgeThickness = 15.25;
+				displacement = 1;
+				displacementFlip = -1.75;
 			}
 			var weight = (edge.data.weight !== undefined) ? edge.data.weight : 1.0;
 

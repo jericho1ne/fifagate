@@ -1,6 +1,6 @@
 var schemes = {
-	"A" : "",
-	"B" : "",
+	"A" : "Scheme consists of six payments from Traffic Brazil to CONMEBOL (spanning 1987-2011) for Copa America commercial and broadcast rights.  Kickback recepients: Rafael Esquivel, Venezuela's national soccer federation president, Nicolas Leoz, CONMEBOL president, and Alejandro Burzaco, Argentinian businessman and former sports marketing company CEO.",
+	"B" : "Traffic USA Sports obtains exclusive worldwide commercial rights for 1996, 1998 & 2000 editions of CONCACAF Gold Cup. Betwen 1993-2000, kickbacks to Co-Conspirator 1 and Jack Warner are wired from  US to Cayman Islands and on to Trinidad and Tobago.",
 	"C" : "",
 	"D" : "",
 	"E" : "",
@@ -11,7 +11,9 @@ var schemes = {
 	"J" : "",
 	"K" : "",
 	"L" : ""
-}
+};
+
+
 //
 // Node types:
 // 
@@ -150,7 +152,7 @@ var schemeD = {
 		["Jose Maria Marin", 			{type: 'FIFA Member'}],
 		["Traffic", 					{type: 'Commercial'}],		// including traffic brazil
 		["Sports Marketing Company B", 	{type: 'Commercial'}],
-		["Co-Conspirator #6", 			{type: 'Co-Conspirator', notes: 'One of the three receipients of Co-Conspirator #6\'s payment used it to buy a yacht.' }],
+		["Co-Conspirator #6", 			{type: 'Co-Conspirator', notes: 'One of the three recipients of Co-Conspirator #6\'s payment put the money towards a yacht.' }],
 		["Co-Conspirator #2", 			{type: 'Co-Conspirator'}],
 		["Co-Conspirator #11",			{type: 'Co-Conspirator'}],
 		["Co-Conspirator #12",			{type: 'Co-Conspirator'}],
