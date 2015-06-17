@@ -29,9 +29,9 @@ jQuery.fn.makeItSpringy = function(params) {
 	var graph = this.graph = params.graph || new Springy.Graph();
 	
 	var nodeFont 	= "12px Open Sans, sans-serif";
-	var faFontSm	= "12px FontAwesome";
-	var faFontMd	= "20px FontAwesome";
-	var faFontLg	= "24px FontAwesome";
+	var faFontSm	= "12px FontAwesome, sans-serif";
+	var faFontMd	= "20px FontAwesome, sans-serif";
+	var faFontLg	= "24px FontAwesome, sans-serif";
 	
 
 	var edgeFont 	= "12px Open Sans, sans-serif";
@@ -439,7 +439,6 @@ jQuery.fn.makeItSpringy = function(params) {
 			var edgePadX = 10;
 			var edgePadY = 10;
 
-
 			// ============================ SET DASHED LINES before calling moveTo & lineTo
 			if (edge.data.type=="Offered Bribe" || edge.data.ghost=="true")
 				ctx.setLineDash([4,8]);
@@ -473,7 +472,14 @@ jQuery.fn.makeItSpringy = function(params) {
 				ctx.save();
 				ctx.textAlign = "center";
 				ctx.textBaseline = "top";
-				ctx.font = faFontSm;  // edgeFont;
+
+				// ====================== SET FONT TYPE =======================
+				ctx.font = edgeFont;  
+				
+				// Connection Icon - only use if Basic Connection
+				if (edge.data.type == "Basic")
+					ctx.font = faFontSm;  // edgeFont;
+
 				ctx.fillStyle = fontColor;
 				var angle = Math.atan2(s2.y - s1.y, s2.x - s1.x);
 
