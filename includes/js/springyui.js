@@ -536,13 +536,15 @@ jQuery.fn.makeItSpringy = function(params) {
 			
 			// SELECTED
 			if (selected !== null && selected.node !== null && selected.node.id === node.id) {
-				ctx.fillStyle = 'rgba(255, 123, 0, 0.65)';
+				ctx.fillStyle = 'rgba(255, 123, 0, 0.85)';
 			} 
 			//else if (nearest !== null && nearest.node !== null && nearest.node.id === node.id) {
 			//	ctx.fillStyle = 'rgba(200, 200, 200, 0.45)';
 			//} 
-			else {
-				ctx.fillStyle = 'rgba(200, 200, 200, 0.55)';
+			// USUAL NODE FILL COLOR
+			else {  
+				ctx.fillStyle = 'rgba(193,207,230, 0.75)';	// dk faded blue
+				// GRAY == 'rgba(200, 200, 200, 0.55)';
 			}
 			
 			// Old rectangular background

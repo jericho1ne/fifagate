@@ -83,7 +83,6 @@
 <script type="text/javascript">
 // onload, let it rip
 $(document).ready(function() {
-    
 	// Load legend
 	loadLegend();
 
@@ -98,22 +97,6 @@ $(document).ready(function() {
 		$('.schemeButton').attr('disabled','disabled');
 		loadScheme(this.id);
 	});
-
-	// Save canvas to image
-	$("#screenshot").click(function() {
-		// save image to div
-		//var dataURL = springydemo.toDataURL();
-		//var newDiv = document.createElement("div");
-		//document.getElementById('newDiv').src = dataURL;
-
-	
-		// open in new window
-		// window.open('', document.getElementById('springydemo').toDataURL());
-	});
-
-	// SIZING
-	//$('#springydemo').width('400');
-
 });
 </script>
 
