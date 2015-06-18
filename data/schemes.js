@@ -1,5 +1,5 @@
 var schemes = {
-	"A" : "Scheme consists of six payments from Traffic Brazil to CONMEBOL (spanning 1987-2011) for Copa America commercial and broadcast rights.  Kickback recepients: Rafael Esquivel, Venezuela's national soccer federation president, Nicolas Leoz, CONMEBOL president, and Alejandro Burzaco, Argentinian businessman and former sports marketing company CEO.",
+	"A" : "Payments from Traffic Brazil to CONMEBOL (spanning 1987-2011) for Copa America commercial and broadcast rights.  Kickback recepients: Rafael Esquivel, Venezuela's national soccer federation president, Nicolas Leoz, CONMEBOL president, and Alejandro Burzaco, former sports marketing company CEO.",
 	"B" : "Traffic USA Sports obtains exclusive worldwide commercial rights for 1996, 1998 & 2000 editions of CONCACAF Gold Cup. Betwen 1993-2000, kickbacks to Co-Conspirator 1 and Jack Warner are wired from  US to Cayman Islands and on to Trinidad and Tobago.",
 	"C" : "",
 	"D" : "",
@@ -254,7 +254,7 @@ var schemeG = {
 		["FIFA", "FIFA high ranking individual", 	{type: 'Basic', label: ''}],	// implied
 
 		// Train tracks - not a kickback, it's DEVELOPMENT - more bening color YELLOW
-		["FIFA high ranking individual", "South Africa", {type: 'Sports Development', label: '$10,000,000'}],
+		["FIFA high ranking individual", "South Africa", {type: 'Sports Devt', label: '$10,000,000'}],
 		["FIFA high ranking individual", "CFU", {type: 'Kickback', label: '$616,000'}],
 		["FIFA high ranking individual", "CFU", {type: 'Kickback', label: '$1,600,000'}],
 		["FIFA high ranking individual", "CFU", {type: 'Kickback', label: '$7,784,000'}],

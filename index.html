@@ -1,33 +1,89 @@
 <html>
-<meta charset="utf8"/>
 <body>
 
 <head>
+<title>fifa bribes force graph</title>
+<meta charset="utf8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <script src="includes/js/jquery-1.11.3.min.js"></script>
-
-<!-- Node and Egde names, colors, and icons -->
-<script src="data/legend.js"></script>
-
-<!-- Node and Vector names, colors, and icons -->
-<script src="data/schemes.js"></script>
-
-<!-- Helper functions -->
-<script src="includes/js/ui-functions.js"></script>
+<!-- <script src="includes/js/jquery.mobile-1.4.5.min.js"></script> -->
+<!-- CSS styles -->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,800' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="includes/css/style.css">
+<link rel="stylesheet" type="text/css" href="includes/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" type="text/css" href="includes/css/jquery.mobile-1.4.5.min.css"> -->
 
 <!-- Node and Egde names, colors, and icons -->
 <script src="includes/js/springy.js"></script>
 <script src="includes/js/springyui.js"></script>
 
-<!-- CSS styles -->
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,800' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="includes/css/style.css">
-<link rel="stylesheet" type="text/css" href="includes/css/font-awesome.min.css">
+<!-- Helper functions -->
+<script src="includes/js/ui-functions.js"></script>
+
+<!-- Node and Egde names, colors, and icons -->
+<script src="data/legend.js"></script>
+<!-- Node and Vector names, colors, and icons -->
+<script src="data/schemes.js"></script>
+
+
 </head>
+
+<div class="container">
+	<div class="content">
+
+		<div id="title-bar">
+		  	<div class="textSubtitle">FIFA Payoff Schemes 1998-2012</div>
+			  
+		  	<div class="buttonBar">
+			 	<button id="A" class="schemeButton">A</button>
+				<button id="B" class="schemeButton">B</button>
+				<button id="C" class="schemeButton">C</button>
+				<button id="D" class="schemeButton">D</button>
+				<button id="E" class="schemeButton">E</button>
+				<button id="F" class="schemeButton">F</button>
+				<button id="G" class="schemeButton">G</button>
+				<button id="H" class="schemeButton">H</button>
+				<button id="I" class="schemeButton">I</button>
+				<button id="J" class="schemeButton">J</button>
+				<button id="K" class="schemeButton">K</button>
+				<button id="L" class="schemeButton">L</button>
+				<!-- <button id="screenshot">Take a Screenshot</button> -->
+			</div>
+
+		</div>
+		
+	</div>
+	
+	<div class="content">
+		<div id="legend">
+			<span class="legend-header">Players</span>
+			<ul id="actorsLegend" class="legend"></ul> 
+
+			<span class="legend-header">Connections</span>
+			<ul id="vectorsLegend" class="legend"></ul>
+
+			<span class="legend-header">Payments</span>
+			<ul>
+				<li class="legend"><hr class="hr-solid">Actual
+				<li class="legend"><hr class="hr-dashed">Planned
+			</ul>
+		</div>
+
+		<!-- Changes on the fly to display relavant info-->
+		<div id="schemeTitle"></div>
+		<div id="notepad"></div>
+
+		<div id="canvas-outer">
+			<canvas id="springydemo" width="630px" height="820"/></canvas>
+		</div>
+	</div>
+</div>
+</body>
 
 <script type="text/javascript">
 // onload, let it rip
-jQuery(function(){
-
+$(document).ready(function() {
+    
 	// Load legend
 	loadLegend();
 
@@ -60,56 +116,5 @@ jQuery(function(){
 
 });
 </script>
-<div class="container">
-	<div class="content">
 
-		<div id="title-bar">
-		  	<div class="textBanner">FIFA Gate</div>
-		  	<div class="textSubtitle">Payoff Flows 1998-2012</div>
-			  
-		  	<div class="buttonBar">
-			 	<button id="A" class="schemeButton">Scheme A</button>
-				<button id="B" class="schemeButton">Scheme B</button>
-				<button id="C" class="schemeButton">Scheme C</button>
-				<button id="D" class="schemeButton">Scheme D</button>
-				<button id="E" class="schemeButton">Scheme E</button>
-				<button id="F" class="schemeButton">Scheme F</button><br>
-				<button id="G" class="schemeButton">Scheme G</button>
-				<button id="H" class="schemeButton">Scheme H</button>
-				<button id="I" class="schemeButton">Scheme I</button>
-				<button id="J" class="schemeButton">Scheme J</button>
-				<button id="K" class="schemeButton">Scheme K</button>
-				<button id="L" class="schemeButton">Scheme L</button>
-				<!-- <button id="screenshot">Take a Screenshot</button> -->
-			</div>
-
-		</div>
-		
-	</div>
-	
-	<div class="content">
-		<div id="legend">
-			<span class="legend-header">Players</span>
-			<ul id="actorsLegend" class="legend"></ul> 
-
-			<span class="legend-header">Connections</span>
-			<ul id="vectorsLegend" class="legend"></ul>
-
-			<span class="legend-header">Payments</span>
-			<ul>
-				<li class="legend"><hr class="hr-solid">Actual
-				<li class="legend"><hr class="hr-dashed">Planned
-			</ul>
-		</div>
-
-		<!-- Changes on the fly to display relavant info-->
-		<div id="schemeTitle"></div>
-		<div id="notepad"></div>
-
-		<div id="canvas-outer">
-			<canvas id="springydemo" width="600" height="600"/></canvas>
-		</div>
-	</div>
-</div>
-</body>
 </html>

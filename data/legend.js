@@ -72,7 +72,7 @@ var vectorTypes = {
 		'unicode': '\uf0b1', 	
 		'color' : '#d1cb23'
 	}, 
-	'Sports Development' : { 
+	'Sports Devt' : { 
 		'icon'  : 'fa-wrench',
 		'unicode': '\uf169', 	
 		'color' : '#669900' 
