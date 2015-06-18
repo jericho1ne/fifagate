@@ -145,11 +145,17 @@ li.legend {
 /********************************************** 		
 		USER INTERFACE (BUTTONS, ETC)
 ***********************************************/
+.buttonbar {
+	position: relative;
+	width: 100%;
+	display: block;
+	padding: 0 2 4 2px;
+}
 button {
-	padding: 3 4 3 4px; margin-right: 2px;
+	padding: 3px; margin-right: 1px;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 11px; font-weight: 200; 
-	height: 26px; min-width: 22px;
+	height: 26px; min-width: 20px;
 	border-radius: 2px;
 	background-color: #C1CFE6;
 	border: 1px solid #333;
@@ -159,12 +165,6 @@ button:hover, button:focus {
 }
 button:active { 
     background-color: #888;
-}
-.buttonbar {
-	position: relative;
-	width: 100%;
-	display: block;
-	padding: 0 2 4 2px;
 }
 .textSubtitle {
 	display: block;
