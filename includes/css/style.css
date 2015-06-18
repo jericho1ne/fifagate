@@ -42,6 +42,7 @@ body {
 	position: relative;
 }
 .content {
+	width: 100%;
 	overflow: hidden;
 	position: relative;
 	text-align: center;
@@ -58,9 +59,8 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 18px; font-weight: 400;
 	z-index: 999;
-	position: absolute; /*newly added*/
-    right: 0px; /*newly added*/
-    top: 0px;
+	position: absolute; 
+    right: 0px; top: 0px;
 	float: left;
 	text-align: left;
 	width: auto; height: auto;
@@ -68,13 +68,11 @@ body {
 	padding-right: 2px; 
 	margin: 8px;
 }
-
 #notepad {
 	z-index: 1001;
 	display: none;
-	position: absolute; /*newly added*/
-    right: 5px; /*newly added*/
-    bottom: 5px;
+	position: absolute;
+    right: 5px; bottom: 5px;
 	float: left; text-align: left;
 	max-width: 50%; 
 	width: auto; height: auto;
@@ -87,7 +85,6 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 11px; font-weight: 200; 
 }
-
 #legend {
 	z-index: 999;
 	position: absolute; /*newly added*/
@@ -122,7 +119,6 @@ li.legend {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 10.5px; font-weight: 200; 
 }
-
 .faIcon {
 	width: 13px;
 	padding-left: 1px;
@@ -179,7 +175,6 @@ hr {
 	padding: 0px;
 	background: #333;
 }
-
 hr.hr-dashed {
 	display: inline-block;
 	border: none;
@@ -190,7 +185,6 @@ hr.hr-dashed {
 	width: 24px;
 	margin-right: 8px;
 }
-
 hr.hr-solid {
 	display: inline-block;
 	border: none;
@@ -201,5 +195,3 @@ hr.hr-solid {
 	width: 24px;
 	margin-right: 8px;
 }
-
-

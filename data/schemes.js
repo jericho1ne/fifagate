@@ -1,6 +1,6 @@
 var schemes = {
-	"A" : "Payments from Traffic Brazil to CONMEBOL (spanning 1987-2011) for Copa America commercial and broadcast rights.  Kickback recepients: Rafael Esquivel, Venezuela's national soccer federation president, Nicolas Leoz, CONMEBOL president, and Alejandro Burzaco, former sports marketing company CEO.",
-	"B" : "Traffic USA Sports obtains exclusive worldwide commercial rights for 1996, 1998 & 2000 editions of CONCACAF Gold Cup. Betwen 1993-2000, kickbacks to Co-Conspirator 1 and Jack Warner are wired from  US to Cayman Islands and on to Trinidad and Tobago.",
+	"A" : "Bribes made between 1987-2011 for Copa America commercial and broadcast rights.  Main kickback recipients: Rafael Esquivel, Venezuela\'s national soccer federation president, Nicolas Leoz, CONMEBOL president, and Alejandro Burzaco, former sports marketing company CEO.",
+	"B" : "Traffic USA Sports obtains exclusive worldwide commercial rights for 1996, 1998 & 2000 editions of CONCACAF Gold Cup. Between 1993-2000, kickbacks to Co-Conspirator 1 and Jack Warner are wired from the US, to the Cayman Islands, then on to Trinidad and Tobago.",
 	"C" : "",
 	"D" : "",
 	"E" : "",
