@@ -600,15 +600,11 @@ jQuery.fn.makeItSpringy = function(params) {
 
  			//==================================== DISPLAY NODE FLAG, IF ONE IS GIVEN ==================
  			if (node.data.country != '' && node.data.country != undefined) {
-				//labelText += node.data.country;
-
 				flag = new Image();
 			  	flag.src = 'data/flags/' + flags[node.data.country];
   				ctx.drawImage(flag, anchorX+20, anchorY+10);
 			}
 			if (node.data.country2 != '' && node.data.country2 != undefined) {
-				//labelText += node.data.country;
-
 				flag2 = new Image();
 			  	flag2.src = 'data/flags/' + flags[node.data.country2];
   				ctx.drawImage(flag2, anchorX+81, anchorY+10);

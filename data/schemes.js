@@ -1,16 +1,16 @@
 var schemes = {
-	"A" : "Bribes made between 1987-2011 for Copa America commercial and broadcast rights.  Main kickback recipients: Rafael Esquivel, Venezuela\'s national soccer federation president, Nicolas Leoz, CONMEBOL president, and Alejandro Burzaco, former Sports Marketing Co. CEO.",
-	"B" : "Traffic USA Sports obtains exclusive worldwide commercial rights for 1996, 1998 & 2000 editions of CONCACAF Gold Cup. Between 1993-2000, kickbacks to Co-Conspirator 1 and Jack Warner are wired from the US, to the Cayman Islands, then on to Trinidad and Tobago.",
-	"C" : "",
-	"D" : "",
-	"E" : "",
-	"F" : "",
-	"G" : "",
-	"H" : "",
-	"I" : "",
-	"J" : "",
-	"K" : "",
-	"L" : ""
+	"A" : "CONMEBOL Copa America Scheme.  Bribes made between 1987-2011 for commercial and broadcast rights.  Kickback recipients: Rafael Esquivel, (Venezuelan soccer federation), Nicolas Leoz (CONMEBOL), and Alejandro Burzaco (Sports Marketing Co. CEO).",
+	"B" : "CONCACAF Gold Cup Scheme.  Traffic obtains exclusive worldwide commercial rights for 1996, 1998 & 2000 editions of the Gold Cup. Kickbacks to Co-Conspirator 1 and Jack Warner are wired from the US > Cayman Islands > Trinidad between 1993-2000.",
+	"C" : "CONMEBOL Copa Libertadores Scheme",
+	"D" : "CBF Copa do Brasil Scheme",
+	"E" : "CBF Sponsorship Scheme",
+	"F" : "CFU World Cup Qualifiers Scheme",
+	"G" : "2010 FIFA World Cup Vote Scheme #1",
+	"H" : "UNCAF Region World Cup Qualifiers Scheme",
+	"I" : "2011 FIFA Presidential Election Scheme",
+	"J" : "CFU World Cup Qualifiers Scheme #2",
+	"K" : "CONCACAF Gold Cup & Champions League Scheme",
+	"L" : "CONMEBOL/CONCACAF Copa América Centenario Scheme"
 };
 
 var flags = {
@@ -20,7 +20,8 @@ var flags = {
  	'Costa Rica'	: 'costarica.jpg',
  	'Japan'			: 'japan.jpg',
  	'Morocco'		: 'morocco.jpg',
- 	'Nicaragua'		: 'brazil.jpg',
+ 	'Nicaragua'		: 'nicaragua.jpg',
+ 	'Panama'		: 'panama.jpg',
  	'Paraguay'		: 'paraguay.jpg',
  	'Qatar'			: 'qatar.jpg',
  	'South Africa'	: 'southafrica.jpg',
@@ -293,10 +294,10 @@ var schemeG = {
 var schemeH = { 
 	"nodes" : [
 		["FIFA",							{type: 'Federation'}],
-		["Costa Rican Soccer Federation",	{type: 'Federation'}],
-		["Traffic",							{type: 'Commercial'}],
+		["Costa Rican Soccer Federation",	{type: 'Federation', country: 'Costa Rica'}],
+		["Traffic",							{type: 'Commercial', country: 'USA'}],
 		["Eduardo Li",						{type: 'FIFA Member', country: 'Costa Rica'}],
-		["Nicaraguan Soccer Federation",	{type: 'Federation'}],
+		["Nicaraguan Soccer Federation",	{type: 'Federation', country: 'Nicaragua'}],
 		["Julio Rocha",						{type: 'FIFA Member', country: 'Nicaragua'}],
 		["Co-Conspirator #18",				{type: 'FIFA Member'}],
 		["Co-Conspirator #4",				{type: 'Co-Conspirator'}],
@@ -363,7 +364,7 @@ var schemeJ = {
 		["Conspirator #21", 			{type: 'Co-Conspirator'}],
 
 		["Front Company A",				{type: 'Corporation'}],
-		["Costas Takkas",				{type: 'FIFA Member', country: 'United Kingdom', notes:'Also includes the "Unknown Co-Conspirator", an acquaintance of Takkas\'.'}],
+		["Costas Takkas",				{type: 'FIFA Member', country: 'United Kingdom', country2: 'Cayman Islands', notes:'Also includes the "Unknown Co-Conspirator", an acquaintance of Takkas\'.'}],
 		["Co-Conspirator #4",			{type: 'Co-Conspirator'}],
 		["Co-Conspirator #22",			{type: 'Co-Conspirator'}],
 		["Friend of Co-Conspirator #2",	{type: 'Co-Conspirator'}],
@@ -438,11 +439,11 @@ var schemeL = {
 		["Co-Conspirator #2",		{type: 'Co-Conspirator'}],	// (representing Traffic
 		["CONMEBOL",				{type: 'Federation'}],
 		["Datisan",					{type: 'Commercial', notes: 'Datisan paid massive bribe of $100,000,000 for 2013 Copa America contract.  Also secured worldwide, exclusive commercial rights to Copa America\'s 2015, 2016, 2019, and 2023 editions.'}],
-		["Traffic International",	{type: 'Commercial'}],
-		["Cross Trading",			{type: 'Corporation'}],
+		["Traffic International",	{type: 'Commercial', country: 'USA'}],
+		["Cross Trading",			{type: 'Corporation', country: 'Argentina', notes: 'Full Play Group (soccer broadcasting company) affiliate.  Operated by Hugo and Mariano Jinkis.'}],
 		["FTP (Tornes Affiliate)",	{type: 'Corporation'}],
 		["CONMEBOL officials",		{type: 'FIFA Member'}],
-		["Bayan Group S.A.",		{type: 'Corporation'}],
+		["Bayan Group S.A.",		{type: 'Corporation', country: 'Panama', notes: 'Includes Bayan account controlled by Rafael Esquivel'}],
 		["Rafael Esquivel",			{type: 'FIFA Member', country: 'Venezuela'}],
 		["Jose Margulies",			{type: 'FIFA Member', country: 'Brazil', notes: 'Margulies Intermediaries'}],			 
 		["CONCACAF",				{type: 'Federation', notes: 'Datisan seeks and obtains CONCACAF commercial rights for special 2016 Centenario Contract.'}],
