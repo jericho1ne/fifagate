@@ -606,6 +606,14 @@ jQuery.fn.makeItSpringy = function(params) {
 			  	flag.src = 'data/flags/' + flags[node.data.country];
   				ctx.drawImage(flag, anchorX+20, anchorY+10);
 			}
+			if (node.data.country2 != '' && node.data.country2 != undefined) {
+				//labelText += node.data.country;
+
+				flag2 = new Image();
+			  	flag2.src = 'data/flags/' + flags[node.data.country2];
+  				ctx.drawImage(flag2, anchorX+81, anchorY+10);
+			}
+
 		    
 		    //============ CUSTOM FONT SIZE FOR Federations / FIFA
 		    if (node.data.type == "Federation") {

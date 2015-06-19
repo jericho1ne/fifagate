@@ -19,6 +19,7 @@ var flags = {
  	'Cayman Islands': 'cayman.jpg',
  	'Costa Rica'	: 'costarica.jpg',
  	'Japan'			: 'japan.jpg',
+ 	'Morocco'		: 'morocco.jpg',
  	'Nicaragua'		: 'brazil.jpg',
  	'Paraguay'		: 'paraguay.jpg',
  	'Qatar'			: 'qatar.jpg',
@@ -165,9 +166,9 @@ var schemeC = {
 var schemeD = { 
   	"nodes": [
 		["FIFA", 						{type: 'Federation'}],	
-		["CBF", 						{type: 'Federation'}],	
+		["CBF", 						{type: 'Federation', country: 'Brazil'}],	
 		["Jose Maria Marin", 			{type: 'FIFA Member', country: 'Brazil'}],
-		["Traffic", 					{type: 'Commercial', country: 'Brazil'}],		// including Traffic (country??) + Traffic Brazil
+		["Traffic", 					{type: 'Commercial', country: 'Brazil', country2: 'USA'}],		// including Traffic (country??) + Traffic Brazil
 		["Sports Marketing Co. B", 	{type: 'Commercial'}],
 		["Co-Conspirator #6", 			{type: 'Co-Conspirator', notes: 'One of the three recipients of Co-Conspirator #6\'s payment put the money towards a yacht.' }],
 		["Co-Conspirator #2", 			{type: 'Co-Conspirator'}],
@@ -254,9 +255,9 @@ var schemeF = {
 var schemeG = { 
 	"nodes" : [
 		["FIFA", 				{type: 'Federation'}],
-		["Morocco",				{type: 'Federation'}],
+		["Morocco",				{type: 'Federation', country: 'Morocco'}],
 		["Co-Conspirator #1",	{type: 'Co-Conspirator'}],
-		["South Africa",  		{type: 'Federation'}], //  Bid Committee & South African Governament",
+		["South Africa",  		{type: 'Federation', country: 'South Africa'}], //  Bid Committee & South African Governament",
 		["FIFA high ranking individual",	{type: 'FIFA Member'}],
 		["CFU",					{type: 'Federation', notes:'Including three legal FIFA payments diverted from South Africa to CFU accounts controlled by Warner as bribes. Money moved from Swiss account to New York accounts, to Trinidad and Tobago account.'}],
 		["Jack Warner",			{type: 'FIFA Member', country: 'Trinidad and Tobago'}],
@@ -352,7 +353,7 @@ var schemeI = {
 var schemeJ = { 
 	"nodes" : [
 		["FIFA",						{type: 'Federation'}],
-		["Traffic USA",					{type: 'Commercial'}],
+		["Traffic USA",					{type: 'Commercial', country: 'USA'}],
 		["CFU",							{type: 'Federation'}],
 		["Jeffrey Webb",				{type: 'FIFA Member', country: 'Cayman Islands', notes: 'Received swimming pool & realty payoffs from Takkas, plus hefty bribe for commercial rights for CFU 2018 and 2022 World Cup qualifiers.'}],
 
@@ -400,7 +401,7 @@ var schemeJ = {
 var schemeK = { 
 	"nodes" : [
 		["FIFA",					{type: 'Federation'}],
-		["Traffic USA",				{type: 'Commercial'}],
+		["Traffic USA",				{type: 'Commercial', country: 'USA'}],
 		["CONCACAF",				{type: 'Federation'}],
 		["Jeffrey Webb",			{type: 'FIFA Member', country: 'Cayman Islands'}], 
 		["Co-Conspirator #2",		{type: 'Co-Conspirator'}],
