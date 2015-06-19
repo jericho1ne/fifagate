@@ -1,5 +1,5 @@
 var schemes = {
-	"A" : "Bribes made between 1987-2011 for Copa America commercial and broadcast rights.  Main kickback recipients: Rafael Esquivel, Venezuela\'s national soccer federation president, Nicolas Leoz, CONMEBOL president, and Alejandro Burzaco, former sports marketing company CEO.",
+	"A" : "Bribes made between 1987-2011 for Copa America commercial and broadcast rights.  Main kickback recipients: Rafael Esquivel, Venezuela\'s national soccer federation president, Nicolas Leoz, CONMEBOL president, and Alejandro Burzaco, former Sports Marketing Co. CEO.",
 	"B" : "Traffic USA Sports obtains exclusive worldwide commercial rights for 1996, 1998 & 2000 editions of CONCACAF Gold Cup. Between 1993-2000, kickbacks to Co-Conspirator 1 and Jack Warner are wired from the US, to the Cayman Islands, then on to Trinidad and Tobago.",
 	"C" : "",
 	"D" : "",
@@ -13,6 +13,23 @@ var schemes = {
 	"L" : ""
 };
 
+var flags = {
+ 	'Argentina'		: 'argentina.jpg',
+ 	'Brazil'		: 'brazil.jpg',
+ 	'Cayman Islands': 'cayman.jpg',
+ 	'Costa Rica'	: 'costarica.jpg',
+ 	'Japan'			: 'japan.jpg',
+ 	'Nicaragua'		: 'brazil.jpg',
+ 	'Paraguay'		: 'paraguay.jpg',
+ 	'Qatar'			: 'qatar.jpg',
+ 	'South Africa'	: 'southafrica.jpg',
+ 	'Spain'			: 'spain.jpg',
+ 	'Trinidad and Tobago': 'trinidad.jpg',
+ 	'United Kingdom': 'uk.jpg',
+ 	'USA'			: 'usa.jpg',
+ 	'Venezuela'		: 'venezuela.jpg',
+};
+
 
 //
 // Node types:
@@ -22,16 +39,16 @@ var schemes = {
 var schemeA = { 
 	"nodes": [
 		["FIFA", 					{type: 'Federation'}], 
-		["CONMEBOL Copa America", 	{type: 'Federation', notes: 'Received three payments totaling $8,740,000 from Traffic Brazil between 1987-1993 for commercial and broadcast rights.  Received $51,000,000 from 2004-2011 for rights Wire payment from US to Paraguary for rights associated with 2004, 2007, and 2011 Copa America edition.'}],
-		["Traffic",	{type: 'Commercial'}], 
+		["CONMEBOL Copa America", 	{type: 'Federation', notes: 'Received three payments totaling $8,740,000 from Traffic Brazil between 1987-1993 for commercial and broadcast rights.  Received $51,000,000 from 2004-2011 for rights Wire payment from US to Paraguay for rights associated with 2004, 2007, and 2011 Copa America edition.'}],
+		["Traffic",					{type: 'Commercial'}], 
 		["Co-Conspirator #2",		{type: 'Co-Conspirator', notes: 'Co-Conspirator #2 paid a 6-7 digit figure bribe 11 times to Leoz, and five times to Esquivel.'}], 
 		["Co-Conspirator #9",		{type: 'Co-Conspirator'}], 
 		
 		// "Co-Conspirator #2; Co-Conspirator 9",
-		["Nicolas Leoz",   			{type: 'FIFA Member', notes: 'Received a 6-7 digit figure bribe 11 times from Co-Conspirator #2.'}], 
+		["Nicolas Leoz",   			{type: 'FIFA Member', country: 'Paraguay', notes: 'Received a 6-7 digit figure bribe 11 times from Co-Conspirator #2.'}], 
 		// "Traffic; Co-Conspirator #2",
-		["Rafael Esquivel",			{type: 'FIFA Member', notes: 'Received a 6-7 digit figure bribe 5 times from Co-Conspirator #2.  Received $2,000,000 additional kickback (retroactively demanded) for 2007 Copa America commerical and broadcast rights due to substantial profitability. Co-conspirators sought favorable position on commercial and marketing contracts up for bids, against competitor, Full Play.'}], 
-		["Alejandro Burzaco",		{type: 'FIFA Member'}], 
+		["Rafael Esquivel",			{type: 'FIFA Member', country: 'Venezuela', notes: 'Received a 6-7 digit figure bribe 5 times from Co-Conspirator #2.  Received $2,000,000 additional kickback (retroactively demanded) for 2007 Copa America commerical and broadcast rights due to substantial profitability. Co-conspirators sought favorable position on commercial and marketing contracts up for bids, against competitor, Full Play.'}], 
+		["Alejandro Burzaco",		{type: 'FIFA Member', country: 'Argentina'}], 
 		["Co-Conspirator #10",		{type: 'Co-Conspirator'}], 
   	],
 	"edges": [
@@ -42,8 +59,8 @@ var schemeA = {
 		["Co-Conspirator #10", "CONMEBOL Copa America", {type: 'Basic', label: ''}], 			//
 
 		["Rafael Esquivel", "CONMEBOL Copa America", {type: 'Basic', label: ''}],
-		["Traffic", "Co-Conspirator #2", 	 {type: 'Basic', label: ''}],
-		["Traffic","Co-Conspirator #9", 	 {type: 'Basic', label: ''}],
+		["Traffic", "Co-Conspirator #2", 			 {type: 'Basic', label: ''}],
+		["Traffic","Co-Conspirator #9", 			 {type: 'Basic', label: ''}],
 
 		// CONMEBOL == CONMEBOL Copa America
 		// 
@@ -93,9 +110,9 @@ var schemeB = {
   	"nodes": [
 		["FIFA",  				{type: 'Federation'}],
 		["CONCACAF",			{type: 'Federation'}],
-		["Traffic USA",			{type: 'Commercial'}],
+		["Traffic USA",			{type: 'Commercial', country: 'USA'}],
 		["Co-Conspirator #1",	{type: 'Co-Conspirator'}],
-		["Jack Warner",			{type: 'FIFA Member'}],
+		["Jack Warner",			{type: 'FIFA Member', country: 'Trinidad and Tobago'}],
 	],
   	"edges": [
 		["FIFA", "CONCACAF", 					{type: 'Basic', label: ''}],
@@ -111,12 +128,12 @@ var schemeC = {
   	"nodes": [
 		["FIFA", 			{type: 'Federation'}],	
 		["CONMEBOL", 		{type: 'Federation'}],
-		["Sports Mkt Co A",	{type: 'Commercial'}],
-		["Grupo Sartander",	{type: 'Corporation'}],	
-		["Bridgestone", 	{type: 'Corporation'}],
-		["Toyota", 			{type: 'Corporation'}],
-		["Nicolas Leoz", 	{type: 'FIFA Member', notes: 'One of the $2 million payments was paid in five $400,000 installments.' }],
-		["Co-Conspirator #5",{type: 'Co-Conspirator'}],
+		["Sports Mkt Co A",	{type: 'Commercial', country: 'USA'}],
+		["Grupo Sartander",	{type: 'Corporation', country: 'Spain'}],	
+		["Bridgestone", 	{type: 'Corporation', country: 'Japan'}],
+		["Toyota", 			{type: 'Corporation', country: 'Japan'}],
+		["Nicolas Leoz", 	{type: 'FIFA Member', country: 'Paraguay', notes: 'One of the $2 million payments was paid in five $400,000 installments.' }],
+		["Co-Conspirator #5",{type: 'Co-Conspirator', country: 'USA'}],
   	],
   	"edges": [
 		["FIFA","CONMEBOL", 					{type: 'Basic', label: ''}],
@@ -149,9 +166,9 @@ var schemeD = {
   	"nodes": [
 		["FIFA", 						{type: 'Federation'}],	
 		["CBF", 						{type: 'Federation'}],	
-		["Jose Maria Marin", 			{type: 'FIFA Member'}],
-		["Traffic", 					{type: 'Commercial'}],		// including traffic brazil
-		["Sports Marketing Company B", 	{type: 'Commercial'}],
+		["Jose Maria Marin", 			{type: 'FIFA Member', country: 'Brazil'}],
+		["Traffic", 					{type: 'Commercial', country: 'Brazil'}],		// including Traffic (country??) + Traffic Brazil
+		["Sports Marketing Co. B", 	{type: 'Commercial'}],
 		["Co-Conspirator #6", 			{type: 'Co-Conspirator', notes: 'One of the three recipients of Co-Conspirator #6\'s payment put the money towards a yacht.' }],
 		["Co-Conspirator #2", 			{type: 'Co-Conspirator'}],
 		["Co-Conspirator #11",			{type: 'Co-Conspirator'}],
@@ -159,7 +176,7 @@ var schemeD = {
   	],
   	"edges" : [
   		["FIFA",  "CBF", 							{type: 'Basic', label: ''}],
-  		["Traffic", "Sports Marketing Company B", 	{type: 'Basic', label: ''}],	// used tobe Traffic Brazil
+  		["Traffic", "Sports Marketing Co. B", 	{type: 'Basic', label: ''}],	// used tobe Traffic Brazil
   		[ "CBF", "Jose Maria Marin", 				{type: 'Basic', label: ''}],
 
   		// SATELLITE NODE OF Traffic Intl
@@ -170,9 +187,9 @@ var schemeD = {
   		["CBF", "Co-Conspirator #11", 					{type: 'Basic', label: ''}],
   		["CBF", "Co-Conspirator #12", 					{type: 'Basic', label: ''}],
 
-  		["Co-Conspirator #6", "Sports Marketing Company B",	{type: 'Basic', label: ''}],
+  		["Co-Conspirator #6", "Sports Marketing Co. B",	{type: 'Basic', label: ''}],
   		["Traffic", "CBF", {type: 'Marketing', label: ''}],
-		["Sports Marketing Company B", "CBF", {type: 'Marketing', label: ''}],
+		["Sports Marketing Co. B", "CBF", {type: 'Marketing', label: ''}],
 		
 		["Co-Conspirator #6", "Jose Maria Marin", {type: 'Kickback', label: '$493,000'}],  //164,333.
 		["Co-Conspirator #6", "Co-Conspirator #11", {type: 'Kickback', label: ''}],
@@ -188,12 +205,12 @@ var schemeD = {
 
 var schemeE = { 
   	"nodes": [
-		["FIFA", 					{type: 'Federation'}],	
-		["Sportswear Company A", 	{type: 'Sportswear'}],	
-		["CBF", 					{type: 'Federation'}],	
-		["Traffic Brazil", 			{type: 'Commercial'}],	
-		["Co-Conspirator #2", 		{type: 'Co-Conspirator'}],	
-		["Co-Conspirator #11", 		{type: 'Co-Conspirator'}],	
+		["FIFA", 				{type: 'Federation'}],	
+		["Sportswear Co. A", 	{type: 'Sportswear', country: 'USA'}],	
+		["CBF", 				{type: 'Federation', country: 'Brazil'}],	
+		["Traffic Brazil", 		{type: 'Commercial', country: 'Brazil'}],	
+		["Co-Conspirator #2", 	{type: 'Co-Conspirator'}],	
+		["Co-Conspirator #11", 	{type: 'Co-Conspirator'}],	
   	],
 	"edges" : [
 		["FIFA","CBF", 	{type: 'Basic', label: ''}],		// implied
@@ -204,10 +221,10 @@ var schemeE = {
 		// SATELLITE!
 		["Co-Conspirator #11", "CBF", 			{type: 'Basic', label: ''}],		// implied
 
-		["Sportswear Company A", "CBF", {type: 'Marketing', label: '$160,000,000'}],
-		["Sportswear Company A", "Traffic Brazil", {type: 'Kickback', label: '$30,000,000'}],
+		["Sportswear Co. A", "CBF", {type: 'Marketing', label: '$160,000,000'}],
+		["Sportswear Co. A", "Traffic Brazil", {type: 'Kickback', label: '$30,000,000'}],
 		["Co-Conspirator #2", "Co-Conspirator #11", {type: 'Kickback', label: '$15,000,000'}],
-		["Sportswear Company A", "Traffic Brazil", {type: 'Kickback', label: 'Termination'}],
+		["Sportswear Co. A", "Traffic Brazil", {type: 'Kickback', label: 'Termination'}],
 	]
 };
 
@@ -217,7 +234,7 @@ var schemeF = {
 		// ["Traffic USA",		{type: 'Commercial'}],
 		["Traffic",			{type: 'Commercial', notes: 'Traffic + Traffic USA combined'}],
 		["CFU",				{type: 'Federation'}],
-		["Jack Warner",		{type: 'FIFA Member'}],
+		["Jack Warner",		{type: 'FIFA Member', country: 'Trinidad and Tobago'}],
 	],
 	"edges" : [
 		["FIFA",  "CFU", {type: 'Basic', label: ''}],	// implied
@@ -242,7 +259,7 @@ var schemeG = {
 		["South Africa",  		{type: 'Federation'}], //  Bid Committee & South African Governament",
 		["FIFA high ranking individual",	{type: 'FIFA Member'}],
 		["CFU",					{type: 'Federation', notes:'Including three legal FIFA payments diverted from South Africa to CFU accounts controlled by Warner as bribes. Money moved from Swiss account to New York accounts, to Trinidad and Tobago account.'}],
-		["Jack Warner",						{type: 'FIFA Member'}],
+		["Jack Warner",			{type: 'FIFA Member', country: 'Trinidad and Tobago'}],
 	],
 	"edges" : [
 		["FIFA",  "Morocco", {type: 'Basic', label: ''}],			// implied
@@ -277,9 +294,9 @@ var schemeH = {
 		["FIFA",							{type: 'Federation'}],
 		["Costa Rican Soccer Federation",	{type: 'Federation'}],
 		["Traffic",							{type: 'Commercial'}],
-		["Eduardo Li",						{type: 'FIFA Member'}],
+		["Eduardo Li",						{type: 'FIFA Member', country: 'Costa Rica'}],
 		["Nicaraguan Soccer Federation",	{type: 'Federation'}],
-		["Julio Rocha",						{type: 'FIFA Member'}],
+		["Julio Rocha",						{type: 'FIFA Member', country: 'Nicaragua'}],
 		["Co-Conspirator #18",				{type: 'FIFA Member'}],
 		["Co-Conspirator #4",				{type: 'Co-Conspirator'}],
 		["Co-Conspirator #19",				{type: 'Co-Conspirator'}],
@@ -310,8 +327,8 @@ var schemeH = {
 var schemeI = { 
 	"nodes" : [
 		["FIFA",				{type: 'Federation'}],
-		["Co-Conspirator #7",	{type: 'FIFA Member', image: '', notes:'Mohamed Bin Hamman'}],
-		["Jack Warner",			{type: 'FIFA Member'}],
+		["Co-Conspirator #7",	{type: 'FIFA Member', country: 'Qatar', notes:'Mohamed Bin Hamman'}],
+		["Jack Warner",			{type: 'FIFA Member', country: 'Trinidad and Tobago'}],
 		["CFU members",			{type: 'FIFA Member'}],
 	],
 	"edges" : [
@@ -337,19 +354,19 @@ var schemeJ = {
 		["FIFA",						{type: 'Federation'}],
 		["Traffic USA",					{type: 'Commercial'}],
 		["CFU",							{type: 'Federation'}],
-		["Jeffrey Webb",				{type: 'FIFA Member', image: '', notes: 'Received swimming pool & realty payoffs from Takkas, plus hefty bribe for commercial rights for CFU 2018 and 2022 World Cup qualifiers.'}],
+		["Jeffrey Webb",				{type: 'FIFA Member', country: 'Cayman Islands', notes: 'Received swimming pool & realty payoffs from Takkas, plus hefty bribe for commercial rights for CFU 2018 and 2022 World Cup qualifiers.'}],
 
-		["Sports Marketing Company C",	{type: 'Commercial'}],
+		["Sports Marketing Co. C",	{type: 'Commercial'}],
 		["Conspirator #13", 			{type: 'Co-Conspirator'}],
 		["Conspirator #20", 			{type: 'Co-Conspirator'}],
 		["Conspirator #21", 			{type: 'Co-Conspirator'}],
 
 		["Front Company A",				{type: 'Corporation'}],
-		["Costas Takkas",				{type: 'FIFA Member', image: '', notes:'Also includes the "Unknown Co-Conspirator", an acquaintance of Takkas\'.'}],
+		["Costas Takkas",				{type: 'FIFA Member', country: 'United Kingdom', notes:'Also includes the "Unknown Co-Conspirator", an acquaintance of Takkas\'.'}],
 		["Co-Conspirator #4",			{type: 'Co-Conspirator'}],
 		["Co-Conspirator #22",			{type: 'Co-Conspirator'}],
 		["Friend of Co-Conspirator #2",	{type: 'Co-Conspirator'}],
-		["Sports Marketing Company C",	{type: 'Commercial'}],
+		["Sports Marketing Co. C",	{type: 'Commercial'}],
 	],
 	"edges" : [
 		["FIFA", "CFU", 							{type: 'Basic', label: ''}],					// implied
@@ -360,11 +377,11 @@ var schemeJ = {
 		["Traffic USA", "CFU", 						{type: 'Marketing', label: '$23,000,000'}],
 		["Traffic USA", "Jeffrey Webb", 			{type: 'Kickback', label: '$3,000,000'}],
 		
-		["Sports Marketing Company C", "Traffic USA", {type: 'Marketing', label: '-'}],
+		["Sports Marketing Co. C", "Traffic USA", {type: 'Marketing', label: '-'}],
 
-		["Sports Marketing Company C", "Conspirator #13", {type: 'Basic', label: ''}],
-		["Sports Marketing Company C", "Conspirator #20", {type: 'Basic', label: ''}],
-		["Sports Marketing Company C", "Conspirator #21", {type: 'Basic', label: ''}],
+		["Sports Marketing Co. C", "Conspirator #13", {type: 'Basic', label: ''}],
+		["Sports Marketing Co. C", "Conspirator #20", {type: 'Basic', label: ''}],
+		["Sports Marketing Co. C", "Conspirator #21", {type: 'Basic', label: ''}],
 
 		["Traffic USA", "Front Company A", 			{type: 'Kickback', label: '$1,200,000'}],
 		
@@ -376,7 +393,7 @@ var schemeJ = {
 		["Friend of Co-Conspirator #2", "Costas Takkas", {type: 'Kickback', label: '$500,000'}],
 		["Costas Takkas", "Jeffrey Webb", 				{type: 'Kickback', label: '-'}],
 		["Costas Takkas", "Jeffrey Webb", 				{type: 'Kickback', label: '-'}],
-		["Sports Marketing Company C", "Costas Takkas", {type: 'Kickback', label: '-'}],		// formerly Unknown co-conspirator
+		["Sports Marketing Co. C", "Costas Takkas", {type: 'Kickback', label: '-'}],		// formerly Unknown co-conspirator
 	]
 };
 
@@ -385,11 +402,11 @@ var schemeK = {
 		["FIFA",					{type: 'Federation'}],
 		["Traffic USA",				{type: 'Commercial'}],
 		["CONCACAF",				{type: 'Federation'}],
-		["Jeffrey Webb",			{type: 'FIFA Member'}], 
+		["Jeffrey Webb",			{type: 'FIFA Member', country: 'Cayman Islands'}], 
 		["Co-Conspirator #2",		{type: 'Co-Conspirator'}],
 		["Co-Conspirator #4",		{type: 'Co-Conspirator'}],	
 		["Co-Conspirator #23",		{type: 'Co-Conspirator'}],
-		["Aaron Davidson",			{type: 'Co-Conspirator'}],
+		["Aaron Davidson",			{type: 'Co-Conspirator', country: 'USA'}],
 		// "Jeffrey Webb; Co-Conspirators #2",
 		// "Traffic USA; ",
 		["Soccer Uniform Company A", {type: 'Sportswear'}],//"Soccer Uniform Company A; Co-Conspirator #23",
@@ -425,10 +442,10 @@ var schemeL = {
 		["FTP (Tornes Affiliate)",	{type: 'Corporation'}],
 		["CONMEBOL officials",		{type: 'FIFA Member'}],
 		["Bayan Group S.A.",		{type: 'Corporation'}],
-		["Rafael Esquivel",			{type: 'FIFA Member'}],
-		["Jose Margulies",			{type: 'FIFA Member', image: '', notes: 'Margulies Intermediaries'}],			 
+		["Rafael Esquivel",			{type: 'FIFA Member', country: 'Venezuela'}],
+		["Jose Margulies",			{type: 'FIFA Member', country: 'Brazil', notes: 'Margulies Intermediaries'}],			 
 		["CONCACAF",				{type: 'Federation', notes: 'Datisan seeks and obtains CONCACAF commercial rights for special 2016 Centenario Contract.'}],
-		["Jeffrey Webb",			{type: 'FIFA Member', notes: 'Datisan agrees to unspecified bribe payment to Webb for CONCACAF contract.'}],
+		["Jeffrey Webb",			{type: 'FIFA Member', country: 'Cayman Islands', notes: 'Datisan agrees to unspecified bribe payment to Webb for CONCACAF contract.'}],
 	],
 	"edges" : [
 		["FIFA",  "CONMEBOL", {type: 'Basic', label: ''}],					// implied

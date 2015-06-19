@@ -33,7 +33,6 @@ jQuery.fn.makeItSpringy = function(params) {
 	var faFontMd	= "20px FontAwesome, sans-serif";
 	var faFontLg	= "24px FontAwesome, sans-serif";
 	
-
 	var edgeFont 	= "12px Open Sans, sans-serif";
 	var edgeFontMd	= "bold 15px Open Sans, sans-serif";
 	var edgeFontLg	= "bold 20px Open Sans, sans-serif";
@@ -561,6 +560,7 @@ jQuery.fn.makeItSpringy = function(params) {
 			// 		(Federation, FIFA Member, Marketing, Broadcasting, Sportswear, Co-Conspirator)
 			var labelText = actorTypes[node.data.type].unicode;  //  node.id;
 
+			
 
 			//============================================================= DRAW A BUBBLE! ++++++++++++++++
 			// DEFAULTS
@@ -597,6 +597,15 @@ jQuery.fn.makeItSpringy = function(params) {
 
 
  			ctx.font = edgeFont;  // edgeFont;
+
+ 			//==================================== DISPLAY NODE FLAG, IF ONE IS GIVEN ==================
+ 			if (node.data.country != '' && node.data.country != undefined) {
+				//labelText += node.data.country;
+
+				flag = new Image();
+			  	flag.src = 'data/flags/' + flags[node.data.country];
+  				ctx.drawImage(flag, anchorX+20, anchorY+10);
+			}
 		    
 		    //============ CUSTOM FONT SIZE FOR Federations / FIFA
 		    if (node.data.type == "Federation") {
