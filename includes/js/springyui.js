@@ -610,7 +610,7 @@ jQuery.fn.makeItSpringy = function(params) {
 			if (node.data.country2 != '' && node.data.country2 != undefined) {
 				flag2 = new Image();
 			  	flag2.src = 'data/flags/' + flags[node.data.country2];
-  				ctx.drawImage(flag2, anchorX+77, anchorY+10, imgWidth, imgHeight);
+  				ctx.drawImage(flag2, anchorX+63, anchorY+10, imgWidth, imgHeight);
 			}
 
 		    

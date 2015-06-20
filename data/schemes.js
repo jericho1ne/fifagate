@@ -42,7 +42,7 @@ var schemeA = {
 	"nodes": [
 		["FIFA", 					{type: 'Federation'}], 
 		["CONMEBOL Copa America", 	{type: 'Federation', notes: 'Received three payments totaling $8,740,000 from Traffic Brazil between 1987-1993 for commercial and broadcast rights.  Received $51,000,000 from 2004-2011 for rights Wire payment from US to Paraguay for rights associated with 2004, 2007, and 2011 Copa America edition.'}],
-		["Traffic",					{type: 'Commercial', country: 'USA'}], 
+		["Traffic",					{type: 'Commercial'}], 	//, country: 'USA'
 		["Co-Conspirator #2",		{type: 'Co-Conspirator', notes: 'Co-Conspirator #2 paid a 6-7 digit figure bribe 11 times to Leoz, and five times to Esquivel.'}], 
 		["Co-Conspirator #9",		{type: 'Co-Conspirator'}], 
 		
@@ -112,7 +112,7 @@ var schemeB = {
   	"nodes": [
 		["FIFA",  				{type: 'Federation'}],
 		["CONCACAF",			{type: 'Federation'}],
-		["Traffic USA",			{type: 'Commercial', country: 'USA'}],
+		["Traffic USA",			{type: 'Commercial'}],  	//, country: 'USA'
 		["Co-Conspirator #1",	{type: 'Co-Conspirator'}],
 		["Jack Warner",			{type: 'FIFA Member', country: 'Trinidad and Tobago'}],
 	],
@@ -169,7 +169,7 @@ var schemeD = {
 		["FIFA", 						{type: 'Federation'}],	
 		["CBF", 						{type: 'Federation', country: 'Brazil'}],	
 		["Jose Maria Marin", 			{type: 'FIFA Member', country: 'Brazil'}],
-		["Traffic", 					{type: 'Commercial', country: 'Brazil', country2: 'USA'}],		// including Traffic (country??) + Traffic Brazil
+		["Traffic", 					{type: 'Commercial'}],		// , country: 'Brazil', country2: 'USA'
 		["Sports Marketing Co. B", 	{type: 'Commercial'}],
 		["Co-Conspirator #6", 			{type: 'Co-Conspirator', notes: 'One of the three recipients of Co-Conspirator #6\'s payment put the money towards a yacht.' }],
 		["Co-Conspirator #2", 			{type: 'Co-Conspirator'}],
@@ -210,7 +210,7 @@ var schemeE = {
 		["FIFA", 				{type: 'Federation'}],	
 		["Sportswear Co. A", 	{type: 'Sportswear', country: 'USA'}],	
 		["CBF", 				{type: 'Federation', country: 'Brazil'}],	
-		["Traffic Brazil", 		{type: 'Commercial', country: 'Brazil'}],	
+		["Traffic Brazil", 		{type: 'Commercial'}],		//, country: 'Brazil'
 		["Co-Conspirator #2", 	{type: 'Co-Conspirator'}],	
 		["Co-Conspirator #11", 	{type: 'Co-Conspirator'}],	
   	],
@@ -234,7 +234,7 @@ var schemeF = {
 	"nodes" : [
 		["FIFA",			{type: 'Federation'}],
 		// ["Traffic USA",		{type: 'Commercial'}],
-		["Traffic",			{type: 'Commercial', country: 'USA', notes: 'Traffic + Traffic USA combined'}],
+		["Traffic",			{type: 'Commercial', notes: 'Traffic + Traffic USA combined'}], //, country: 'USA'
 		["CFU",				{type: 'Federation'}],
 		["Jack Warner",		{type: 'FIFA Member', country: 'Trinidad and Tobago'}],
 	],
@@ -295,7 +295,7 @@ var schemeH = {
 	"nodes" : [
 		["FIFA",							{type: 'Federation'}],
 		["Costa Rican Soccer Federation",	{type: 'Federation', country: 'Costa Rica'}],
-		["Traffic",							{type: 'Commercial', country: 'USA'}],
+		["Traffic",							{type: 'Commercial'}],	//, country: 'USA'
 		["Eduardo Li",						{type: 'FIFA Member', country: 'Costa Rica'}],
 		["Nicaraguan Soccer Federation",	{type: 'Federation', country: 'Nicaragua'}],
 		["Julio Rocha",						{type: 'FIFA Member', country: 'Nicaragua'}],
@@ -354,7 +354,7 @@ var schemeI = {
 var schemeJ = { 
 	"nodes" : [
 		["FIFA",						{type: 'Federation'}],
-		["Traffic USA",					{type: 'Commercial', country: 'USA'}],
+		["Traffic USA",					{type: 'Commercial'}],		// , country: 'USA'
 		["CFU",							{type: 'Federation'}],
 		["Jeffrey Webb",				{type: 'FIFA Member', country: 'Cayman Islands', notes: 'Received swimming pool & realty payoffs from Takkas, plus hefty bribe for commercial rights for CFU 2018 and 2022 World Cup qualifiers.'}],
 
@@ -402,7 +402,7 @@ var schemeJ = {
 var schemeK = { 
 	"nodes" : [
 		["FIFA",					{type: 'Federation'}],
-		["Traffic USA",				{type: 'Commercial', country: 'USA'}],
+		["Traffic USA",				{type: 'Commercial'}],		//, country: 'USA'
 		["CONCACAF",				{type: 'Federation'}],
 		["Jeffrey Webb",			{type: 'FIFA Member', country: 'Cayman Islands'}], 
 		["Co-Conspirator #2",		{type: 'Co-Conspirator'}],
@@ -439,7 +439,7 @@ var schemeL = {
 		["Co-Conspirator #2",		{type: 'Co-Conspirator'}],	// (representing Traffic
 		["CONMEBOL",				{type: 'Federation'}],
 		["Datisan",					{type: 'Commercial', notes: 'Datisan paid massive bribe of $100,000,000 for 2013 Copa America contract.  Also secured worldwide, exclusive commercial rights to Copa America\'s 2015, 2016, 2019, and 2023 editions.'}],
-		["Traffic International",	{type: 'Commercial', country: 'USA'}],
+		["Traffic International",	{type: 'Commercial'}],			// , country: 'USA'
 		["Cross Trading",			{type: 'Corporation', country: 'Argentina', notes: 'Full Play Group (soccer broadcasting company) affiliate.  Operated by Hugo and Mariano Jinkis.'}],
 		["FTP (Tornes Affiliate)",	{type: 'Corporation'}],
 		["CONMEBOL officials",		{type: 'FIFA Member'}],
