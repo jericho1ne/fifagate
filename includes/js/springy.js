@@ -220,7 +220,7 @@
 
 		setTimeout(function(){
   			$('.schemeButton').removeAttr('disabled');
-		}, 600);
+		}, 400);
 		
 	}
 

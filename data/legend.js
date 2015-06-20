@@ -60,7 +60,7 @@ var vectorTypes = {
 	'Marketing' : { 
 		'icon'  : 'fa-newspaper-o',
 		'unicode': '\uf1ea', 	
-		'color' : '#8A3E9D' 
+		'color' : '#C985D0' 
 	}, 
 	'Meeting/Travel' : { 
 		'icon'  : 'fa-plane',
@@ -70,11 +70,11 @@ var vectorTypes = {
 	'Offered Bribe' : { 
 		'icon'  : 'fa-briefcase',
 		'unicode': '\uf0b1', 	
-		'color' : '#d1cb23'
+		'color' : '#D1D92B'
 	}, 
 	'Sports Devt' : { 
 		'icon'  : 'fa-wrench',
 		'unicode': '\uf169', 	
-		'color' : '#669900' 
+		'color' : '#9CBE00' 
 	}, 
 };

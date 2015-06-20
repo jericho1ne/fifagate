@@ -1,5 +1,5 @@
 var schemes = {
-	"A" : "CONMEBOL Copa America Scheme.  Bribes made between 1987-2011 for commercial and broadcast rights.  Kickback recipients: Rafael Esquivel, (Venezuelan soccer federation), Nicolas Leoz (CONMEBOL), and Alejandro Burzaco (Sports Marketing Co. CEO).",
+	"A" : "CONMEBOL Copa America Scheme.  Bribes made between 1987-2011 for commercial and broadcast rights.  Kickback recipients: Rafael Esquivel, (Venezuelan soccer federation), Nicolas Leoz (CONMEBOL), and Alejandro Burzaco (Sports Marketing Company CEO).",
 	"B" : "CONCACAF Gold Cup Scheme.  Traffic obtains exclusive worldwide commercial rights for 1996, 1998 & 2000 editions of the Gold Cup. Kickbacks to Co-Conspirator 1 and Jack Warner are wired from the US > Cayman Islands > Trinidad between 1993-2000.",
 	"C" : "CONMEBOL Copa Libertadores Scheme",
 	"D" : "CBF Copa do Brasil Scheme",
@@ -42,7 +42,7 @@ var schemeA = {
 	"nodes": [
 		["FIFA", 					{type: 'Federation'}], 
 		["CONMEBOL Copa America", 	{type: 'Federation', notes: 'Received three payments totaling $8,740,000 from Traffic Brazil between 1987-1993 for commercial and broadcast rights.  Received $51,000,000 from 2004-2011 for rights Wire payment from US to Paraguay for rights associated with 2004, 2007, and 2011 Copa America edition.'}],
-		["Traffic",					{type: 'Commercial'}], 
+		["Traffic",					{type: 'Commercial', country: 'USA'}], 
 		["Co-Conspirator #2",		{type: 'Co-Conspirator', notes: 'Co-Conspirator #2 paid a 6-7 digit figure bribe 11 times to Leoz, and five times to Esquivel.'}], 
 		["Co-Conspirator #9",		{type: 'Co-Conspirator'}], 
 		
@@ -234,7 +234,7 @@ var schemeF = {
 	"nodes" : [
 		["FIFA",			{type: 'Federation'}],
 		// ["Traffic USA",		{type: 'Commercial'}],
-		["Traffic",			{type: 'Commercial', notes: 'Traffic + Traffic USA combined'}],
+		["Traffic",			{type: 'Commercial', country: 'USA', notes: 'Traffic + Traffic USA combined'}],
 		["CFU",				{type: 'Federation'}],
 		["Jack Warner",		{type: 'FIFA Member', country: 'Trinidad and Tobago'}],
 	],
@@ -359,9 +359,9 @@ var schemeJ = {
 		["Jeffrey Webb",				{type: 'FIFA Member', country: 'Cayman Islands', notes: 'Received swimming pool & realty payoffs from Takkas, plus hefty bribe for commercial rights for CFU 2018 and 2022 World Cup qualifiers.'}],
 
 		["Sports Marketing Co. C",	{type: 'Commercial'}],
-		["Conspirator #13", 			{type: 'Co-Conspirator'}],
-		["Conspirator #20", 			{type: 'Co-Conspirator'}],
-		["Conspirator #21", 			{type: 'Co-Conspirator'}],
+		["Conspirator #13", 			{type: 'Co-Conspirator', country: 'USA', country2: 'Brazil' }],
+		["Conspirator #20", 			{type: 'Co-Conspirator', notes: 'Senior executive of the European parent of Sports Marketing Company C'}],
+		["Conspirator #21", 			{type: 'Co-Conspirator', notes: 'Senior executive of a U.S. subsidiary of Sports Marketing Company C'}],
 
 		["Front Company A",				{type: 'Corporation'}],
 		["Costas Takkas",				{type: 'FIFA Member', country: 'United Kingdom', country2: 'Cayman Islands', notes:'Also includes the "Unknown Co-Conspirator", an acquaintance of Takkas\'.'}],

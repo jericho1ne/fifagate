@@ -598,16 +598,19 @@ jQuery.fn.makeItSpringy = function(params) {
 
  			ctx.font = edgeFont;  // edgeFont;
 
+ 			var imgWidth  = 45; 
+ 			var imgHeight = 30;
+
  			//==================================== DISPLAY NODE FLAG, IF ONE IS GIVEN ==================
  			if (node.data.country != '' && node.data.country != undefined) {
 				flag = new Image();
 			  	flag.src = 'data/flags/' + flags[node.data.country];
-  				ctx.drawImage(flag, anchorX+20, anchorY+10);
+  				ctx.drawImage(flag, anchorX+16, anchorY+10, imgWidth, imgHeight);
 			}
 			if (node.data.country2 != '' && node.data.country2 != undefined) {
 				flag2 = new Image();
 			  	flag2.src = 'data/flags/' + flags[node.data.country2];
-  				ctx.drawImage(flag2, anchorX+81, anchorY+10);
+  				ctx.drawImage(flag2, anchorX+77, anchorY+10, imgWidth, imgHeight);
 			}
 
 		    
